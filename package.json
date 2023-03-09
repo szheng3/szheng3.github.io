@@ -27,6 +27,7 @@
     "@nebular/eva-icons": "10.0.0",
     "@nebular/theme": "^10.0.0",
     "@nguniversal/express-engine": "^15.2.0",
+    "compass-mixins": "^0.12.12",
     "eva-icons": "^1.1.2",
     "express": "^4.15.2",
     "rxjs": "~7.8.0",

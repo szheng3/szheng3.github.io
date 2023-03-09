@@ -1,0 +1,45 @@
+<!--<app-breadcrumblayout [title]="'portfolio'">-->
+<!-- Page Conttent -->
+<div class="breadcrumb-area bg-grey m-nav">
+  <div class="container">
+    <div class="cr-breadcrumb">
+      <h2>{{ 'resume' | uppercase }}</h2>
+      <ul>
+        <li><a href="index.html" [routerLink]="['/']">Home</a></li>
+        <li>{{ 'resume' | titlecase }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<main class="page-content">
+  <!-- Portfolios Ara -->
+  <div class="cr-section portfolios-area bg-white">
+    <div class="container">
+<!--      <app-iloading *ngIf="portfoliosLoading$| withLoading | async  as portfoliosLoading" [isLoading]="portfoliosLoading">-->
+<!--        <app-portfolios></app-portfolios>-->
+<!--      </app-iloading>-->
+
+      <div class="row">
+        <div class="col-12 text-center mt-5">
+          <div class="service">
+            <pdf-viewer
+              [src]="'/assets/pdf/resume.pdf'"
+              [render-text]="true"
+              style="display: block; min-height: 50vh"
+              [fit-to-page]="true"
+              [show-all]="true"
+              (after-load-complete)="loadingTrue()"
+            ></pdf-viewer>
+            <ngx-loading [show]="loading" [config]="loadingConfig"> </ngx-loading>
+
+          </div><!--          <a class="button" data-content="View More" (click)="viewMore()">-->
+<!--            <span>View More</span>-->
+<!--          </a>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--// Portfolios Ara -->
+</main>
+<!--// Page Conttent -->
+<!--</app-breadcrumblayout>-->

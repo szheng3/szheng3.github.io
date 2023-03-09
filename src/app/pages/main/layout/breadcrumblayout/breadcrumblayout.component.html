@@ -1,0 +1,14 @@
+<app-headerlayout>
+  <div class="breadcrumb-area bg-grey m-nav">
+    <div class="container">
+      <div class="cr-breadcrumb">
+        <h2>{{ title | uppercase }}</h2>
+        <ul>
+          <li><a href="index.html" [routerLink]="['/']">Home</a></li>
+          <li>{{ title | titlecase }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <ng-content></ng-content>
+</app-headerlayout>

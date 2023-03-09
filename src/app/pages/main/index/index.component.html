@@ -1,0 +1,60 @@
+<!--<app-headerlayout>-->
+
+<div class="hero-area bg-white">
+  <div class="container">
+    <div class="hero-area-inner">
+      <div class="hero-area-text">
+        <h1>
+          HELLO, <br/>
+          I AM SHUAI ZHENG
+        </h1>
+        <h5>PROFESSIONAL FULL STACK DEVELOPER</h5>
+        <!--          <a href="about.html" class="readmore">ABOUT ME</a>-->
+        <!--          <a href="/assets/pdf/resume.pdf" (click)="openDialog()" class="readmore">MY RESUME</a>-->
+        <a [routerLink]="'/resume'"  class="readmore">MY RESUME</a>
+        <!--          <button class="btn btn-outline-light z-depth-0">ABOUT ME</button>-->
+      </div>
+      <div class="hero-area-image">
+        <img src="/assets/images/slider/bg.jpg" alt="man mask" class="hero-image"/>
+      </div>
+      <div class="social-icons">
+        <ul>
+          <li>
+            <a href="https://github.com/szheng3"><i class="fa fa-github"></i></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/shuai-zheng-67931b89/"><i class="fa fa-linkedin"></i></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/Sept_Griffith"><i class="fa fa-twitter"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--// Hero Area -->
+
+<!-- Page Conttent -->
+<main class="page-content">
+  <!--// Team Members -->
+  <!-- Portfolios Ara -->
+  <div class="cr-section portfolios-area section-padding-lg bg-white">
+    <div class="container portfolio-section">
+      <app-iloading *ngIf="portfoliosLoading$ | withLoading |async as portfoliosLoading" [isLoading]="portfoliosLoading">
+        <app-portfolios></app-portfolios>
+      </app-iloading>
+    </div>
+  </div>
+  <!--// Portfolios Ara -->
+
+  <!-- Service Area -->
+  <div class="cr-section services-area section-padding-bottom-lg bg-white">
+    <div class="container">
+      <app-my-service></app-my-service>
+    </div>
+  </div>
+  <!--// Service Area -->
+</main>
+<!--// Page Conttent -->
+<!--</app-headerlayout>-->

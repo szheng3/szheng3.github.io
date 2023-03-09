@@ -1,0 +1,57 @@
+@import '../bootstrap/functions';
+@import '../bootstrap/variables';
+
+/*-------------------------------------------------------------------*/
+/* === Import template variables === */
+@import 'variables';
+
+/*-------------------------------------------------------------------*/
+/* === SCSS Compass Functions === */
+//@import '~compass-mixins/lib/compass';
+//@import '~compass-mixins/lib/animate';
+
+/*-------------------------------------------------------------------*/
+/* === Boostrap Main SCSS === */
+@import '../bootstrap/bootstrap';
+
+/*-------------------------------------------------------------------*/
+/* === Template mixins === */
+@import 'mixins/misc';
+@import 'mixins/animation';
+@import 'mixins/background';
+@import 'mixins/badges';
+@import 'mixins/blockqoute';
+@import 'mixins/buttons';
+@import 'mixins/cards';
+
+/*-------------------------------------------------------------------*/
+/* === Core Styles === */
+@import 'reset';
+@import 'fonts';
+@import 'functions';
+@import 'background';
+@import 'sidebar';
+@import 'navbar';
+//@import 'typography';
+@import 'misc';
+@import 'footer';
+@import 'utilities';
+@import 'demo';
+
+/*-------------------------------------------------------------------*/
+/* === Components === */
+@import 'components/badges';
+@import 'components/bootstrap-progress';
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/checkbox-radio';
+@import 'components/dropdown';
+@import 'components/forms';
+@import 'components/icons';
+@import 'components/lists';
+@import 'components/preview';
+@import 'components/tables';
+
+/*-------------------------------------------------------------------*/
+/* === Landing screens === */
+@import 'landing-screens/auth';

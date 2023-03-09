@@ -1,0 +1,13 @@
+<div mat-dialog-content>
+  <pdf-viewer
+    [src]="'/assets/pdf/resume.pdf'"
+    [render-text]="true"
+    style="display: block; min-height: 65vh;min-width: 800px"
+    [autoresize]="true"
+    [fit-to-page]="true"
+    [show-all]="true"
+  ></pdf-viewer>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>

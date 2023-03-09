@@ -1,0 +1,29 @@
+//.blog-item{
+//  height: 220px;
+//}
+//
+.img-fluid {
+  height: 200px;
+}
+
+.hero-image {
+  opacity: 0.3;
+  //margin-top: 100px;
+  //background-color: #re;
+  //background: transparent;
+}
+
+.portfolio-section {
+  min-height: 300px;
+  position: relative;
+}
+.readmore{
+  cursor: pointer;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  margin: 0 0 1em;
+  border: 0;
+}

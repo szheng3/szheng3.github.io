@@ -1,0 +1,39 @@
+<!--<app-breadcrumblayout [title]="'SERVICES'">-->
+  <!--// Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey m-nav">
+  <div class="container">
+    <div class="cr-breadcrumb">
+      <h2>{{ 'SERVICES' | uppercase }}</h2>
+      <ul>
+        <li><a href="index.html" [routerLink]="['/']">Home</a></li>
+        <li>{{ 'SERVICES' | titlecase }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+  <!-- Page Conttent -->
+  <main class="page-content section-padding-lg">
+    <div class="cr-section services-area section-padding-bottom-lg bg-white">
+      <div class="container">
+        <!-- Service Area -->
+        <app-my-service></app-my-service>
+      </div>
+    </div>
+    <!--// Service Area -->
+  </main>
+<!--</app-breadcrumblayout>-->
+<!--<div class="container">-->
+<!--<div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>-->
+
+<!--  <div fxFlex="15" fxFlex.xs="55">-->
+<!--    first-section-->
+<!--  </div>-->
+<!--  <div fxFlex="30" >-->
+<!--    second-section-->
+<!--  </div>-->
+<!--  <div fxFlex="55"  fxFlex.xs="15">-->
+<!--    third-section-->
+<!--  </div>-->
+
+<!--</div>-->
+<!--</div>-->

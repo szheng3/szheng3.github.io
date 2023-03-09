@@ -1,0 +1,136 @@
+<!--<app-breadcrumblayout [title]="'Contact'">-->
+  <!-- Page Conttent -->
+<div class="breadcrumb-area bg-grey m-nav">
+  <div class="container">
+    <div class="cr-breadcrumb">
+      <h2>{{ 'Contact' | uppercase }}</h2>
+      <ul>
+        <li><a href="index.html" [routerLink]="['/']">Home</a></li>
+        <li>{{ 'Contact' | titlecase }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+  <main class="page-content">
+    <!-- Contact Area -->
+    <div class="cr-section contact-area section-padding-lg bg-white">
+      <div class="container">
+        <!--        <div class="row">-->
+        <!--          <div class="col-lg-12">-->
+        <!--            <div class="google-map" id="google-map"></div>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <div class="row">
+          <div class="col-lg-12">
+            <h4 class="small-title">
+              <span>GET IN TOUCH</span>
+            </h4>
+
+            <form
+              #f="ngForm"
+              (keydown.enter)="$event.preventDefault()"
+              method="POST"
+              id="contact-form"
+              class="karigor-form"
+              (ngSubmit)="submitForm(f)"
+            >
+              <div class="karigor-form-inner">
+                <div class="karigor-form-input karigor-form-input-half">
+                  <input type="text" name="name" placeholder="Name*" required ngModel />
+                  <small class="invalid-feedback invalid d-block" *ngIf="isFieldValid(f.controls['name'])"
+                    >Input is required</small
+                  >
+                </div>
+                <div class="karigor-form-input karigor-form-input-half">
+                  <input type="email" name="email" placeholder="Email*" required ngModel />
+                  <small class="invalid-feedback invalid d-block" *ngIf="isFieldValid(f.controls['email'])"
+                    >Please give valid email</small
+                  >
+                </div>
+                <div class="karigor-form-input">
+                  <input type="text" name="subject" placeholder="Subject*" required ngModel />
+                  <small class="invalid-feedback invalid d-block" *ngIf="isFieldValid(f.controls['subject'])"
+                    >Input is required</small
+                  >
+                </div>
+                <div class="karigor-form-input">
+                  <textarea name="body" cols="30" rows="5" placeholder="Message" ngModel></textarea>
+                </div>
+                <div class="karigor-form-input">
+                  <button id="contactSubmit" type="submit" class="button">
+                    <!--                    <span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>-->
+                    <span>Submit</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <!--            <div-->
+            <!--              id="error"-->
+            <!--              role="alert"-->
+            <!--              aria-live="assertive"-->
+            <!--              aria-atomic="true"-->
+            <!--              class="toast"-->
+            <!--              data-autohide="true"-->
+            <!--              data-delay="3000"-->
+            <!--            >-->
+            <!--              <div class="toast-header" data-dismiss="toast">-->
+            <!--                <svg-->
+            <!--                  class=" rounded mr-2"-->
+            <!--                  width="20"-->
+            <!--                  height="20"-->
+            <!--                  xmlns="http://www.w3.org/2000/svg"-->
+            <!--                  preserveAspectRatio="xMidYMid slice"-->
+            <!--                  focusable="false"-->
+            <!--                  role="img"-->
+            <!--                >-->
+            <!--                  <rect fill="#dc3545" width="100%" height="100%" />-->
+            <!--                </svg>-->
+            <!--                <strong class="mr-auto">Error</strong>-->
+            <!--                &lt;!&ndash;      <small>11 mins ago</small>&ndash;&gt;-->
+            <!--                <button type="button" class="ml-2 mb-1 close ml-auto" data-dismiss="toast">&times;</button>-->
+            <!--              </div>-->
+            <!--              <div class="toast-body">-->
+            <!--                Ops, There is error, please try later-->
+            <!--              </div>-->
+            <!--            </div>-->
+
+            <!--            <div-->
+            <!--              id="success"-->
+            <!--              role="alert"-->
+            <!--              aria-live="assertive"-->
+            <!--              aria-atomic="true"-->
+            <!--              class="toast"-->
+            <!--              data-autohide="true"-->
+            <!--              data-delay="3000"-->
+            <!--            >-->
+            <!--              <div class="toast-header" data-dismiss="toast">-->
+            <!--                <svg-->
+            <!--                  class=" rounded mr-2"-->
+            <!--                  width="20"-->
+            <!--                  height="20"-->
+            <!--                  xmlns="http://www.w3.org/2000/svg"-->
+            <!--                  preserveAspectRatio="xMidYMid slice"-->
+            <!--                  focusable="false"-->
+            <!--                  role="img"-->
+            <!--                >-->
+            <!--                  <rect fill="#007aff" width="100%" height="100%" />-->
+            <!--                </svg>-->
+            <!--                <strong class="mr-auto">Success</strong>-->
+            <!--                &lt;!&ndash;      <small>11 mins ago</small>&ndash;&gt;-->
+            <!--                <button type="button" class="ml-2 mb-1 close ml-auto" data-dismiss="toast">&times;</button>-->
+            <!--              </div>-->
+            <!--              <div class="toast-body">-->
+            <!--                Thank you very much for contacting us!-->
+            <!--              </div>-->
+            <!--            </div>-->
+
+            <!--            <a class="btn btn-info" onclick="toastr.info('Hi! I am info message.');">Info message</a>-->
+
+            <!--    <div *ngIf="show()"></div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+<!--</app-breadcrumblayout>-->

@@ -1,0 +1,100 @@
+<!--<app-headerlayout>-->
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey m-nav">
+  <div class="container">
+    <div class="cr-breadcrumb" *ngIf="detail$ | async as detail">
+      <h2>{{ detail.title | uppercase }}</h2>
+      <ul>
+        <li><a [routerLink]="['/']">Home</a></li>
+        <li><a [routerLink]="['../']">Portfolio</a></li>
+        <li>Portfolio Details</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--// Breadcrumb Area -->
+
+<!-- Page Conttent -->
+<main class="page-content">
+  <!-- Portfolio Details Area -->
+  <div class="cr-section portfolio-details-area section-padding-lg bg-white">
+    <div class="container">
+      <app-iloading *ngIf="getPortfolio$| withLoading | async as getPortfolio" [isLoading]="getPortfolio">
+        <div *ngIf="detail$ | async as detail">
+          <div class="portfolio-details-images">
+            <div class="image-item">
+              <!--              <ngx-progressive-img-loader-->
+              <!--                class="img-gray"-->
+              <!--                [preserveAspectRatio]="true"-->
+              <!--                [height]="'450px'"-->
+              <!--                [width]="'100%'"-->
+              <!--                (imageLoaded)="onImgLoad($event)"-->
+              <!--                (thumbnailLoaded)="onThumbLoad($event)"-->
+              <!--                [img]="detail.imageSrc + '?size=LARGE'"-->
+              <!--                [thumbnail]="detail.imageSrc + '?size=MID'"-->
+              <!--              >-->
+              <!--              </ngx-progressive-img-loader>-->
+<!--              <img-->
+<!--                class="img-fluid"-->
+<!--                [defaultImage]="'/assets/images/place-holder.jpg'"-->
+<!--                [lazyLoad]="detail.imageSrc + '?size=LARGE'"-->
+<!--              />-->
+                <img
+                  [defaultImage]="'/assets/images/place-holder.jpg'"
+                  [lazyLoad]="'https://apiv1.sszzz.me'+detail.imageSrc "
+                />
+                <img class="fanart"
+                     [defaultImage]="'/assets/images/place-holder.jpg'"
+                     [lazyLoad]="'https://apiv1.sszzz.me'+detail.imageSrc + '?size=LARGE'"
+                />
+
+              <!--                <ngx-progressive-img-loader-->
+              <!--                  [height]="'320px'"-->
+              <!--                  [width]="'100%'"-->
+              <!--                  (imageLoaded)="onImgLoad($event)"-->
+              <!--                  (thumbnailLoaded)="onThumbLoad($event)"-->
+              <!--                  [overlayTint]="'rgba(0,0,0,0)'"-->
+              <!--                  [preserveAspectRatio]="true"-->
+              <!--                  [placeholderBgColor]="'grey'"-->
+              <!--                  [img]="detail.imageSrc+'?size=LARGE'"-->
+              <!--                  [thumbnail]="detail.imageSrc+'?size=MID'"-->
+              <!--                  [fallbackImg]="'url-to-fall-back-image'">-->
+              <!--                  &lt;!&ndash; content goes here (optional) &ndash;&gt;-->
+              <!--                </ngx-progressive-img-loader>-->
+            </div>
+          </div>
+          <div class="row section-padding-top-sm">
+            <div class="col-lg-4">
+              <div class="portfolio-details-meta">
+                <ul class="pl-3">
+                  <li *ngIf="detail?.createDate">
+                    <i class="fa fa-calendar"></i><span>Completed on:</span> {{ detail.createDate }}
+                  </li>
+                  <li><i class="fa fa-coffee"></i><span>Skills:</span> {{ detail.skills | classArray: '\\' }}</li>
+                  <li><i class="fa fa-home"></i><span>Client:</span> {{ detail.client }}</li>
+                  <li>
+                    <i class="fa fa-link"></i><span>Links:</span>
+                    <div class="d-inline ml-2" *ngFor="let link of detail.links">
+                      <a [href]="link.linkDetails"><i class="fa" [ngClass]="['fa', link.linkType | linkMap]"></i></a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-8">
+              <div class="portfolio-details-info">
+                <h3 class="small-title-fullwidth"><span>PROJECT INFO</span></h3>
+                <h5 class="portfolio-title">NAME: {{ detail.title | uppercase }}</h5>
+                <div [innerHTML]="detail.content"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </app-iloading>
+    </div>
+  </div>
+
+  <!--// Portfolio Details Area -->
+</main>
+<!--</app-headerlayout>-->
