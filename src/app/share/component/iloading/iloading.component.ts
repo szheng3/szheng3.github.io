@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { WrapObsWithStatus } from 'src/app/share/util/WrapObsWithStatusWithoutValue';
-import { INgxLoadingConfig, ngxLoadingAnimationTypes } from 'ngx-loading';
+import {Component, Input, OnInit} from '@angular/core';
+import {WrapObsWithStatus} from 'src/app/share/util/WrapObsWithStatusWithoutValue';
+import {INgxLoadingConfig, ngxLoadingAnimationTypes} from 'ngx-loading';
 
 @Component({
   selector: 'app-iloading',
@@ -9,7 +9,7 @@ import { INgxLoadingConfig, ngxLoadingAnimationTypes } from 'ngx-loading';
 })
 export class IloadingComponent implements OnInit {
   @Input()
-  isLoading: WrapObsWithStatus<any>;
+  isLoading: WrapObsWithStatus<any> | undefined;
 
   loadingConfig: INgxLoadingConfig = {
     animationType: ngxLoadingAnimationTypes.threeBounce,

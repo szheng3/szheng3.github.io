@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {INgxLoadingConfig, ngxLoadingAnimationTypes} from "ngx-loading";
+import {PdfViewerComponent} from "ng2-pdf-viewer";
 
 @Component({
   selector: 'app-resume',
@@ -7,6 +8,9 @@ import {INgxLoadingConfig, ngxLoadingAnimationTypes} from "ngx-loading";
   styleUrls: ['./resume.component.scss']
 })
 export class ResumeComponent implements OnInit {
+
+  @ViewChild(PdfViewerComponent, {static: false})
+  private pdfComponent!: PdfViewerComponent;
   loadingConfig: INgxLoadingConfig = {
     animationType: ngxLoadingAnimationTypes.threeBounce,
     backdropBackgroundColour: 'rgba(255,255,255,0.5)',
@@ -19,6 +23,9 @@ export class ResumeComponent implements OnInit {
   constructor() {
   }
 
+  pageRendered() {
+    this.pdfComponent.pdfViewer.currentScaleValue = 'page-fit';
+  }
   ngOnInit(): void {
     this.loading=true
   }

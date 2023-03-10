@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-breadcrumblayout',
@@ -7,9 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BreadcrumblayoutComponent implements OnInit {
   @Input()
-  title: string;
+  title: string = "";
 
-  constructor() {}
+  constructor() {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 }

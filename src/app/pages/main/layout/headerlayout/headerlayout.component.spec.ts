@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { HeaderlayoutComponent } from './headerlayout.component';
+import {HeaderlayoutComponent} from './headerlayout.component';
 
 describe('HeaderlayoutComponent', () => {
   let component: HeaderlayoutComponent;

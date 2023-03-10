@@ -1,13 +1,18 @@
-import { Injectable } from '@angular/core';
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { CookieService } from 'ngx-cookie-service';
+import {Injectable} from '@angular/core';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {finalize, Observable, throwError} from 'rxjs';
+import {CookieService} from 'ngx-cookie-service';
+import {LoadingService} from "../core/util/loading.service";
+import {catchError} from "rxjs/operators";
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(private cookieService: CookieService) {}
+  constructor(private cookieService: CookieService, private loadingService: LoadingService) {
+  }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    this.loadingService.setLoadingState(true);
+
     if (request.method === 'POST' || request.method === 'DELETE' || request.method === 'PUT') {
       request = request.clone({
         setHeaders: {
@@ -15,6 +20,16 @@ export class TokenInterceptor implements HttpInterceptor {
         }
       });
     }
-    return next.handle(request);
+    return next.handle(request).pipe(
+      catchError(error => {
+        this.loadingService.setErrorState('Failed to load data');
+        return throwError(error);
+      }),
+      finalize(() => {
+        // Hide loading state
+
+        this.loadingService.setLoadingState(false);
+      })
+    );
   }
 }

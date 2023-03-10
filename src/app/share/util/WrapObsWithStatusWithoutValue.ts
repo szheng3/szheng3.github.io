@@ -1,6 +1,6 @@
-import { Observable, of } from 'rxjs';
-import { catchError, map, startWith, tap } from 'rxjs/operators';
-import { HttpErrorResponse } from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {catchError, tap} from 'rxjs/operators';
+import {HttpErrorResponse} from '@angular/common/http';
 
 export enum ObsStatus {
   SUCCESS = 'Success',
@@ -21,20 +21,20 @@ export interface WrapObsParam {
   successMessage?: string;
 }
 
-export function wrapObsWithStatusWithoutValue<T>(obs: Observable<T>): Observable<WrapObsWithStatus<T>> {
-  return obs.pipe(
-    map(x => ({
-      status: ObsStatus.SUCCESS,
-      value: null,
-      error: null,
-      loading: false
-    })),
-    startWith({ status: ObsStatus.LOADING, value: null, error: null, loading: true }),
-    catchError(err => {
-      return of({ status: ObsStatus.ERROR, value: null, error: err, loading: false });
-    })
-  );
-}
+// export function wrapObsWithStatusWithoutValue<T>(obs: Observable<T>): Observable<WrapObsWithStatus<T>> {
+//   return obs.pipe(
+//     map(x => ({
+//       status: ObsStatus.SUCCESS,
+//       value: null,
+//       error: null,
+//       loading: false
+//     })),
+//     startWith({ status: ObsStatus.LOADING, value: null, error: null, loading: true }),
+//     catchError(err => {
+//       return of({ status: ObsStatus.ERROR, value: null, error: err, loading: false });
+//     })
+//   );
+// }
 
 // export function wrapObsWithStatus<T>(obs: Observable<T>): Observable<WrapObsWithStatus<T>> {
 //   return obs.pipe(

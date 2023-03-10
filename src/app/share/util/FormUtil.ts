@@ -1,10 +1,12 @@
-import { AbstractControl, NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
+import {AbstractControl, NgForm} from '@angular/forms';
+import {Observable} from 'rxjs';
 
 export function isFieldValid(form: AbstractControl) {
   if (form) {
     return !form.valid && form.touched;
   }
+  return false;
+
 }
 
 export function formValid(form: NgForm, action$: () => Observable<any>) {

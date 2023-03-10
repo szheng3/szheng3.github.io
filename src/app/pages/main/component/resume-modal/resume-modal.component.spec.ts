@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ResumeModalComponent } from './resume-modal.component';
+import {ResumeModalComponent} from './resume-modal.component';
 
 describe('ResumeModalComponent', () => {
   let component: ResumeModalComponent;

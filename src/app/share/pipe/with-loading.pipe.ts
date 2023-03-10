@@ -1,8 +1,8 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import { isObservable, of } from 'rxjs';
-import { catchError, map, startWith } from 'rxjs/operators';
-import { ObsStatus } from 'src/app/share/util/WrapObsWithStatusWithoutValue';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {Pipe, PipeTransform} from '@angular/core';
+import {isObservable, of} from 'rxjs';
+import {catchError, map, startWith} from 'rxjs/operators';
+import {ObsStatus} from 'src/app/share/util/WrapObsWithStatusWithoutValue';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Pipe({
   name: 'withLoading',
@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class WithLoadingPipe implements PipeTransform {
   constructor(private _snackBar: MatSnackBar) {}
 
-  transform(val) {
+  transform(val:any) {
     return isObservable(val)
       ? val.pipe(
         map(x => ({

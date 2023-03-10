@@ -1,17 +1,6 @@
-import {
-  AfterViewInit,
-  Component,
-  Inject,
-  OnInit,
-  PLATFORM_ID
-} from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import {
-  NavigationEnd,
-  NavigationError,
-  NavigationStart,
-  Router
-} from '@angular/router';
+import {AfterViewInit, Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {isPlatformBrowser} from '@angular/common';
+import {NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
 
 declare var $: any;
 declare var pluginsJs: any;
@@ -25,7 +14,7 @@ declare var mainJs: any;
 export class HeaderlayoutComponent implements OnInit, AfterViewInit {
   isBrowser: boolean;
 
-  constructor(@Inject(PLATFORM_ID) platformId, private router: Router) {
+  constructor(@Inject(PLATFORM_ID) platformId: Object, private router: Router) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
@@ -54,7 +43,7 @@ export class HeaderlayoutComponent implements OnInit, AfterViewInit {
         // this.smoothScrollTop();
         const scrollElem = document.querySelector('#top');
         // scrollElem.scrollIntoView({behavior:'smooth',block:"center"});
-        scrollElem.scrollIntoView();
+        scrollElem?.scrollIntoView();
         // Hide loading indicator
       }
 

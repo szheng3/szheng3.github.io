@@ -1,10 +1,10 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
   name: 'linkMap'
 })
 export class LinkMapPipe implements PipeTransform {
-  transform(value: string, ...args: any[]): any {
+  transform(value: "WEB" | "YOUTUBE" | "GIT", ...args: any[]): any {
     const map = {
       WEB: 'fa-link',
       YOUTUBE: 'fa-youtube',

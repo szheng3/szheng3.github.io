@@ -1,11 +1,11 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { Select, Store } from '@ngxs/store';
-import { GetPortfolioAction } from 'src/store/portfolio/portfolio.actions';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { PortfolioState } from 'src/store/portfolio/portfolio.state';
-import { Link } from 'src/app/share/response/portfolio';
-import { isPlatformBrowser } from '@angular/common';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {Select, Store} from '@ngxs/store';
+import {GetPortfolioAction} from 'src/store/portfolio/portfolio.actions';
+import {ActivatedRoute} from '@angular/router';
+import {Observable} from 'rxjs';
+import {PortfolioState} from 'src/store/portfolio/portfolio.state';
+import {Link} from 'src/app/share/response/portfolio';
+import {isPlatformBrowser} from '@angular/common';
 
 export interface IPortfolioDetails {
   imageSrc?: string;
