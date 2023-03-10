@@ -2,7 +2,7 @@
 
 interface JQuery {
   // tslint:disable-next-line:ban-types
-  daterangepicker(options?: any, callback?: Function): any;
+  daterangepicker(options?: any, callback?:any): any;
 
   buttonState(options: 'reset' | 'loading'): any;
 
@@ -12,3 +12,4 @@ interface JQuery {
 }
 
 declare var gallery: any;
+// declare module 'rxjs';

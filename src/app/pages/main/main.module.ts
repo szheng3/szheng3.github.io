@@ -28,6 +28,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {NgxLoadingModule} from "ngx-loading";
 import {ResumeComponent} from "./resume/resume.component";
 import {ShareModule} from "../../share/share.module";
+import {PortfoliosComponent} from "./component/portfolios/portfolios.component";
+import {NbSpinnerModule} from "@nebular/theme";
+import {IloadingComponent} from "./component/iloading/iloading.component";
 
 @NgModule({
   declarations: [
@@ -38,6 +41,7 @@ import {ShareModule} from "../../share/share.module";
     NavComponent,
     HeaderlayoutComponent,
     FooterComponent,
+    IloadingComponent,
     ContactComponent,
     // BlogComponent,
     // AboutUsComponent,
@@ -46,21 +50,22 @@ import {ShareModule} from "../../share/share.module";
     // BlogDetailsComponent,
     // PortfolioDetailsComponent,
     MyServiceComponent,
-    // PortfoliosComponent,
+    PortfoliosComponent,
     // PolicyComponent,
     // LoginComponent,
     ResumeModalComponent,
     ResumeComponent
   ],
-    imports: [
-        MatDialogModule,
-        ShareModule,
-        MainRoutingModule,
-        // MarkdownModule.forChild(),
-        PdfViewerModule,
-        MatButtonModule,
-        NgxLoadingModule
-    ],
+  imports: [
+    MatDialogModule,
+    ShareModule,
+    MainRoutingModule,
+    // MarkdownModule.forChild(),
+    PdfViewerModule,
+    MatButtonModule,
+    NgxLoadingModule,
+    NbSpinnerModule
+  ],
   bootstrap: [ResumeModalComponent]
 })
 export class MainModule {}

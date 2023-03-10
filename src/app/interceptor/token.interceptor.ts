@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {finalize, Observable, throwError} from 'rxjs';
 import {CookieService} from 'ngx-cookie-service';
 import {LoadingService} from "../core/util/loading.service";
-import {catchError} from "rxjs/operators";
+import {catchError, finalize, shareReplay} from "rxjs/operators";
+import {environment} from "../../environments/environment";
+import {Observable, throwError} from "rxjs";
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -12,15 +13,21 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.loadingService.setLoadingState(true);
+    const url = environment.domain + request.url;
+    const update: any = {
+      url: url,
+
+    };
 
     if (request.method === 'POST' || request.method === 'DELETE' || request.method === 'PUT') {
-      request = request.clone({
-        setHeaders: {
-          'X-XSRF-TOKEN': this.cookieService.get('XSRF-TOKEN')
-        }
-      });
+      update['setHeaders'] = {
+        'X-XSRF-TOKEN': this.cookieService.get('XSRF-TOKEN')
+      }
     }
+    request = request.clone(update);
+
     return next.handle(request).pipe(
+      shareReplay(),
       catchError(error => {
         this.loadingService.setErrorState('Failed to load data');
         return throwError(error);

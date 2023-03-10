@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {MainLayoutComponent} from './layout/main-layout/main-layout.component';
 import {ClassArrayPipe} from './pipe/class-array.pipe';
 import {TagsPipe} from './pipe/tags.pipe';
-import {IloadingComponent} from './component/iloading/iloading.component';
 import {LinkMapPipe} from './pipe/link-map.pipe';
 import {SanitizeHtmlPipe} from './pipe/sanitize-html.pipe';
 import {HttpClientModule} from '@angular/common/http';
@@ -21,7 +20,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MainLayoutComponent,
     ClassArrayPipe,
     TagsPipe,
-    IloadingComponent,
     LinkMapPipe,
     SanitizeHtmlPipe,
     // ProgressiveImageLoaderDirective,
@@ -45,7 +43,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     CommonModule,
     ClassArrayPipe,
     TagsPipe,
-    IloadingComponent,
     LinkMapPipe,
     SanitizeHtmlPipe,
     HttpClientModule,
