@@ -1,8 +1,6 @@
 import {Component} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {loadingObs} from 'src/app/share/util/WrapObsWithStatusWithoutValue';
-// import {Store} from '@ngxs/store';
-import {EmailActionSend} from 'src/store/email/email.actions';
+
 import {NgForm} from '@angular/forms';
 import {formValid, isFieldValid} from 'src/app/share/util/FormUtil';
 
@@ -14,7 +12,8 @@ import {formValid, isFieldValid} from 'src/app/share/util/FormUtil';
 export class ContactComponent {
   isFieldValid = isFieldValid;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+  }
 
   submitForm(form: NgForm) {
     const lazyAction = () =>
@@ -23,6 +22,6 @@ export class ContactComponent {
       //   successMessage: 'Thank you very much for contacting us!!!',
       //   errorMessage: 'Ops, there is a problem, please try again!'
       // });
-    formValid(form, lazyAction);
+      formValid(form, lazyAction);
   }
 }

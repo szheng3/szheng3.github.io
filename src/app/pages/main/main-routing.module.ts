@@ -4,6 +4,8 @@ import {ResumeComponent} from "./resume/resume.component";
 import {MainComponent} from "./main.component";
 import {IndexComponent} from "./index/index.component";
 import {PortfolioComponent} from "./portfolio/portfolio.component";
+import {ServicesComponent} from "./services/services.component";
+import {ContactComponent} from "./contact/contact.component";
 // import { ContactComponent } from 'src/app/pages/main/contact/contact.component';
 // import { BlogComponent } from 'src/app/pages/main/blog/blog.component';
 // import { AboutUsComponent } from 'src/app/pages/main/about-us/about-us.component';
@@ -33,10 +35,10 @@ const routes: Routes = [
         path: 'resume',
         component: ResumeComponent
       },
-      // {
-      //   path: 'contact',
-      //   component: ContactComponent
-      // },
+      {
+        path: 'contact',
+        component: ContactComponent
+      },
       // {
       //   path: 'blog',
       //   component: BlogComponent
@@ -45,10 +47,10 @@ const routes: Routes = [
       //   path: 'blog/:id',
       //   component: BlogDetailsComponent
       // },
-      // {
-      //   path: 'services',
-      //   component: ServicesComponent
-      // },
+      {
+        path: 'services',
+        component: ServicesComponent
+      },
       {
         path: 'portfolio',
         component: PortfolioComponent
