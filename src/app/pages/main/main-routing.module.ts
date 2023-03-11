@@ -6,6 +6,7 @@ import {IndexComponent} from "./index/index.component";
 import {PortfolioComponent} from "./portfolio/portfolio.component";
 import {ServicesComponent} from "./services/services.component";
 import {ContactComponent} from "./contact/contact.component";
+import {PortfolioDetailsComponent} from "~/pages/main/portfolio-details/portfolio-details.component";
 // import { ContactComponent } from 'src/app/pages/main/contact/contact.component';
 // import { BlogComponent } from 'src/app/pages/main/blog/blog.component';
 // import { AboutUsComponent } from 'src/app/pages/main/about-us/about-us.component';
@@ -55,11 +56,11 @@ const routes: Routes = [
         path: 'portfolio',
         component: PortfolioComponent
       },
-      //
-      // {
-      //   path: 'portfolio/:id',
-      //   component: PortfolioDetailsComponent
-      // },
+
+      {
+        path: 'portfolio/:id',
+        component: PortfolioDetailsComponent
+      },
       // {
       //   path: 'policy',
       //   component: PolicyComponent

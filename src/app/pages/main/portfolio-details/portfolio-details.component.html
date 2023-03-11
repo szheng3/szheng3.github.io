@@ -19,48 +19,20 @@
   <!-- Portfolio Details Area -->
   <div class="cr-section portfolio-details-area section-padding-lg bg-white">
     <div class="container">
-      <app-iloading *ngIf="getPortfolio$| withLoading | async as getPortfolio" [isLoading]="getPortfolio">
+      <app-iloading [isLoading]="loadingService.isLoadingState()">
         <div *ngIf="detail$ | async as detail">
           <div class="portfolio-details-images">
             <div class="image-item">
-              <!--              <ngx-progressive-img-loader-->
-              <!--                class="img-gray"-->
-              <!--                [preserveAspectRatio]="true"-->
-              <!--                [height]="'450px'"-->
-              <!--                [width]="'100%'"-->
-              <!--                (imageLoaded)="onImgLoad($event)"-->
-              <!--                (thumbnailLoaded)="onThumbLoad($event)"-->
-              <!--                [img]="detail.imageSrc + '?size=LARGE'"-->
-              <!--                [thumbnail]="detail.imageSrc + '?size=MID'"-->
-              <!--              >-->
-              <!--              </ngx-progressive-img-loader>-->
-<!--              <img-->
-<!--                class="img-fluid"-->
-<!--                [defaultImage]="'/assets/images/place-holder.jpg'"-->
-<!--                [lazyLoad]="detail.imageSrc + '?size=LARGE'"-->
-<!--              />-->
-                <img
-                  [defaultImage]="'/assets/images/place-holder.jpg'"
-                  [lazyLoad]="'https://apiv1.sszzz.me'+detail.imageSrc "
-                />
-                <img class="fanart"
-                     [defaultImage]="'/assets/images/place-holder.jpg'"
-                     [lazyLoad]="'https://apiv1.sszzz.me'+detail.imageSrc + '?size=LARGE'"
-                />
+              <img
+                [defaultImage]="'/assets/images/place-holder.jpg'"
+                [lazyLoad]="'https://apiv1.sszzz.me'+detail.imageSrc "
+              />
+              <img class="fanart"
+                   [defaultImage]="'/assets/images/place-holder.jpg'"
+                   [lazyLoad]="'https://apiv1.sszzz.me'+detail.imageSrc + '?size=LARGE'"
+              />
 
-              <!--                <ngx-progressive-img-loader-->
-              <!--                  [height]="'320px'"-->
-              <!--                  [width]="'100%'"-->
-              <!--                  (imageLoaded)="onImgLoad($event)"-->
-              <!--                  (thumbnailLoaded)="onThumbLoad($event)"-->
-              <!--                  [overlayTint]="'rgba(0,0,0,0)'"-->
-              <!--                  [preserveAspectRatio]="true"-->
-              <!--                  [placeholderBgColor]="'grey'"-->
-              <!--                  [img]="detail.imageSrc+'?size=LARGE'"-->
-              <!--                  [thumbnail]="detail.imageSrc+'?size=MID'"-->
-              <!--                  [fallbackImg]="'url-to-fall-back-image'">-->
-              <!--                  &lt;!&ndash; content goes here (optional) &ndash;&gt;-->
-              <!--                </ngx-progressive-img-loader>-->
+
             </div>
           </div>
           <div class="row section-padding-top-sm">

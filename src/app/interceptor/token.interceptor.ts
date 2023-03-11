@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import {LoadingService} from "~/core/util/loading.service";
-import {catchError, finalize, shareReplay} from "rxjs/operators";
+import {catchError, finalize, shareReplay, startWith} from "rxjs/operators";
 import {environment} from "~/environments/environment";
 import {Observable, throwError} from "rxjs";
 
