@@ -20,6 +20,9 @@ export class ResumeComponent implements OnInit {
   };
   loading = true;
 
+  ngOnInit(): void {
+  }
+
   constructor() {
   }
 
@@ -32,10 +35,6 @@ export class ResumeComponent implements OnInit {
     this.loading = false;
 
 
-  }
-
-  ngOnInit(): void {
-    this.loading = true
   }
 
 
