@@ -15,9 +15,8 @@ enum HttpAction {
   styleUrls: ['./portfolios.component.scss']
 })
 export class PortfoliosComponent implements OnInit {
-  tags: string[] = [];
   col = 3;
-  domain: string = "";
+  domain: string = 'http://' + new URL(environment.domain).hostname;
 
   cards$: Observable<ICards[]> = this.portfolioService.getICards();
 
@@ -26,12 +25,7 @@ export class PortfoliosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.domain = 'http://' + new URL(environment.domain).hostname;
-    // this.tags = _(this.cards)
-    //   .flatMap(value => value.tags)
-    //   .map(value => value.toLowerCase())
-    //   .uniq()
-    //   .value();
+
   }
 
 

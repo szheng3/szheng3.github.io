@@ -12,6 +12,7 @@ export class PortfolioComponent implements OnInit {
   current = 0;
   size = 9;
 
+  isLoading = this.loadingService.isLoadingState();
 
   constructor(private portfolioService: PortfolioService, public loadingService: LoadingService) {
   }
