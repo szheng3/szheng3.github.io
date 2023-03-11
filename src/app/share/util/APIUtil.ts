@@ -16,7 +16,6 @@ export const getUrlParam = ({
 
 export const buildParam = (param: any) => {
   let httpParams = new HttpParams();
-
   Object.keys(param).forEach((key) => {
     let value = param[key];
     if (value) {

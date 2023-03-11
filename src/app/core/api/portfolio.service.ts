@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {buildParam, getUrlParam} from 'src/app/share/util/APIUtil';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {getUrlParam} from 'src/app/share/util/APIUtil';
 
 import {ICatalogue, IPortfolio, IPortfolios, ISkill} from 'src/app/share/response/portfolio';
 import {CreatePortfolioRequest} from 'src/app/share/request/portfolio';
 import {map, tap} from "rxjs/operators";
-import {Observable, Subject} from "rxjs";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
 
 export interface IPortfolioParam {
   index?: boolean;
@@ -33,7 +33,7 @@ export interface ICards {
 export class PortfolioService {
 
 
-  private _portfolioSubject: Subject<IPortfolios> = new Subject<IPortfolios>();
+  private _portfolioSubject: Subject<IPortfolios> = new BehaviorSubject<IPortfolios>({records: []});
 
   portfolio$: Observable<IPortfolios> = this._portfolioSubject.asObservable();
 
@@ -44,7 +44,7 @@ export class PortfolioService {
   getPortfolios(param: IPortfolioParam) {
 
 
-    return this.http.get<IPortfolios>('/portfolio', {params: buildParam(param)})
+    return this.http.get<IPortfolios>('/portfolio', {params: param as HttpParams})
       .pipe(
         tap((value: IPortfolios) => this._portfolioSubject.next(value))
       );

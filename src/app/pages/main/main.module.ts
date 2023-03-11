@@ -31,6 +31,7 @@ import {ShareModule} from "../../share/share.module";
 import {PortfoliosComponent} from "./component/portfolios/portfolios.component";
 import {NbSpinnerModule} from "@nebular/theme";
 import {IloadingComponent} from "./component/iloading/iloading.component";
+import {PortfolioComponent} from "./portfolio/portfolio.component";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import {IloadingComponent} from "./component/iloading/iloading.component";
     // BlogComponent,
     // AboutUsComponent,
     ServicesComponent,
-    // PortfolioComponent,
+    PortfolioComponent,
     // BlogDetailsComponent,
     // PortfolioDetailsComponent,
     MyServiceComponent,

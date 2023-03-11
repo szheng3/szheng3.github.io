@@ -26,7 +26,7 @@ export class HeaderlayoutComponent implements OnInit, AfterViewInit {
     // $.getScript('/assets/js/ckeditor.js');
 
     if (this.isBrowser) {
-      $.getScript('/assets/js/plugins.js');
+      // $.getScript('/assets/js/plugins.js');
       // window.addEventListener('scroll', this.scrollEvent, true); // third parameter
       mainJs();
 

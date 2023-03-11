@@ -44,6 +44,8 @@
               "src/assets/js/plugins.js",
               "src/assets/js/popper.min.js",
               "src/assets/js/bootstrap.min.js",
+              "src/assets/js/off-canvas.js",
+              "src/assets/js/misc.js",
               "src/assets/js/main.js"
             ]
           },

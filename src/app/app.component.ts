@@ -60,13 +60,13 @@ export class AppComponent implements AfterViewInit, OnInit {
   ngAfterViewInit(): void {
     // $.getScript('/assets/js/ckeditor.js');
 
-    if (this.isBrowser) {
-      $.ajaxSetup({
-        cache: true
-      });
-      $.getScript('/assets/js/off-canvas.js');
-      $.getScript('/assets/js/misc.js');
-    }
+    // if (this.isBrowser) {
+    //   $.ajaxSetup({
+    //     cache: true
+    //   });
+    //   $.getScript('/assets/js/off-canvas.js');
+    //   $.getScript('/assets/js/misc.js');
+    // }
     // CKEDITOR.replace( 'editor' );
     // tslint:disable-next-line:only-arrow-functions
   }

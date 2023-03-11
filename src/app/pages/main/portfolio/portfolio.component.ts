@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {GetPortfoliosAction} from 'src/store/portfolio/portfolio.actions';
-import {tap} from 'rxjs/operators';
+import {LoadingService} from "../../../core/util/loading.service";
+import {delay, tap} from "rxjs/operators";
+import {PortfolioService} from "../../../core/api/portfolio.service";
 
 @Component({
   selector: 'app-portfolio',
@@ -12,20 +12,22 @@ export class PortfolioComponent implements OnInit {
   current = 0;
   size = 9;
 
-  portfoliosLoading$: Observable<any>=of();
 
-  constructor() {}
-
-  ngOnInit() {
-     // this.portfoliosLoading$= this.store.dispatch(
-     //    new GetPortfoliosAction({ current: this.current, size: this.size })).pipe(tap(x => gallery()));
+  constructor(private portfolioService: PortfolioService, public loadingService: LoadingService) {
   }
 
+  ngOnInit() {
+    this.portfolioService.getPortfolios({current: this.current, size: this.size}).pipe(
+      delay(1),
+      tap(x => gallery())).subscribe();
+
+  }
 
 
   viewMore() {
     this.size = this.size + 9;
-    // this.portfoliosLoading$= this.store.dispatch(
-    //   new GetPortfoliosAction({ current: this.current, size: this.size })).pipe(tap(x => gallery()))
+    this.portfolioService.getPortfolios({current: this.current, size: this.size}).pipe(
+      tap(x => gallery())).subscribe();
+
   }
 }

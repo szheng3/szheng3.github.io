@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {ResumeComponent} from "./resume/resume.component";
 import {MainComponent} from "./main.component";
 import {IndexComponent} from "./index/index.component";
+import {PortfolioComponent} from "./portfolio/portfolio.component";
 // import { ContactComponent } from 'src/app/pages/main/contact/contact.component';
 // import { BlogComponent } from 'src/app/pages/main/blog/blog.component';
 // import { AboutUsComponent } from 'src/app/pages/main/about-us/about-us.component';
@@ -48,10 +49,10 @@ const routes: Routes = [
       //   path: 'services',
       //   component: ServicesComponent
       // },
-      // {
-      //   path: 'portfolio',
-      //   component: PortfolioComponent
-      // },
+      {
+        path: 'portfolio',
+        component: PortfolioComponent
+      },
       //
       // {
       //   path: 'portfolio/:id',

@@ -1,5 +1,5 @@
 <!--<app-breadcrumblayout [title]="'portfolio'">-->
-  <!-- Page Conttent -->
+<!-- Page Conttent -->
 <div class="breadcrumb-area bg-grey m-nav">
   <div class="container">
     <div class="cr-breadcrumb">
@@ -11,24 +11,24 @@
     </div>
   </div>
 </div>
-  <main class="page-content">
-    <!-- Portfolios Ara -->
-    <div class="cr-section portfolios-area section-padding-lg bg-white">
-      <div class="container">
-        <app-iloading *ngIf="portfoliosLoading$| withLoading | async  as portfoliosLoading" [isLoading]="portfoliosLoading">
-          <app-portfolios ></app-portfolios>
-        </app-iloading>
+<main class="page-content">
+  <!-- Portfolios Ara -->
+  <div class="cr-section portfolios-area section-padding-lg bg-white">
+    <div class="container">
+      <app-iloading [isLoading]="loadingService.isLoadingState()">
+        <app-portfolios></app-portfolios>
+      </app-iloading>
 
-        <div class="row">
-          <div class="col-12 text-center mt-5">
-            <a class="button" data-content="View More" (click)="viewMore()">
-              <span>View More</span>
-            </a>
-          </div>
+      <div class="row">
+        <div class="col-12 text-center mt-5">
+          <a class="button" data-content="View More" (click)="viewMore()">
+            <span>View More</span>
+          </a>
         </div>
       </div>
     </div>
-    <!--// Portfolios Ara -->
-  </main>
-  <!--// Page Conttent -->
+  </div>
+  <!--// Portfolios Ara -->
+</main>
+<!--// Page Conttent -->
 <!--</app-breadcrumblayout>-->
