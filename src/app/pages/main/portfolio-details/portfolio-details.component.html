@@ -19,7 +19,7 @@
   <!-- Portfolio Details Area -->
   <div class="cr-section portfolio-details-area section-padding-lg bg-white">
     <div class="container">
-      <app-iloading [isLoading]="loadingService.isLoadingState()">
+      <app-iloading [isLoading]="isLoading">
         <div *ngIf="detail$ | async as detail">
           <div class="portfolio-details-images">
             <div class="image-item">

@@ -3,9 +3,8 @@ import {ActivatedRoute} from '@angular/router';
 import {Observable} from 'rxjs';
 import {Link} from '~/share/response/portfolio';
 import {isPlatformBrowser} from '@angular/common';
-import {PortfolioService} from "~/core/api/portfolio.service";
-import {LoadingService} from "~/core/util/loading.service";
 import {switchMap} from 'rxjs/operators';
+import {StoreService} from "~/core/store.service";
 
 export interface IPortfolioDetails {
   imageSrc?: string;
@@ -23,27 +22,20 @@ export interface IPortfolioDetails {
   styleUrls: ['./portfolio-details.component.scss']
 })
 export class PortfolioDetailsComponent implements OnInit {
-  // @Select(PortfolioState.getPortfolioDetails)
-  detail$: Observable<IPortfolioDetails> = this.portfolioService.getPortfolioDetails()
+  detail$: Observable<IPortfolioDetails> = this.storeService.portfolioService.getPortfolioDetails()
+  isLoading = this.storeService.loadingService.isLoadingState();
   isBrowser: boolean;
 
-  constructor(public loadingService: LoadingService, public portfolioService: PortfolioService, private route: ActivatedRoute, @Inject(PLATFORM_ID) platformId: Object) {
+  constructor(public storeService: StoreService, private route: ActivatedRoute, @Inject(PLATFORM_ID) platformId: Object) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
   ngOnInit() {
     this.route.params.pipe(switchMap(
       source => {
-        return this.portfolioService.getPortfolio(+source['id'])
+        return this.storeService.portfolioService.getPortfolio(+source['id'])
       }
     )).subscribe();
   }
 
-  // onImgLoad(e) {
-  //   console.log('High quality image loaded?', e.loaded);
-  // }
-  //
-  // onThumbLoad(e) {
-  //   console.log('Low qaulity thumbnail loaded?', e.loaded);
-  // }
 }
