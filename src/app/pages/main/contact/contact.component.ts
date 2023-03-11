@@ -3,6 +3,9 @@ import {HttpClient} from '@angular/common/http';
 
 import {NgForm} from '@angular/forms';
 import {formValid, isFieldValid} from 'src/app/share/util/FormUtil';
+import {loadingObs} from "~/share/util/WrapObsWithStatusWithoutValue";
+import {EmailService} from "~/core/api/email.service";
+
 
 @Component({
   selector: 'app-contact',
@@ -12,16 +15,17 @@ import {formValid, isFieldValid} from 'src/app/share/util/FormUtil';
 export class ContactComponent {
   isFieldValid = isFieldValid;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private emailService: EmailService) {
   }
 
   submitForm(form: NgForm) {
     const lazyAction = () =>
-      // loadingObs(this.store.dispatch(new EmailActionSend(form.value)), {
-      //   htmlSelector: '#contactSubmit',
-      //   successMessage: 'Thank you very much for contacting us!!!',
-      //   errorMessage: 'Ops, there is a problem, please try again!'
-      // });
-      formValid(form, lazyAction);
+      loadingObs(this.emailService.sendEmail(form.value), {
+        htmlSelector: '#contactSubmit',
+        successMessage: 'Thank you very much for contacting us!!!',
+        errorMessage: 'Ops, there is a problem, please try again!'
+      });
+
+    formValid(form, lazyAction);
   }
 }

@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {PortfolioService} from "../../../core/api/portfolio.service";
-import {tap,delay} from "rxjs/operators";
-import {LoadingService} from 'src/app/core/util/loading.service';
+import {PortfolioService} from "~/core/api/portfolio.service";
+import {delay, tap} from "rxjs/operators";
+import {LoadingService} from "~/core/util/loading.service";
 
 
 @Component({

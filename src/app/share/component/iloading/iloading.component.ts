@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {WrapObsWithStatus} from 'src/app/share/util/WrapObsWithStatusWithoutValue';
 import {INgxLoadingConfig, ngxLoadingAnimationTypes} from 'ngx-loading';
 
 @Component({

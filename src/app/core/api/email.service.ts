@@ -1,21 +1,17 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {IResponse} from 'src/app/share/response/response';
-import {environment} from 'src/environments/environment';
+import {IResponse} from "../../share/response/response";
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmailService {
-  private readonly url: string = environment.domain;
 
-  constructor(private http: HttpClient) {}
-
-  sendEmail(body:any) {
-    return this.http.post<IResponse>(this.url + '/email/send', body);
+  constructor(private http: HttpClient) {
   }
 
-  apiHealth() {
-    return this.http.get(this.url + '/health');
+  sendEmail(body: any) {
+    return this.http.post<IResponse>('/email/send', body);
   }
+
 }

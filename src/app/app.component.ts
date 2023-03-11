@@ -1,9 +1,9 @@
-import { AfterViewInit, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { NavigationEnd, Router } from '@angular/router';
-import { LoadingService } from 'src/app/core/util/loading.service';
-import { HttpClient } from '@angular/common/http';
-import { Meta } from '@angular/platform-browser';
+import {AfterViewInit, Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {isPlatformBrowser} from '@angular/common';
+import {NavigationEnd, Router} from '@angular/router';
+import {LoadingService} from 'src/app/core/util/loading.service';
+import {HttpClient} from '@angular/common/http';
+import {Meta} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
