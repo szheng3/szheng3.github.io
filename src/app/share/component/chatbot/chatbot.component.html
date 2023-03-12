@@ -1,52 +1,44 @@
-<!--<div class="container">-->
+<div class="chat-widget d-flex flex-column align-items-center">
+  <nb-chat [@fadeInAnimation]="!isShow" [@fadeOutAnimation]="isShow" *ngIf="isShow" title="Chat" size="large">
+    <nb-chat-message *ngFor="let msg of messages"
+                     [type]="msg.type"
+                     [message]="msg.text"
+                     [reply]="msg.reply"
+                     [sender]="msg.user.name"
+                     [date]="msg.date"
+                     [files]="msg.files"
+                     [quote]="msg.quote"
+                     [latitude]="msg.latitude"
+                     [longitude]="msg.longitude"
+                     [avatar]="msg.user.avatar">
+    </nb-chat-message>
+    <!--      [nbSpinner]="true"-->
+    <nb-chat-form [nbSpinner]="isLoading" (send)="sendMessage($event)" [dropFiles]="false">
+    </nb-chat-form>
+  </nb-chat>
+  <div>
+    <nb-user
+      [@fadeInAnimation]="isShow"
+      *ngIf="!isShow"
+      class="mt-3"
+      size="large"
+      name="Shuai Zheng"
+      title="Engineer"
+      onlyPicture
+      badgeText="1+"
+      (click)="changeStatus()"
+      badgeStatus="primary"
+      picture="/assets/images/author-image/shuaizheng.jpeg"
+      badgePosition="bottom right">
+    </nb-user>
+    <button [@fadeInAnimation]="isShow"
+            *ngIf="isShow" shape="round" nbButton size="large" class="chat-button mt-3" (click)="changeStatus()"
+            badgeText="99+">
+      <!--      <nb-icon badgeText="99+"  *ngIf="!isShow"  status="primary" icon="message-circle-outline"></nb-icon>-->
 
-<!--  <div class="position-fixed d-flex " style="bottom: 40px;-->
-<!--  z-index: 999; ">-->
-
-<!--<nb-chat title="Chat" size="large" class="">-->
-<!--  <nb-chat-message *ngFor="let msg of messages"-->
-<!--                   [type]="msg.type"-->
-<!--                   [message]="msg.text"-->
-<!--                   [reply]="msg.reply"-->
-<!--                   [sender]="msg.user.name"-->
-<!--                   [date]="msg.date"-->
-<!--                   [files]="msg.files"-->
-<!--                   [quote]="msg.quote"-->
-<!--                   [latitude]="msg.latitude"-->
-<!--                   [longitude]="msg.longitude"-->
-<!--                   [avatar]="msg.user.avatar">-->
-<!--  </nb-chat-message>-->
-<!--  &lt;!&ndash;      [nbSpinner]="true"&ndash;&gt;-->
-<!--  <nb-chat-form [nbSpinner]="isLoading" (send)="sendMessage($event)" [dropFiles]="false">-->
-<!--  </nb-chat-form>-->
-<!--</nb-chat>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-<div class="navbar    fixed-bottom">
-  <div class="container">
-    <a class="navbar-brand" href="#"></a>
-
-    <div class=" justify-content-end" id="navbarNav">
-
-      <nb-chat title="Chat" size="large" class="mb-5">
-        <nb-chat-message *ngFor="let msg of messages"
-                         [type]="msg.type"
-                         [message]="msg.text"
-                         [reply]="msg.reply"
-                         [sender]="msg.user.name"
-                         [date]="msg.date"
-                         [files]="msg.files"
-                         [quote]="msg.quote"
-                         [latitude]="msg.latitude"
-                         [longitude]="msg.longitude"
-                         [avatar]="msg.user.avatar">
-        </nb-chat-message>
-        <!--      [nbSpinner]="true"-->
-        <nb-chat-form [nbSpinner]="isLoading" (send)="sendMessage($event)" [dropFiles]="false">
-        </nb-chat-form>
-      </nb-chat>
-    </div>
+      <nb-icon status="primary" icon="close-outline"></nb-icon>
+    </button>
   </div>
+
+
 </div>

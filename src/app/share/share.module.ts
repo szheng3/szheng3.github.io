@@ -15,7 +15,8 @@ import {LazyLoadImageModule} from 'ng-lazyload-image';
 import {WithLoadingPipe} from './pipe/with-loading.pipe';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ChatbotComponent } from './component/chatbot/chatbot.component';
-import {NbChatModule, NbSpinnerModule} from "@nebular/theme";
+import {NbButtonModule, NbChatModule, NbIconModule, NbSpinnerModule, NbUserModule} from "@nebular/theme";
+import {NbEvaIconsModule} from "@nebular/eva-icons";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,11 @@ import {NbChatModule, NbSpinnerModule} from "@nebular/theme";
       tertiaryColour: '#000000'
     }),
     NbChatModule,
-    NbSpinnerModule
+    NbEvaIconsModule,
+    NbSpinnerModule,
+    NbIconModule,
+    NbButtonModule,
+    NbUserModule
   ],
   exports: [
     LazyLoadImageModule,

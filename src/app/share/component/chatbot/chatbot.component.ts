@@ -1,13 +1,30 @@
-import { Component } from '@angular/core';
+import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
+import {Component} from '@angular/core';
+
+
 import {finalize, tap} from "rxjs/operators";
 import {ChatService} from "~/core/api/chat.service";
 
 @Component({
   selector: 'app-chatbot',
   templateUrl: './chatbot.component.html',
-  styleUrls: ['./chatbot.component.scss']
+  styleUrls: ['./chatbot.component.scss'],
+  animations: [trigger('fadeInAnimation', [
+    state('void', style({opacity: 0})),
+    transition(':enter', [
+      animate('0.5s ease-out', style({opacity: 1})),
+    ]),
+  ]),
+    trigger('fadeOutAnimation', [
+      state('*', style({opacity: 1})),
+      transition(':leave', [
+        animate('0.5s ease-out', style({opacity: 0})),
+      ]),
+    ]),],
+
 })
 export class ChatbotComponent {
+  isShow = false;
 
   isLoading: boolean = false;
   messages: any[] = [
@@ -16,8 +33,9 @@ export class ChatbotComponent {
       date: new Date(),
       reply: false,
       user: {
-        name: 'Bot',
-        avatar: 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/robot-face.png',
+        name: 'Shuai\'s AI Bot',
+        // avatar: 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/robot-face.png',
+        avatar: '/assets/images/author-image/robot-face.png',
       },
     },
   ];
@@ -36,8 +54,9 @@ export class ChatbotComponent {
           reply: false,
           type: 'text',
           user: {
-            name: 'Bot',
-            avatar: 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/robot-face.png',
+            name: 'Shuai\'s AI Bot',
+            // avatar: 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/robot-face.png',
+            avatar: '/assets/images/author-image/robot-face.png',
           },
         });
       }),
@@ -60,4 +79,7 @@ export class ChatbotComponent {
   }
 
 
+  changeStatus() {
+    this.isShow = !this.isShow;
+  }
 }
