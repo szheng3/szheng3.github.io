@@ -29,7 +29,7 @@ export class ChatbotComponent {
   isLoading: boolean = false;
   messages: any[] = [
     {
-      text: 'Please ask me about any question about Shuai Zheng!',
+      text: 'Please feel free to ask me any questions about Shuai Zheng!',
       date: new Date(),
       reply: false,
       user: {
