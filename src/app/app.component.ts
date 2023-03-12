@@ -55,6 +55,7 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     // this.store.dispatch(new CheckHealth(''));
+
   }
 
   ngAfterViewInit(): void {
@@ -69,5 +70,9 @@ export class AppComponent implements AfterViewInit, OnInit {
     // }
     // CKEDITOR.replace( 'editor' );
     // tslint:disable-next-line:only-arrow-functions
+    const loadingElement = document.getElementById('loading');
+    if (loadingElement) {
+      loadingElement.style.display = 'none';
+    }
   }
 }
