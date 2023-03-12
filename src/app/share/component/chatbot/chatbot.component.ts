@@ -1,0 +1,63 @@
+import { Component } from '@angular/core';
+import {finalize, tap} from "rxjs/operators";
+import {ChatService} from "~/core/api/chat.service";
+
+@Component({
+  selector: 'app-chatbot',
+  templateUrl: './chatbot.component.html',
+  styleUrls: ['./chatbot.component.scss']
+})
+export class ChatbotComponent {
+
+  isLoading: boolean = false;
+  messages: any[] = [
+    {
+      text: 'Welcome to AI bot for Shuai Zheng!',
+      date: new Date(),
+      reply: false,
+      user: {
+        name: 'Bot',
+        avatar: 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/robot-face.png',
+      },
+    },
+  ];
+
+  constructor(private chatService: ChatService) {
+    // this.messages = this.chatShowcaseService.loadMessages();
+  }
+
+  sendMessage(event: any) {
+    this.isLoading = true
+    this.chatService.send(event.message).pipe(
+      tap((data: any) => {
+        this.messages.push({
+          text: data.message,
+          date: new Date(),
+          reply: false,
+          type: 'text',
+          user: {
+            name: 'Bot',
+            avatar: 'https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/robot-face.png',
+          },
+        });
+      }),
+      finalize(() => {
+        this.isLoading = false;
+      })
+    ).subscribe();
+
+    this.messages.push({
+      text: event.message,
+      date: new Date(),
+      reply: true,
+      type: 'text',
+      user: {
+        name: 'User',
+        avatar: 'https://i.gifer.com/no.gif',
+      },
+    });
+
+  }
+
+
+}

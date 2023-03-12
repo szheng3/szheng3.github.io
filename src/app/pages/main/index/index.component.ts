@@ -9,7 +9,8 @@ import {LoadingService} from "~/core/util/loading.service";
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss']
 })
-export class IndexComponent implements OnInit,AfterViewInit {
+export class IndexComponent implements OnInit, AfterViewInit {
+  isLoading = this.loadingService.isLoadingState();
 
   constructor(private portfolioService: PortfolioService, public loadingService: LoadingService) {
   }

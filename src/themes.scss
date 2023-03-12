@@ -4,8 +4,22 @@
 
 $nb-themes: nb-register-theme((
 
-  // add your variables here like:
-
+  //color-basic-100: white,
+  //color-basic-200: #eefafc,
+  //color-basic-300: #e8f5fa,
+  //color-basic-400: #d6e6f2,
+  //color-basic-500: #c7dbeb,
+  //color-basic-600: #a9c0db,
+  //color-basic-700: #4f969e,
+  //color-basic-800: #336a77,
+  //color-basic-900: #295c66,
+  //color-basic-1000: #244555,
+  //color-basic-1100: #121a2b,
+  //// add your variables here like:
+  //background-basic-color-1: #ffffff,
+  //background-basic-color-2: #ffffff,
+  background-basic-color-3: #ffffff,
+  //background-basic-color-4: #ffffff,
   // color-primary-100: #f2f6ff,
   // color-primary-200: #d9e4ff,
   // color-primary-300: #a6c1ff,
@@ -15,5 +29,6 @@ $nb-themes: nb-register-theme((
   // color-primary-700: #1a34b8,
   // color-primary-800: #102694,
   // color-primary-900: #091c7a,
+  color-primary-100: #faf7ff,
 
 ), default, default);

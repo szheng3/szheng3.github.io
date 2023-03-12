@@ -38,6 +38,7 @@
               "src/assets/css/slick.min.css",
               "src/assets/css/bootstrap.min.css",
               "src/styles.scss"
+
             ],
             "scripts": [
               "src/assets/js/jquery-3.4.1.min.js",

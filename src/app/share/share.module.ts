@@ -14,6 +14,8 @@ import {NgxJsonLdModule} from '@ngx-lite/json-ld';
 import {LazyLoadImageModule} from 'ng-lazyload-image';
 import {WithLoadingPipe} from './pipe/with-loading.pipe';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ChatbotComponent } from './component/chatbot/chatbot.component';
+import {NbChatModule, NbSpinnerModule} from "@nebular/theme";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     LinkMapPipe,
     SanitizeHtmlPipe,
     // ProgressiveImageLoaderDirective,
-    WithLoadingPipe
+    WithLoadingPipe,
+    ChatbotComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +38,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
       primaryColour: '#000000',
       secondaryColour: '#000000',
       tertiaryColour: '#000000'
-    })
+    }),
+    NbChatModule,
+    NbSpinnerModule
   ],
   exports: [
     LazyLoadImageModule,
@@ -50,7 +55,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MomentModule,
     NgxJsonLdModule,
     // ProgressiveImageLoaderDirective,
-    WithLoadingPipe
+    WithLoadingPipe,
+    ChatbotComponent
   ]
 })
 export class ShareModule {}

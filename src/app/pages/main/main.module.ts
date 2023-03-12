@@ -29,7 +29,7 @@ import {NgxLoadingModule} from "ngx-loading";
 import {ResumeComponent} from "./resume/resume.component";
 import {ShareModule} from "~/share/share.module";
 import {PortfoliosComponent} from "./component/portfolios/portfolios.component";
-import {NbSpinnerModule} from "@nebular/theme";
+import {NbChatModule, NbLayoutModule, NbSpinnerModule} from "@nebular/theme";
 import {IloadingComponent} from "./component/iloading/iloading.component";
 import {PortfolioComponent} from "./portfolio/portfolio.component";
 import {PortfolioDetailsComponent} from "~/pages/main/portfolio-details/portfolio-details.component";
@@ -66,7 +66,9 @@ import {PortfolioDetailsComponent} from "~/pages/main/portfolio-details/portfoli
     PdfViewerModule,
     MatButtonModule,
     NgxLoadingModule,
-    NbSpinnerModule
+    NbSpinnerModule,
+    NbChatModule,
+    NbLayoutModule
   ],
   bootstrap: [ResumeModalComponent]
 })

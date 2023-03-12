@@ -19,11 +19,11 @@ export class TokenInterceptor implements HttpInterceptor {
 
     };
 
-    if (request.method === 'POST' || request.method === 'DELETE' || request.method === 'PUT') {
-      update['setHeaders'] = {
-        'X-XSRF-TOKEN': this.cookieService.get('XSRF-TOKEN')
-      }
-    }
+    // if (request.method === 'POST' || request.method === 'DELETE' || request.method === 'PUT') {
+    //   update['setHeaders'] = {
+    //     'X-XSRF-TOKEN': this.cookieService.get('XSRF-TOKEN')
+    //   }
+    // }
     request = request.clone(update);
 
     return next.handle(request).pipe(
