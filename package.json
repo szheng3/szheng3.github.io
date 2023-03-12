@@ -10,7 +10,8 @@
     "dev:ssr": "ng run FrontEndV2:serve-ssr",
     "serve:ssr": "node dist/FrontEndV2/server/main.js",
     "build:ssr": "ng build && ng run FrontEndV2:server",
-    "prerender": "ng run FrontEndV2:prerender"
+    "prerender": "ng run FrontEndV2:prerender",
+    "deploy": "ng build &&"
   },
   "private": true,
   "dependencies": {

@@ -2,13 +2,14 @@ import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import {LoadingService} from "~/core/util/loading.service";
-import {catchError, finalize, shareReplay, startWith} from "rxjs/operators";
+import {catchError, finalize, shareReplay} from "rxjs/operators";
 import {environment} from "~/environments/environment";
 import {Observable, throwError} from "rxjs";
+import {NbGlobalPhysicalPosition, NbToastrService} from "@nebular/theme";
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(private cookieService: CookieService, private loadingService: LoadingService) {
+  constructor(private cookieService: CookieService, private loadingService: LoadingService, private toastrService: NbToastrService) {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -30,6 +31,11 @@ export class TokenInterceptor implements HttpInterceptor {
       shareReplay(),
       catchError(error => {
         this.loadingService.setErrorState('Failed to load data');
+        this.toastrService.show('Please try again!', `Ops! there is a problem! `, {
+          position: NbGlobalPhysicalPosition.TOP_RIGHT,
+          status: 'danger',
+          preventDuplicates: true,
+        });
         return throwError(error);
       }),
       finalize(() => {

@@ -31,7 +31,7 @@
       picture="/assets/images/author-image/shuaizheng.jpeg"
       badgePosition="bottom right">
     </nb-user>
-    <button [@fadeInAnimation]="isShow"
+    <button [@fadeInAnimation]="!isShow"
             *ngIf="isShow" shape="round" nbButton size="large" class="chat-button mt-3" (click)="changeStatus()"
             badgeText="99+">
       <!--      <nb-icon badgeText="99+"  *ngIf="!isShow"  status="primary" icon="message-circle-outline"></nb-icon>-->

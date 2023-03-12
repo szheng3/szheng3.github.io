@@ -16,7 +16,7 @@ export class ChatService {
       return of([]);
     }
     return this.http
-      .post<any[]>("/message", {message_history: [{"role": "user", "content": term}]})
+      .post<any[]>("/messagess", {message_history: [{"role": "user", "content": term}]})
       .pipe(catchError(this.handleError<any[]>('chat', [])));
   }
 

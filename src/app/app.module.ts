@@ -4,7 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NbLayoutModule, NbThemeModule} from '@nebular/theme';
+import {NbLayoutModule, NbThemeModule, NbToastrModule} from '@nebular/theme';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "./interceptor/token.interceptor";
@@ -18,6 +18,7 @@ import {CookieService} from "ngx-cookie-service";
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    NbToastrModule.forRoot(),
     // NgxsStoreModule,
     HttpClientModule,
     AppRoutingModule,

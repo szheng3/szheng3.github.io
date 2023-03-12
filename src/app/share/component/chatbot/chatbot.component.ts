@@ -29,7 +29,7 @@ export class ChatbotComponent {
   isLoading: boolean = false;
   messages: any[] = [
     {
-      text: 'Welcome to AI bot for Shuai Zheng!',
+      text: 'Please ask me about any question about Shuai Zheng!',
       date: new Date(),
       reply: false,
       user: {
