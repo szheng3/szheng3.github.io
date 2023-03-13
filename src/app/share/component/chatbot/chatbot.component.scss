@@ -13,12 +13,16 @@ nb-chat {
 
 @media screen and (max-width: 767px) {
   /* Styles for screens smaller than 768px */
+  nb-chat {
+    height: 400px;
+  }
+
   .chat-widget {
     position: fixed;
     //right: 50px;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 50px;
+    bottom: 20px;
     z-index: 999;
     width: 300px;
 
