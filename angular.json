@@ -38,7 +38,6 @@
               "src/assets/css/slick.min.css",
               "src/assets/css/bootstrap.min.css",
               "src/styles.scss"
-
             ],
             "scripts": [
               "src/assets/js/jquery-3.4.1.min.js",
@@ -168,11 +167,23 @@
             }
           },
           "defaultConfiguration": "production"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "333e0461-0923-4b66-8e9f-25d97eed55a0"
+    "analytics": "333e0461-0923-4b66-8e9f-25d97eed55a0",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
