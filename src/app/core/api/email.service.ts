@@ -11,7 +11,7 @@ export class EmailService {
   }
 
   sendEmail(body: any) {
-    return this.http.post<IResponse>('/email/send', body);
+    return this.http.post<IResponse>('/app/notification/send', body);
   }
 
 }
