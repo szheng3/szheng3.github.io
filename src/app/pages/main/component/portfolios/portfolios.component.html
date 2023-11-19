@@ -30,7 +30,6 @@
                    [defaultImage]="'/assets/images/place-holder.jpg'"
                    [lazyLoad]="card.image ? 'https://apiv1.sszzz.me' + card.image.replace('/image/', '/app/public/mid/') : '/assets/images/place-holder.jpg'"/>
 
-              />
               <div class="team-icon">
                 <a href="#" [href]="card?.url"><i class="fa fa-link"></i></a>
                 <a href="#" [href]="card?.gitLink" *ngIf="card?.gitLink"><i class="fa fa-git"></i></a>
