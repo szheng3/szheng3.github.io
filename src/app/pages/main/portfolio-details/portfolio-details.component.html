@@ -47,7 +47,8 @@
                   <li>
                     <i class="fa fa-link"></i><span>Links:</span>
                     <div class="d-inline ml-2" *ngFor="let link of detail.links">
-                      <a [href]="link.linkDetails"><i class="fa" [ngClass]="['fa', link.linkType | linkMap]"></i></a>
+
+                      <a [href]="link.linkDetails"><i class="fa" [ngClass]="['fa', link.linkType |uppercase | linkMap]"></i></a>
                     </div>
                   </li>
                 </ul>

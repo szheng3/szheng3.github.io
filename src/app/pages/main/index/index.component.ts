@@ -18,7 +18,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
 
-    this.portfolioService.getPortfolios({index: true}).pipe(
+    this.portfolioService.getPortfolios({IncludeDetails:true,Filter:{isHot:true},SkipCount: 0, MaxResultCount: 6}).pipe(
       delay(1),
       tap(x => gallery()
       )).subscribe();

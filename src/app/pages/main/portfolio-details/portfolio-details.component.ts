@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Observable} from 'rxjs';
-import {Link} from '~/share/response/portfolio';
+import {PortfolioLink} from '~/share/response/portfolio';
 import {isPlatformBrowser} from '@angular/common';
 import {switchMap} from 'rxjs/operators';
 import {StoreService} from "~/core/store.service";
@@ -13,7 +13,7 @@ export interface IPortfolioDetails {
   client?: string;
   title?: string;
   content?: string;
-  links?: Link[];
+  links?: PortfolioLink[];
 }
 
 @Component({

@@ -10,7 +10,7 @@ import {PortfolioService} from "../../../core/api/portfolio.service";
 })
 export class PortfolioComponent implements OnInit {
   current = 0;
-  size = 9;
+  size = 6;
 
   isLoading = this.loadingService.isLoadingState();
 
@@ -18,7 +18,7 @@ export class PortfolioComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.portfolioService.getPortfolios({current: this.current, size: this.size}).pipe(
+    this.portfolioService.getPortfolios({SkipCount: this.current, MaxResultCount: this.size,IncludeDetails:true}).pipe(
       delay(1),
       tap(x => gallery())).subscribe();
 
@@ -26,8 +26,8 @@ export class PortfolioComponent implements OnInit {
 
 
   viewMore() {
-    this.size = this.size + 9;
-    this.portfolioService.getPortfolios({current: this.current, size: this.size}).pipe(
+    this.size = this.size + 6;
+    this.portfolioService.getPortfolios({SkipCount: this.current, MaxResultCount: this.size,IncludeDetails:true}).pipe(
       tap(x => gallery())).subscribe();
 
   }
