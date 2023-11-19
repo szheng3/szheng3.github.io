@@ -25,11 +25,12 @@
             <div class="image-item">
               <img
                 [defaultImage]="'/assets/images/place-holder.jpg'"
-                [lazyLoad]="'https://apiv1.sszzz.me'+detail.imageSrc "
-              />
+                [lazyLoad]="detail.imageSrc ? 'https://apiv1.sszzz.me' + detail.imageSrc.replace('/image/', '/app/public/small/') : '/assets/images/place-holder.jpg'"/>
+
               <img class="fanart"
                    [defaultImage]="'/assets/images/place-holder.jpg'"
-                   [lazyLoad]="'https://apiv1.sszzz.me'+detail.imageSrc + '?size=LARGE'"
+                   [lazyLoad]="detail.imageSrc ? 'https://apiv1.sszzz.me' + detail.imageSrc.replace('/image/', '/app/public/large/') : '/assets/images/place-holder.jpg'"/>
+
               />
 
 
@@ -48,7 +49,8 @@
                     <i class="fa fa-link"></i><span>Links:</span>
                     <div class="d-inline ml-2" *ngFor="let link of detail.links">
 
-                      <a [href]="link.linkDetails"><i class="fa" [ngClass]="['fa', link.linkType |uppercase | linkMap]"></i></a>
+                      <a [href]="link.linkDetails"><i class="fa"
+                                                      [ngClass]="['fa', link.linkType |uppercase | linkMap]"></i></a>
                     </div>
                   </li>
                 </ul>
