@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {INgxLoadingConfig, ngxLoadingAnimationTypes} from "ngx-loading";
+import {DOCUMENT} from "@angular/common";
 
 @Component({
   selector: 'app-resume',
@@ -23,11 +24,11 @@ export class ResumeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  constructor() {
+  constructor(@Inject(DOCUMENT) private document: Document) {
   }
 
   pageRendered() {
-    const element = document.querySelector('.page');
+    const element = this.document.querySelector('.page');
     if (element) {
       this.pdfHeight = element.clientHeight;
 

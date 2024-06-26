@@ -1,5 +1,6 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {BehaviorSubject, Observable, Subject} from "rxjs";
+import {DOCUMENT} from "@angular/common";
 
 @Injectable({
   providedIn: 'root'
@@ -9,18 +10,17 @@ export class LoadingService {
   private loading$: Subject<boolean> = new BehaviorSubject<boolean>(false);
   private error$: Subject<string> = new Subject<string>();
 
-  constructor() {
-  }
+  constructor(@Inject(DOCUMENT) private document: Document) {}
 
   disable() {
-    const loadingElement = document.getElementById('loading');
+    const loadingElement = this.document.getElementById('loading');
     if (loadingElement) {
       loadingElement.style.display = 'none';
     }
   }
 
   loading() {
-    const loadingElement = document.getElementById('loading');
+    const loadingElement = this.document.getElementById('loading');
     if (loadingElement) {
       loadingElement.style.display = 'initial';
     }

@@ -47,6 +47,12 @@
               "src/assets/js/off-canvas.js",
               "src/assets/js/misc.js",
               "src/assets/js/main.js"
+//              "node_modules/canvas/build/Release/canvas.node"
+//              {
+//                "input": "node_modules/canvas/build/Release/canvas.node",
+//                "bundleName": "canvas",
+//                "inject": false
+//              }
             ]
           },
           "configurations": {
@@ -120,6 +126,9 @@
             "outputPath": "dist/FrontEndV2/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
+            "externalDependencies": [
+              "canvas"
+            ],
             "inlineStyleLanguage": "scss"
           },
           "configurations": {

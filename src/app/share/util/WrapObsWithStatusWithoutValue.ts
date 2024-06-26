@@ -81,7 +81,7 @@ export interface WrapObsParam {
 // }
 export function loadingObs(
   obs: Observable<any>,
-  { htmlSelector = 'noId', errorMessage = '', successMessage = '' }
+  {htmlSelector = 'noId', errorMessage = '', successMessage = ''}, document: Document
 ): Observable<any> {
   const selector = document.querySelector(htmlSelector) as HTMLElement;
 

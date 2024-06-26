@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
-import {isPlatformBrowser} from '@angular/common';
+import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {NavigationEnd, Router} from '@angular/router';
 import {LoadingService} from 'src/app/core/util/loading.service';
 import {HttpClient} from '@angular/common/http';
@@ -29,7 +29,8 @@ export class AppComponent implements AfterViewInit, OnInit {
     private router: Router,
     private loadingService: LoadingService,
     private httpClient: HttpClient,
-    private meta: Meta
+    private meta: Meta,
+    @Inject(DOCUMENT) private document: Document
   ) {
     meta.addTags([
       { name: 'description', content: 'Shuai Resume' },
@@ -70,7 +71,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     // }
     // CKEDITOR.replace( 'editor' );
     // tslint:disable-next-line:only-arrow-functions
-    const loadingElement = document.getElementById('loading');
+    const loadingElement = this.document.getElementById('loading');
     if (loadingElement) {
       loadingElement.style.display = 'none';
     }
