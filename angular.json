@@ -126,9 +126,9 @@
             "outputPath": "dist/FrontEndV2/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
-            "externalDependencies": [
-              "canvas"
-            ],
+//            "externalDependencies": [
+//              "canvas"
+//            ],
             "inlineStyleLanguage": "scss"
           },
           "configurations": {
@@ -161,7 +161,9 @@
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "routesFile": "routes.txt"
+            "routes": [
+              "/"
+            ]
           },
           "configurations": {
             "production": {

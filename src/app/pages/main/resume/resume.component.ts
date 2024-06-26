@@ -1,7 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {INgxLoadingConfig, ngxLoadingAnimationTypes} from "ngx-loading";
 import {DOCUMENT} from "@angular/common";
-
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
@@ -21,7 +20,17 @@ export class ResumeComponent implements OnInit {
   };
   loading = true;
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    if (typeof window !== 'undefined') {
+      // const pdfViewerModule = await import('ng2-pdf-viewer');
+      // this.PdfViewer = pdfViewerModule.PdfViewerComponent;
+      //
+      // const moduleFactory = await this.compiler.compileModuleAsync(pdfViewerModule.Ng2PdfViewerModule);
+      // const moduleRef = moduleFactory.create(this.injector);
+      //
+      // const componentFactory = moduleRef.componentFactoryResolver.resolveComponentFactory(this.PdfViewer);
+      // this.viewContainerRef.createComponent(componentFactory);
+    }
   }
 
   constructor(@Inject(DOCUMENT) private document: Document) {

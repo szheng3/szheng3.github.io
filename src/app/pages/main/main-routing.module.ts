@@ -32,10 +32,10 @@ const routes: Routes = [
       //   path: 'about-us',
       //   component: AboutUsComponent
       // },
-      {
-        path: 'resume',
-        component: ResumeComponent
-      },
+      // {
+      //   path: 'resume',
+      //   component: ResumeComponent
+      // },
       {
         path: 'contact',
         component: ContactComponent

@@ -33,10 +33,7 @@ import {NbChatModule, NbLayoutModule, NbSpinnerModule} from "@nebular/theme";
 import {IloadingComponent} from "./component/iloading/iloading.component";
 import {PortfolioComponent} from "./portfolio/portfolio.component";
 import {PortfolioDetailsComponent} from "~/pages/main/portfolio-details/portfolio-details.component";
-import {PdfViewerModule} from "ng2-pdf-viewer";
-// import {PdfViewerModule} from "ng2-pdf-viewer";
-// @ts-ignore
-// import 'canvas';
+
 @NgModule({
   declarations: [
     BreadcrumblayoutComponent,
@@ -66,7 +63,7 @@ import {PdfViewerModule} from "ng2-pdf-viewer";
     ShareModule,
     MainRoutingModule,
     // MarkdownModule.forChild(),
-    PdfViewerModule,
+    // PdfViewerModule,
     MatButtonModule,
     NgxLoadingModule,
     NbSpinnerModule,
