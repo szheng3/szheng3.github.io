@@ -10,7 +10,8 @@
     "dev:ssr": "ng run FrontEndV2:serve-ssr",
     "serve:ssr": "node dist/FrontEndV2/server/main.js",
     "build:ssr": "ng build && ng run FrontEndV2:server",
-    "prerender": "ng run FrontEndV2:prerender",
+    "generate-routes": "node generate-routes.js",
+    "prerender": "yarn generate-routes && ng run FrontEndV2:prerender",
     "deploy": "aws s3 sync ./dist/FrontEndV2/browser s3://www.sszzz.me",
     "lint": "ng lint"
   },
