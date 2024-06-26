@@ -18,6 +18,7 @@ export class ContactComponent {
   constructor(private httpClient: HttpClient, private emailService: EmailService) {
   }
 
+
   submitForm(form: NgForm) {
     const lazyAction = () =>
       loadingObs(this.emailService.sendEmail(form.value), {

@@ -52,53 +52,75 @@ export interface WrapObsParam {
 //     })
 //   );
 // }
-
-export function handleWrapObsWithStatus(
-  x: WrapObsWithStatus<any>,
-  htmlSelector: string = 'noId',
-  { errorMessage = 'Ops, there is a problem, please try again!', successMessage = 'Success!!' }
-) {
-
-  const selector = $(htmlSelector);
-  switch (x.status) {
-    case ObsStatus.ERROR:
-      // M.toast({ html: errorMessage });
-      selector.buttonState('reset');
-
-      break;
-    case ObsStatus.SUCCESS:
-      // M.toast({ html: successMessage });
-      // @ts-ignore
-      selector.buttonState('reset');
-      break;
-    case ObsStatus.LOADING:
-      selector.buttonState('loading');
-      break;
-    default:
-      selector.buttonState('reset');
-      break;
-  }
-}
-
+//
+// export function handleWrapObsWithStatus(
+//   x: WrapObsWithStatus<any>,
+//   htmlSelector: string = 'noId',
+//   { errorMessage = 'Ops, there is a problem, please try again!', successMessage = 'Success!!' }
+// ) {
+//
+//   const selector = $(htmlSelector);
+//   switch (x.status) {
+//     case ObsStatus.ERROR:
+//       // M.toast({ html: errorMessage });
+//       selector.buttonState('reset');
+//
+//       break;
+//     case ObsStatus.SUCCESS:
+//       // M.toast({ html: successMessage });
+//       // @ts-ignore
+//       selector.buttonState('reset');
+//       break;
+//     case ObsStatus.LOADING:
+//       selector.buttonState('loading');
+//       break;
+//     default:
+//       selector.buttonState('reset');
+//       break;
+//   }
+// }
 export function loadingObs(
   obs: Observable<any>,
   { htmlSelector = 'noId', errorMessage = '', successMessage = '' }
 ): Observable<any> {
-  const selector = $(htmlSelector);
-  selector.buttonState('loading');
+  const selector = document.querySelector(htmlSelector) as HTMLElement;
+
+  if (selector) {
+    setButtonState(selector, 'loading');
+  }
+
   return obs.pipe(
     tap(() => {
       if (successMessage) {
-        // M.toast({ html: successMessage });
+        // You might want to implement a custom toast function here
+        // showToast(successMessage);
       }
-      selector.buttonState('reset');
+      if (selector) {
+        setButtonState(selector, 'reset');
+      }
     }),
     catchError(err => {
       if (errorMessage) {
-        // M.toast({ html: errorMessage });
+        // You might want to implement a custom toast function here
+        // showToast(errorMessage);
       }
-      selector.buttonState('reset');
+      if (selector) {
+        setButtonState(selector, 'reset');
+      }
       throw err;
     })
   );
+}
+
+// Helper function to set button state
+function setButtonState(element: HTMLElement, state: 'loading' | 'reset') {
+  // Implement the logic to change the button state
+  // This will depend on how you want to represent loading and reset states
+  if (state === 'loading') {
+    element.setAttribute('disabled', 'true');
+    element.textContent = 'Loading...';
+  } else {
+    element.removeAttribute('disabled');
+    element.textContent = 'Submit'; // or whatever the default text should be
+  }
 }

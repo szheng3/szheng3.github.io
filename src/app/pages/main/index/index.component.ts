@@ -1,7 +1,8 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {PortfolioService} from "~/core/api/portfolio.service";
 import {delay, tap} from "rxjs/operators";
 import {LoadingService} from "~/core/util/loading.service";
+import {isPlatformBrowser} from "@angular/common";
 
 
 @Component({
@@ -11,9 +12,13 @@ import {LoadingService} from "~/core/util/loading.service";
 })
 export class IndexComponent implements OnInit, AfterViewInit {
   isLoading = this.loadingService.isLoadingState();
+  isBrowser: boolean;
 
-  constructor(private portfolioService: PortfolioService, public loadingService: LoadingService) {
+  constructor(private portfolioService: PortfolioService, public loadingService: LoadingService,@Inject(PLATFORM_ID) platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+
   }
+
 
 
   ngOnInit() {

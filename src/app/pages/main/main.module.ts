@@ -20,8 +20,8 @@ import {MyServiceComponent} from './component/my-service/my-service.component';
 // import { PolicyComponent } from './policy/policy.component';
 import {BreadcrumblayoutComponent} from './layout/breadcrumblayout/breadcrumblayout.component';
 // import { LoginComponent } from './login/login.component';
-import {PdfViewerModule} from 'ng2-pdf-viewer';
-import {ResumeModalComponent} from './component/resume-modal/resume-modal.component';
+// import {PdfViewerModule} from 'ng2-pdf-viewer';
+// import {ResumeModalComponent} from './component/resume-modal/resume-modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 // import { ResumeComponent } from './resume/resume.component';
@@ -55,7 +55,7 @@ import {PortfolioDetailsComponent} from "~/pages/main/portfolio-details/portfoli
     PortfoliosComponent,
     // PolicyComponent,
     // LoginComponent,
-    ResumeModalComponent,
+    // ResumeModalComponent,
     ResumeComponent
   ],
   imports: [
@@ -63,13 +63,13 @@ import {PortfolioDetailsComponent} from "~/pages/main/portfolio-details/portfoli
     ShareModule,
     MainRoutingModule,
     // MarkdownModule.forChild(),
-    PdfViewerModule,
+    // PdfViewerModule,
     MatButtonModule,
     NgxLoadingModule,
     NbSpinnerModule,
     NbChatModule,
     NbLayoutModule
   ],
-  bootstrap: [ResumeModalComponent]
+  // bootstrap: [ResumeModalComponent]
 })
 export class MainModule {}

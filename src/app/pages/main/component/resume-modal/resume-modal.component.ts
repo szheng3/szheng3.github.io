@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {isPlatformBrowser} from "@angular/common";
 
 @Component({
   selector: 'app-resume-modal',
@@ -6,7 +7,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./resume-modal.component.scss']
 })
 export class ResumeModalComponent implements OnInit {
-  constructor() {}
+  isBrowser=isPlatformBrowser(this.platformId);
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngOnInit() {}
 }
