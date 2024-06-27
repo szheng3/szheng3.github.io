@@ -1,6 +1,7 @@
 # Resume
 
 This project is a modern, responsive resume/portfolio website built with Angular. It showcases your professional experience, skills, and projects in an interactive and visually appealing manner.
+It used Asp.Net Core as a backend, with domain https://apiv1.sszzz.me/.
 
 ## Features
 
