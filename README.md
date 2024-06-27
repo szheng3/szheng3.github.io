@@ -1,27 +1,65 @@
-# FrontEndV2
+# Resume Angular Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
+This project is a modern, responsive resume/portfolio website built with Angular. It showcases your professional experience, skills, and projects in an interactive and visually appealing manner.
+
+## Features
+
+- Single Page Application (SPA) architecture
+- Server-Side Rendering (SSR) for improved SEO and initial load performance
+- Responsive design using Angular Material and Nebular
+- Lazy-loaded images for faster page loads
+- PDF viewer integration
+- JSON-LD support for enhanced SEO
+- Moment.js integration for date handling
+- Cookie management with ngx-cookie-service
+- Loading indicators with ngx-loading
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+- Node.js (v14.15.0 or later)
+- npm (comes with Node.js)
+- Angular CLI (v15.2.1)
+
+## Installation
+
+1. Clone the repository:
+2. Install dependencies:
+   ```bash
+   yarn
+   ```
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+For a production build, use:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Server-Side Rendering (SSR)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+To build and serve the application with SSR:
 
-## Further help
+1. Build the SSR version:
+    ```bash
+    yarn build:ssr
+    ```
+2. Serve the SSR version:
+    ```bash
+    yarn dev:ssr
+    ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Prerendering
+
+To prerender the application:
+
+1. For production prerendering:
+    ```bash 
+   yarn prerender:prod
+    ```
