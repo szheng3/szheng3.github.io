@@ -47,12 +47,6 @@
               "src/assets/js/off-canvas.js",
               "src/assets/js/misc.js",
               "src/assets/js/main.js"
-//              "node_modules/canvas/build/Release/canvas.node"
-//              {
-//                "input": "node_modules/canvas/build/Release/canvas.node",
-//                "bundleName": "canvas",
-//                "inject": false
-//              }
             ]
           },
           "configurations": {
@@ -69,7 +63,13 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             },
             "development": {
               "buildOptimizer": false,
@@ -126,9 +126,9 @@
             "outputPath": "dist/FrontEndV2/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
-//            "externalDependencies": [
-//              "canvas"
-//            ],
+            //            "externalDependencies": [
+            //              "canvas"
+            //            ],
             "inlineStyleLanguage": "scss"
           },
           "configurations": {
@@ -161,9 +161,7 @@
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "routes": [
-              "/"
-            ]
+            "routesFile": "routes.txt"
           },
           "configurations": {
             "production": {

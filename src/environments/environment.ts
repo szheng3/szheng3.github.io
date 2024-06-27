@@ -5,6 +5,8 @@
 export const environment = {
   production: true,
   domain: 'https://localhost:44360/api',
+  // domain: 'https://apiv1.sszzz.me/api'
+
 };
 // export const environment = {
 //   production: false,
