@@ -28,10 +28,10 @@ jobs:
           node-version: "18.x"
 
       - name: Install Dependencies
-        run: npm install
+        run: yarn
 
       - name: Build Project
-        run: npm run prerender:prod
+        run: yarn prerender:prod
 
 
       - name: Upload Artifact
