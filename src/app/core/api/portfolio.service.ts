@@ -45,7 +45,7 @@ export class PortfolioService {
 
   constructor(private http: HttpClient) {}
 
-  getPortfolios(param: IPortfolioParam) {
+  getPortfolios(param: { MaxResultCount: number; IncludeDetails: boolean; sorting: string; SkipCount: number;Filter?: IPortfolio}) {
     return this.http.get<IPortfolios>('/app/portfolio', {params: convertToHttpParams(param) as HttpParams})
       .pipe(
         tap((value: IPortfolios) => this._portfolios.next(value))

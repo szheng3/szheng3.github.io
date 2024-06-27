@@ -14,16 +14,18 @@ export class IndexComponent implements OnInit, AfterViewInit {
   isLoading = this.loadingService.isLoadingState();
   isBrowser: boolean;
 
-  constructor(private portfolioService: PortfolioService, public loadingService: LoadingService,@Inject(PLATFORM_ID) platformId: Object) {
+  constructor(private portfolioService: PortfolioService, public loadingService: LoadingService, @Inject(PLATFORM_ID) platformId: Object) {
     this.isBrowser = isPlatformBrowser(platformId);
 
   }
 
 
-
   ngOnInit() {
 
-    this.portfolioService.getPortfolios({IncludeDetails:true,Filter:{isHot:true},SkipCount: 0, MaxResultCount: 6}).pipe(
+    this.portfolioService.getPortfolios({
+      sorting: "creationTime DESC",
+      IncludeDetails: true, Filter: {isHot: true}, SkipCount: 0, MaxResultCount: 6,
+    }).pipe(
       delay(1),
       tap(x => gallery()
       )).subscribe();

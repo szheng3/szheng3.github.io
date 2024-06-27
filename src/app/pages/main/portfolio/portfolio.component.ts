@@ -18,7 +18,7 @@ export class PortfolioComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.portfolioService.getPortfolios({SkipCount: this.current, MaxResultCount: this.size,IncludeDetails:true}).pipe(
+    this.portfolioService.getPortfolios({SkipCount: this.current, MaxResultCount: this.size,IncludeDetails:true,sorting: "creationTime DESC"}).pipe(
       delay(1),
       tap(x => gallery())).subscribe();
 
@@ -27,7 +27,7 @@ export class PortfolioComponent implements OnInit {
 
   viewMore() {
     this.size = this.size + 6;
-    this.portfolioService.getPortfolios({SkipCount: this.current, MaxResultCount: this.size,IncludeDetails:true}).pipe(
+    this.portfolioService.getPortfolios({SkipCount: this.current, MaxResultCount: this.size, IncludeDetails: true,sorting: "creationTime DESC"}).pipe(
       tap(x => gallery())).subscribe();
 
   }
