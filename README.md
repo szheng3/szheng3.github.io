@@ -1,4 +1,4 @@
-# Resume Angular Project
+# Resume
 
 This project is a modern, responsive resume/portfolio website built with Angular. It showcases your professional experience, skills, and projects in an interactive and visually appealing manner.
 
