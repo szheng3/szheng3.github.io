@@ -32,10 +32,10 @@ const routes: Routes = [
       //   path: 'about-us',
       //   component: AboutUsComponent
       // },
-      // {
-      //   path: 'resume',
-      //   component: ResumeComponent
-      // },
+      {
+        path: 'resume',
+        loadComponent: () => import('./resume/resume.component').then(m => m.ResumeComponent)
+      },
       {
         path: 'contact',
         component: ContactComponent

@@ -126,9 +126,9 @@
             "outputPath": "dist/FrontEndV2/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
-            //            "externalDependencies": [
-            //              "canvas"
-            //            ],
+            "externalDependencies": [
+              "canvas"
+            ],
             "inlineStyleLanguage": "scss"
           },
           "configurations": {
@@ -139,7 +139,8 @@
               "optimization": false,
               "sourceMap": true,
               "extractLicenses": false,
-              "vendorChunk": true
+              "vendorChunk": true,
+              "buildOptimizer": false
             }
           },
           "defaultConfiguration": "production"

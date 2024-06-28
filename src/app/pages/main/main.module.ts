@@ -56,7 +56,6 @@ import {PortfolioDetailsComponent} from "~/pages/main/portfolio-details/portfoli
     // PolicyComponent,
     // LoginComponent,
     // ResumeModalComponent,
-    ResumeComponent
   ],
   imports: [
     MatDialogModule,

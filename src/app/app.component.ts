@@ -25,7 +25,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   };
 
   constructor(
-    @Inject(PLATFORM_ID) platformId:Object,
+    @Inject(PLATFORM_ID) platformId:object,
     private router: Router,
     private loadingService: LoadingService,
     private httpClient: HttpClient,

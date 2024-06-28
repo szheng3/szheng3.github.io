@@ -4,6 +4,7 @@ import {INgxLoadingConfig, ngxLoadingAnimationTypes} from 'ngx-loading';
 @Component({
   selector: 'app-iloading',
   templateUrl: './iloading.component.html',
+  standalone: true,
   styleUrls: ['./iloading.component.css']
 })
 export class IloadingComponent implements OnInit {

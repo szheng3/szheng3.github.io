@@ -1,38 +1,38 @@
 <div class="breadcrumb-area bg-grey m-nav">
-  <div class="container">
-    <div class="cr-breadcrumb">
-      <h2>{{ 'resume' | uppercase }}</h2>
-      <ul>
-        <li><a href="index.html" [routerLink]="['/']">Home</a></li>
-        <li>{{ 'resume' | titlecase }}</li>
-      </ul>
+    <div class="container">
+        <div class="cr-breadcrumb">
+            <h2>{{ 'resume' | uppercase }}</h2>
+            <ul>
+                <li><a href="index.html" [routerLink]="['/']">Home</a></li>
+                <li>{{ 'resume' | titlecase }}</li>
+            </ul>
+        </div>
     </div>
-  </div>
 </div>
 <main class="page-content">
-  <!-- Portfolios Ara -->
-  <div class="cr-section portfolios-area bg-white">
-    <div class="container">
+    <!-- Portfolios Ara -->
+    <div class="cr-section portfolios-area bg-white">
+        <div class="container">
 
-      <div class="row">
-        <div class="col-12 text-center mt-5">
-          <div class="service">
-<!--            <app-iloading [isLoading]="loading">-->
-<!--              <pdf-viewer-->
-<!--                [src]="'/assets/pdf/resume.pdf'"-->
+            <div class="row">
+                <div class="col-12 text-center mt-5">
+                    <div class="service">
+                        <app-iloading [isLoading]="loading">
+                            <pdf-viewer
+                                    [src]="'/assets/pdf/resume.pdf'"
 
-<!--                [render-text]="true"-->
-<!--                [ngStyle]="{ 'display': 'block', 'min-height': '70vh', 'height.px': pdfHeight }"-->
-<!--                [fit-to-page]="true"-->
-<!--                [show-all]="true"-->
-<!--                (page-rendered)="pageRendered()"-->
+                                    [render-text]="true"
+                                    [ngStyle]="{ 'display': 'block', 'min-height': '70vh', 'height.px': pdfHeight }"
+                                    [fit-to-page]="true"
+                                    [show-all]="true"
+                                    (page-rendered)="pageRendered()"
 
-<!--              ></pdf-viewer>-->
-<!--            </app-iloading>-->
+                            ></pdf-viewer>
+                        </app-iloading>
 
-          </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </main>
