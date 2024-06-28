@@ -47,6 +47,8 @@ jobs:
       - name: Build Project
         run: yarn prerender:prod
 
+      - name: 404
+        run: cp ./dist/FrontEndV2/browser/index.html ./dist/FrontEndV2/browser/404.html
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v2
