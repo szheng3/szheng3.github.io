@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ResumeComponent} from "./resume/resume.component";
 import {MainComponent} from "./main.component";
 import {IndexComponent} from "./index/index.component";
 import {PortfolioComponent} from "./portfolio/portfolio.component";
@@ -32,10 +31,11 @@ const routes: Routes = [
       //   path: 'about-us',
       //   component: AboutUsComponent
       // },
-      // {
-      //   path: 'resume',
-      //   component: ResumeComponent
-      // },
+      {
+        path: 'resume',
+        loadComponent: () => import('./resume/resume.component').then(m => m.ResumeComponent)
+        // component: ResumeComponent
+      },
       {
         path: 'contact',
         component: ContactComponent

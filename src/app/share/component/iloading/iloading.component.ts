@@ -1,14 +1,15 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {INgxLoadingConfig, ngxLoadingAnimationTypes} from 'ngx-loading';
 
 @Component({
   selector: 'app-iloading',
   templateUrl: './iloading.component.html',
+  standalone: true,
   styleUrls: ['./iloading.component.css']
 })
-export class IloadingComponent implements OnInit {
+export class IloadingComponent {
   @Input()
-  isLoading: boolean = true;
+  isLoading = true;
 
   loadingConfig: INgxLoadingConfig = {
     animationType: ngxLoadingAnimationTypes.threeBounce,
@@ -22,6 +23,5 @@ export class IloadingComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {
-  }
+
 }

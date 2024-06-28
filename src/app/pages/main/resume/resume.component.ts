@@ -1,9 +1,22 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {INgxLoadingConfig, ngxLoadingAnimationTypes} from "ngx-loading";
-import {DOCUMENT} from "@angular/common";
+import {DOCUMENT, NgStyle, TitleCasePipe, UpperCasePipe} from "@angular/common";
+import {IloadingComponent} from "~/share/component/iloading/iloading.component";
+import {PdfViewerModule} from "ng2-pdf-viewer";
+import {RouterLink} from "@angular/router";
+
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
+  standalone: true,
+  imports: [
+    IloadingComponent,
+    PdfViewerModule,
+    NgStyle,
+    RouterLink,
+    TitleCasePipe,
+    UpperCasePipe
+  ],
   styleUrls: ['./resume.component.scss']
 })
 export class ResumeComponent implements OnInit {
