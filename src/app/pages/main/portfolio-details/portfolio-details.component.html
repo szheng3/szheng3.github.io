@@ -44,7 +44,7 @@
                     <i class="fa fa-calendar"></i><span>Completed on:</span> {{ detail.createDate }}
                   </li>
                   <li><i class="fa fa-coffee"></i><span>Skills:</span> {{ detail.skills | classArray: '\\' }}</li>
-                  <li><i class="fa fa-home"></i><span>Client:</span> {{ detail.client }}</li>
+                  <li><i class="fa fa-home"></i><span>Client/Employer:</span> {{ detail.client }}</li>
                   <li>
                     <i class="fa fa-link"></i><span>Links:</span>
                     <div class="d-inline ml-2" *ngFor="let link of detail.links">
