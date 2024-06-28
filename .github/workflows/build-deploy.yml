@@ -31,17 +31,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22.x"
-      #      - name: Cache dependencies
-      #        uses: actions/cache@v3
-      #        with:
-      #          path: ~/.cache/yarn
-      #          key: ${{ runner.os }}-node-${{ steps.setup-node.outputs.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
-      #          restore-keys: |
-      #            ${{ runner.os }}-node-${{ steps.setup-node.outputs.node-version }}-yarn-
-      #
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-node-${{ steps.setup-node.outputs.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ steps.setup-node.outputs.node-version }}-yarn-
+
 
       - name: Install Dependencies
-        run: yarn
+        run: yarn --frozen-lockfile
 
 
       - name: Build Project
