@@ -27,7 +27,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
       IncludeDetails: true, Filter: {isHot: true}, SkipCount: 0, MaxResultCount: 6,
     }).pipe(
       delay(1),
-      tap(x => gallery()
+      tap(x => this.isBrowser && gallery()
       )).subscribe();
 
   }
