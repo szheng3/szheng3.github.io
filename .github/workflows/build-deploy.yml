@@ -30,14 +30,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
+          node-version: "22.x"
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
           path: ~/.cache/yarn
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-node-${{ steps.setup-node.outputs.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-node-${{ steps.setup-node.outputs.node-version }}-yarn-
 
 
       - name: Install Dependencies
