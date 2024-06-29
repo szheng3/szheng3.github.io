@@ -61,7 +61,7 @@
               <div class="portfolio-details-info">
                 <h3 class="small-title-fullwidth"><span>PROJECT INFO</span></h3>
                 <h5 class="portfolio-title">NAME: {{ detail.title | uppercase }}</h5>
-                <div [innerHTML]="detail.content"></div>
+                <div *ngIf="detail.contentType==='HTML'" [innerHTML]="detail.content"></div>
               </div>
             </div>
           </div>

@@ -1,11 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {getUrlParam} from 'src/app/share/util/APIUtil';
 
-import { IPortfolio, IPortfolios} from 'src/app/share/response/portfolio';
-import {CreatePortfolioRequest} from 'src/app/share/request/portfolio';
+import {IPortfolio, IPortfolios} from 'src/app/share/response/portfolio';
 import {map, tap} from "rxjs/operators";
-import {BehaviorSubject, Observable, Subject} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {IPortfolioDetails} from "~/pages/main/portfolio-details/portfolio-details.component";
 import moment from "moment";
 import {convertToHttpParams} from "~/core/util/convert";
@@ -43,9 +41,16 @@ export class PortfolioService {
   portfolios$: Observable<IPortfolios> = this._portfolios.asObservable();
   portfolio$: Observable<IPortfolio> = this._portfolio.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
-  getPortfolios(param: { MaxResultCount: number; IncludeDetails: boolean; sorting: string; SkipCount: number;Filter?: IPortfolio}) {
+  getPortfolios(param: {
+    MaxResultCount: number;
+    IncludeDetails: boolean;
+    sorting: string;
+    SkipCount: number;
+    Filter?: IPortfolio
+  }) {
     return this.http.get<IPortfolios>('/app/portfolio', {params: convertToHttpParams(param) as HttpParams})
       .pipe(
         tap((value: IPortfolios) => this._portfolios.next(value))
@@ -76,7 +81,8 @@ export class PortfolioService {
         skills: portfolio.skills?.map(skill => skill.name),
         content: portfolio.content,
         title: portfolio.title,
-        links: portfolio.portfolioLinks
+        links: portfolio.portfolioLinks,
+        contentType: portfolio.contentType
       };
     }));
   }

@@ -13,6 +13,7 @@ export interface IPortfolioDetails {
   client?: string;
   title?: string;
   content?: string;
+  contentType?: string;
   links?: PortfolioLink[];
 }
 
