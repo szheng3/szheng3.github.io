@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {isPlatformBrowser} from '@angular/common';
 
-declare var mainJs: any;
+declare let mainJs: any;
 
 @Component({
   selector: 'app-main',

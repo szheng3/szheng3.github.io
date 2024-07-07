@@ -6,16 +6,9 @@ import {PortfolioComponent} from "./portfolio/portfolio.component";
 import {ServicesComponent} from "./services/services.component";
 import {ContactComponent} from "./contact/contact.component";
 import {PortfolioDetailsComponent} from "~/pages/main/portfolio-details/portfolio-details.component";
-// import { ContactComponent } from 'src/app/pages/main/contact/contact.component';
-// import { BlogComponent } from 'src/app/pages/main/blog/blog.component';
-// import { AboutUsComponent } from 'src/app/pages/main/about-us/about-us.component';
-// import { ServicesComponent } from 'src/app/pages/main/services/services.component';
-// import { PortfolioComponent } from 'src/app/pages/main/portfolio/portfolio.component';
-// import { BlogDetailsComponent } from 'src/app/pages/main/blog-details/blog-details.component';
-// import { PortfolioDetailsComponent } from 'src/app/pages/main/portfolio-details/portfolio-details.component';
-// import { PolicyComponent } from 'src/app/pages/main/policy/policy.component';
-// import { LoginComponent } from 'src/app/pages/main/login/login.component';
-// import {ResumeComponent} from "./resume/resume.component";
+import {BlogComponent} from "~/pages/main/blog/blog.component";
+import {BlogDetailsComponent} from "~/pages/main/blog-details/blog-details.component";
+import {PolicyComponent} from "~/pages/main/policy/policy.component";
 
 const routes: Routes = [
   {
@@ -40,14 +33,14 @@ const routes: Routes = [
         path: 'contact',
         component: ContactComponent
       },
-      // {
-      //   path: 'blog',
-      //   component: BlogComponent
-      // },
-      // {
-      //   path: 'blog/:id',
-      //   component: BlogDetailsComponent
-      // },
+      {
+        path: 'blog',
+        component: BlogComponent
+      },
+      {
+        path: 'blog/:id',
+        component: BlogDetailsComponent
+      },
       {
         path: 'services',
         component: ServicesComponent
@@ -61,10 +54,10 @@ const routes: Routes = [
         path: 'portfolio/:id',
         component: PortfolioDetailsComponent
       },
-      // {
-      //   path: 'policy',
-      //   component: PolicyComponent
-      // }
+      {
+        path: 'policy',
+        component: PolicyComponent
+      }
     ]
   }
 ];
