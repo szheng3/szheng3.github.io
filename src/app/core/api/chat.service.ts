@@ -16,7 +16,7 @@ export class ChatService {
       return of([]);
     }
     return this.http
-      .post<any[]>("/app/open-ai/chat", {message_history: [{"role": "user", "content": term}]})
+      .post<any[]>("/api/app/open-ai/chat", {message_history: [{"role": "user", "content": term}]})
       .pipe(catchError(this.handleError<any[]>('chat', [])));
   }
 

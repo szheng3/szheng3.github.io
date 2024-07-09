@@ -20,6 +20,10 @@ import {CookieService} from "ngx-cookie-service";
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     NbToastrModule.forRoot(),
     // NgxsStoreModule,
+    // CoreModule.forRoot({
+    //   environment,
+    //   registerLocaleFn: registerLocale()
+    // }),
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,

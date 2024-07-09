@@ -51,7 +51,7 @@ export class PortfolioService {
     SkipCount: number;
     Filter?: IPortfolio
   }) {
-    return this.http.get<IPortfolios>('/app/portfolio', {params: convertToHttpParams(param) as HttpParams})
+    return this.http.get<IPortfolios>('/api/app/portfolio', {params: convertToHttpParams(param) as HttpParams})
       .pipe(
         tap((value: IPortfolios) => this._portfolios.next(value))
       );
@@ -96,7 +96,7 @@ export class PortfolioService {
   // }
 
   getPortfolio(id: number) {
-    return this.http.get<IPortfolio>('/app/portfolio/' + id).pipe(tap((value: IPortfolio) => this._portfolio.next(value)));
+    return this.http.get<IPortfolio>('/api/app/portfolio/' + id).pipe(tap((value: IPortfolio) => this._portfolio.next(value)));
   }
 
   // deletePortfolio(id: number) {

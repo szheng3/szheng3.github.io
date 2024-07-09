@@ -2,10 +2,33 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
+import {Environment} from "@abp/ng.core";
+
+const baseUrl = window.location.origin;
+
+export const environment: Environment = {
   production: true,
   domain: 'https://localhost:44360/api',
   // domain: 'https://apiv1.sszzz.me/api'
+  apis: {
+    default: {
+      url: 'https://localhost:44360',
+      rootNamespace: 'Davrat.Cloud'
+    }
+  },
+  application: {
+    baseUrl,
+    name: 'Cloud',
+    logoUrl: ''
+  },
+  oAuthConfig: {
+    issuer: 'https://localhost:44360/',
+    redirectUri: baseUrl,
+    clientId: 'Cloud_App',
+    responseType: 'code',
+    scope: 'offline_access Cloud',
+    requireHttps: false
+  },
 
 };
 // export const environment = {
