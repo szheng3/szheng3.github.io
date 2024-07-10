@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BlogDto} from "~/proxy/resumes";
+import {BlogDto, ContextType} from "~/proxy/resumes";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {BlogService} from "~/core/api/blog.service";
 import {DatePipe, NgForOf, NgIf} from "@angular/common";
@@ -40,4 +40,6 @@ export class BlogDetailsComponent implements OnInit {
       );
     }
   }
+
+  protected readonly ContextType = ContextType;
 }

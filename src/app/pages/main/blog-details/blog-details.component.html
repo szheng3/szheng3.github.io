@@ -43,7 +43,8 @@
                 <h3 class="blog-item-title">
                   {{ blog.title }}
                 </h3>
-                <div class="blog-content" [innerHTML]="blog.context"></div>
+                <div *ngIf="blog.contextType===ContextType.Html" class="blog-content" [innerHTML]="blog.context"></div>
+                <!--                <div *ngIf="blog.contextType===ContextType.Markdown" class="blog-content" [innerHTML]="blog.context"></div>-->
               </div>
             </article>
 
