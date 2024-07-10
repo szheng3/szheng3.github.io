@@ -6,6 +6,7 @@ import {RouterLink} from "@angular/router";
 import {AsyncPipe, DatePipe, NgForOf, SlicePipe} from "@angular/common";
 import {ShareModule} from "~/share/share.module";
 import {StripHtmlPipe} from "~/share/pipe/stripHtml.pipe";
+import {TruncatePipe} from "~/share/pipe/truncate.pipe";
 
 @Component({
   selector: 'app-blog',
@@ -18,7 +19,8 @@ import {StripHtmlPipe} from "~/share/pipe/stripHtml.pipe";
     SlicePipe,
     DatePipe,
     ShareModule,
-    StripHtmlPipe
+    StripHtmlPipe,
+    TruncatePipe
   ],
   styleUrls: ['./blog.component.scss']
 })

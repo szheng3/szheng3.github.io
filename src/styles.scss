@@ -9,3 +9,66 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.image-item {
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.08);
+
+  margin-bottom: 30px;
+  border-radius: 4px;
+
+  //position: relative;
+  //width: 100%;
+  //padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  img {
+    filter: grayscale(100%);
+    display: block;
+    position: absolute;
+    //left: 0;
+    //top: 0;
+    //width: 100%;
+    //height: 100%;
+
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  .fanart {
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    filter: grayscale(100%);
+    display: block;
+    position: absolute;
+    //left: 0;
+    //top: 0;
+    //width: 100%;
+    //height: 100%;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+    transition: opacity 1s;
+    opacity: 0;
+  }
+
+  .ng-lazyloaded {
+    opacity: 1;
+  }
+
+}

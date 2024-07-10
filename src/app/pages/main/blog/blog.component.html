@@ -1,161 +1,161 @@
 <!--<app-headerlayout>-->
-  <!-- Breadcrumb Area -->
-  <div class="breadcrumb-area bg-grey m-nav">
-    <div class="container">
-      <div class="cr-breadcrumb">
-        <h2>BLOG</h2>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li>Blog</li>
-        </ul>
-      </div>
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey m-nav">
+  <div class="container">
+    <div class="cr-breadcrumb">
+      <h2>BLOG</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>Blog</li>
+      </ul>
     </div>
   </div>
-  <!--// Breadcrumb Area -->
+</div>
+<!--// Breadcrumb Area -->
 
-  <!-- Page Conttent -->
-  <main class="page-content">
-    <!-- Blog Area -->
-    <div class="cr-section blog-area section-padding-lg">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-9 col-lg-8 col-12">
-            <div class="row">
-              <!-- Single Blog -->
-              <ng-container *ngFor="let blog of blogsByCreationTime$ | async; let i = index">
-                <div class="col-xl-6 col-lg-12 col-md-6 col-12">
-                  <article class="blog-item" [class.sticky]="i === 0">
-                    <header class="blog-item-header">
-                      <a [routerLink]="['/blog', blog.id]">
-                        <img
-                          [defaultImage]="'/assets/images/place-holder.jpg'"
-                          [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/small/') ): '/assets/images/place-holder.jpg'"
-                        />
-                      </a>
-                    </header>
-                    <!--                    <header class="">-->
-                    <!--                      <div class="team-wrapper">-->
-                    <!--                        <div class="team-member">-->
-                    <!--                          <img-->
-                    <!--                            [defaultImage]="'/assets/images/place-holder.jpg'"-->
-                    <!--                            [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/small/') ): '/assets/images/place-holder.jpg'"-->
-                    <!--                          />-->
+<!-- Page Conttent -->
+<main class="page-content">
+  <!-- Blog Area -->
+  <div class="cr-section blog-area section-padding-lg">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 col-lg-8 col-12">
+          <div class="row">
+            <!-- Single Blog -->
+            <ng-container *ngFor="let blog of blogsByCreationTime$ | async; let i = index">
+              <div class="col-xl-6 col-lg-12 col-md-6 col-12">
+                <article class="blog-item" [class.sticky]="i === 0">
+                  <header class="blog-item-header">
+                    <a [routerLink]="['/blog', blog.id]">
+                      <img
+                        [defaultImage]="'/assets/images/place-holder.jpg'"
+                        [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/mid/') ): '/assets/images/place-holder.jpg'"
+                      />
+                    </a>
+                  </header>
+                  <!--                    <header class="">-->
+                  <!--                      <div class="team-wrapper">-->
+                  <!--                        <div class="team-member">-->
+                  <!--                          <img-->
+                  <!--                            [defaultImage]="'/assets/images/place-holder.jpg'"-->
+                  <!--                            [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/small/') ): '/assets/images/place-holder.jpg'"-->
+                  <!--                          />-->
 
-                    <!--                        </div>-->
-                    <!--                      </div>-->
-                    <!--                    </header>-->
-                    <div class="blog-item-body">
-                      <h6 class="blog-item-title">
-                        <a [routerLink]="['/blog', blog.id]">{{ blog.title }}</a>
-                      </h6>
-                      <p>{{ blog.context |stripHtml| slice:0:150 }}...</p>
-                    </div>
-                    <footer class="blog-item-footer">
-                      <ul class="blog-item-meta">
-                        <li><i class="fa fa-calendar-o"></i> {{ blog.creationTime | date:'dd MMM yyyy' }}</li>
-                        <li><i class="fa fa-comments-o"></i> {{ blog.commentsCount }} Comments</li>
-                        <li><i class="fa fa-eye"></i> {{ blog.viewCount }} Views</li>
-                      </ul>
-                    </footer>
-                  </article>
-                </div>
-              </ng-container>
+                  <!--                        </div>-->
+                  <!--                      </div>-->
+                  <!--                    </header>-->
+                  <div class="blog-item-body">
+                    <h6 class="blog-item-title">
+                      <a [routerLink]="['/blog', blog.id]">{{ blog.title ?? ''|truncate:10 }}</a>
+                    </h6>
+                    <p>{{ blog.context |stripHtml | truncate:100 }}</p>
+                  </div>
+                  <footer class="blog-item-footer">
+                    <ul class="blog-item-meta">
+                      <li><i class="fa fa-calendar-o"></i> {{ blog.creationTime | date:'dd MMM yyyy' }}</li>
+                      <li><i class="fa fa-comments-o"></i> {{ blog.commentsCount }} Comments</li>
+                      <li><i class="fa fa-eye"></i> {{ blog.viewCount }} Views</li>
+                    </ul>
+                  </footer>
+                </article>
+              </div>
+            </ng-container>
 
 
-            </div>
-            <div class="cr-pagination mt-4 text-center">
+          </div>
+          <div class="cr-pagination mt-4 text-center">
+            <ul>
+              <li>
+                <a href="blog.html"><i class="fa fa-angle-double-left"></i></a>
+              </li>
+              <li><a href="blog.html">1</a></li>
+              <li><a href="blog.html">2</a></li>
+              <li><a href="blog.html">3</a></li>
+              <li><a href="blog.html">...</a></li>
+              <li><a href="blog.html">10</a></li>
+              <li>
+                <a href="blog.html"><i class="fa fa-angle-double-right"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-12 sticky-sidebar-active">
+          <div class="widgets">
+            <!-- Single Widget -->
+            <section class="single-widget widget-search">
+              <h5 class="widget-title">SEARCH</h5>
+              <form action="#">
+                <input type="text" placeholder="Search..."/>
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+            </section>
+            <!--// Single Widget -->
+
+            <!-- Single Widget -->
+            <section class="single-widget widget-categories">
+              <h5 class="widget-title">CATEGORIES</h5>
               <ul>
-                <li>
-                  <a href="blog.html"><i class="fa fa-angle-double-left"></i></a>
-                </li>
-                <li><a href="blog.html">1</a></li>
-                <li><a href="blog.html">2</a></li>
-                <li><a href="blog.html">3</a></li>
-                <li><a href="blog.html">...</a></li>
-                <li><a href="blog.html">10</a></li>
-                <li>
-                  <a href="blog.html"><i class="fa fa-angle-double-right"></i></a>
+                <li *ngFor="let category of blogCategories$ | async">
+                  <a [routerLink]="['/blog']" [queryParams]="{category: category.id}">{{ category.name }}
+                    <span>14</span></a>
                 </li>
               </ul>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-12 sticky-sidebar-active">
-            <div class="widgets">
-              <!-- Single Widget -->
-              <section class="single-widget widget-search">
-                <h5 class="widget-title">SEARCH</h5>
-                <form action="#">
-                  <input type="text" placeholder="Search..." />
-                  <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-              </section>
-              <!--// Single Widget -->
 
-              <!-- Single Widget -->
-              <section class="single-widget widget-categories">
-                <h5 class="widget-title">CATEGORIES</h5>
-                <ul>
-                  <li *ngFor="let category of blogCategories$ | async">
-                    <a [routerLink]="['/blog']" [queryParams]="{category: category.id}">{{ category.name }}
-                      <span>14</span></a>
-                  </li>
-                </ul>
+            </section>
+            <!--// Single Widget -->
 
-              </section>
-              <!--// Single Widget -->
+            <!-- Single Widget -->
+            <section class="single-widget widget-related-post">
+              <h5 class="widget-title">Hot POST</h5>
+              <ul>
+                <li *ngFor="let blog of hotBlogs$ | async">
+                  <div class="image">
+                    <a [routerLink]="['/blog', blog.id]">
+                      <img
+                        [defaultImage]="'/assets/images/place-holder.jpg'"
+                        [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/small/') ): '/assets/images/place-holder.jpg'"
+                      />
+                    </a>
+                  </div>
 
-              <!-- Single Widget -->
-              <section class="single-widget widget-related-post">
-                <h5 class="widget-title">Hot POST</h5>
-                <ul>
-                  <li *ngFor="let blog of hotBlogs$ | async">
-                    <div class="image">
-                      <a [routerLink]="['/blog', blog.id]">
-                        <img
-                          [defaultImage]="'/assets/images/place-holder.jpg'"
-                          [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/small/') ): '/assets/images/place-holder.jpg'"
-                        />
-                      </a>
-                    </div>
+                  <!--                    <header class="">-->
+                  <!--                      <div class="team-wrapper">-->
+                  <!--                        <div class="team-member">-->
+                  <!--                          <img-->
+                  <!--                            [defaultImage]="'/assets/images/place-holder.jpg'"-->
+                  <!--                            [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/small/') ): '/assets/images/place-holder.jpg'"-->
+                  <!--                          />-->
 
-                    <!--                    <header class="">-->
-                    <!--                      <div class="team-wrapper">-->
-                    <!--                        <div class="team-member">-->
-                    <!--                          <img-->
-                    <!--                            [defaultImage]="'/assets/images/place-holder.jpg'"-->
-                    <!--                            [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/small/') ): '/assets/images/place-holder.jpg'"-->
-                    <!--                          />-->
+                  <!--                        </div>-->
+                  <!--                      </div>-->
+                  <!--                    </header>-->
+                  <div class="content">
+                    <h6>
+                      <a [routerLink]="['/blog', blog.id]">{{ blog.title ?? '' | truncate:10 }}</a>
+                    </h6>
+                    <span>{{ blog.creationTime | date:'MMMM d, yyyy' }}</span>
+                  </div>
+                </li>
+              </ul>
+            </section>
+            <!--// Single Widget -->
 
-                    <!--                        </div>-->
-                    <!--                      </div>-->
-                    <!--                    </header>-->
-                    <div class="content">
-                      <h6>
-                        <a [routerLink]="['/blog', blog.id]">{{ blog.title }}</a>
-                      </h6>
-                      <span>{{ blog.creationTime | date:'MMMM d, yyyy' }}</span>
-                    </div>
-                  </li>
-                </ul>
-              </section>
-              <!--// Single Widget -->
+            <!-- Single Widget -->
+            <section class="single-widget widget-tags">
+              <h5 class="widget-title">TAGS</h5>
+              <ul>
+                <li *ngFor="let tag of blogTags$ | async">
+                  <a [routerLink]="['/blog']" [queryParams]="{tag: tag.id}">{{ tag.name }}</a>
+                </li>
+              </ul>
 
-              <!-- Single Widget -->
-              <section class="single-widget widget-tags">
-                <h5 class="widget-title">TAGS</h5>
-                <ul>
-                  <li *ngFor="let tag of blogTags$ | async">
-                    <a [routerLink]="['/blog']" [queryParams]="{tag: tag.id}">{{ tag.name }}</a>
-                  </li>
-                </ul>
-
-              </section>
-              <!--// Single Widget -->
-            </div>
+            </section>
+            <!--// Single Widget -->
           </div>
         </div>
       </div>
     </div>
-    <!--// Blog Area -->
-  </main>
+  </div>
+  <!--// Blog Area -->
+</main>
 <!--</app-headerlayout>-->

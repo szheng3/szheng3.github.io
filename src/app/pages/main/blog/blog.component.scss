@@ -1,3 +1,8 @@
 .blog-item {
   height: 550px;
 }
+
+.blog-item-header {
+
+  padding-top: 43.76%; /* 4:3 Aspect Ratio (3 / 4 = 0.75) */
+}
