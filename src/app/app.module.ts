@@ -9,6 +9,7 @@ import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "./interceptor/token.interceptor";
 import {CookieService} from "ngx-cookie-service";
+import {MarkdownModule} from "ngx-markdown";
 
 // import {NgxsStoreModule} from "../store/store.module";
 
@@ -24,6 +25,7 @@ import {CookieService} from "ngx-cookie-service";
     //   environment,
     //   registerLocaleFn: registerLocale()
     // }),
+    MarkdownModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,

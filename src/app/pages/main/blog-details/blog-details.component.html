@@ -44,7 +44,8 @@
                   {{ blog.title }}
                 </h3>
                 <div *ngIf="blog.contextType===ContextType.Html" class="blog-content" [innerHTML]="blog.context"></div>
-                <!--                <div *ngIf="blog.contextType===ContextType.Markdown" class="blog-content" [innerHTML]="blog.context"></div>-->
+                <div *ngIf="blog.contextType===ContextType.Markdown" class="blog-content"
+                     [innerHTML]="blog.context??'' | markdown | async"></div>
               </div>
             </article>
 

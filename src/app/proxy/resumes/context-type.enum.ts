@@ -1,8 +1,8 @@
 import {mapEnumToOptions} from '@abp/ng.core';
 
 export enum ContextType {
-  Html = 0,
-  Markdown = 1,
+  Html = 'Html',
+  Markdown = 'Markdown',
 }
 
 export const contextTypeOptions = mapEnumToOptions(ContextType);

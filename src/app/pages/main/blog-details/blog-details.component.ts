@@ -2,8 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {BlogDto, ContextType} from "~/proxy/resumes";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {BlogService} from "~/core/api/blog.service";
-import {DatePipe, NgForOf, NgIf} from "@angular/common";
+import {AsyncPipe, DatePipe, NgForOf, NgIf} from "@angular/common";
 import {LazyLoadImageModule} from "ng-lazyload-image";
+import {MarkdownPipe} from "ngx-markdown";
 
 @Component({
   selector: 'app-blog-details',
@@ -14,13 +15,15 @@ import {LazyLoadImageModule} from "ng-lazyload-image";
     DatePipe,
     NgForOf,
     RouterLink,
-    LazyLoadImageModule
+    LazyLoadImageModule,
+    MarkdownPipe,
+    AsyncPipe
   ],
   styleUrls: ['./blog-details.component.scss']
 })
 export class BlogDetailsComponent implements OnInit {
   blog: BlogDto | undefined;
-
+  markdownContent = '# Hello, Markdown!'
   constructor(
     private route: ActivatedRoute,
     private blogService: BlogService
