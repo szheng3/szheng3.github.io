@@ -1,4 +1,4 @@
-const baseUrl = window.location.origin;
+const baseUrl = "https://szheng3.github.io";
 
 export const environment = {
   production: true,
