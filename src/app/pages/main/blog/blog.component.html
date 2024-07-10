@@ -27,7 +27,10 @@
                   <article class="blog-item" [class.sticky]="i === 0">
                     <header class="blog-item-header">
                       <a [routerLink]="['/blog', blog.id]">
-                        <img [src]="blog.images[0]?.path || '/assets/images/place-holder.jpg'" alt="blog thumb"/>
+                        <img
+                          [defaultImage]="'/assets/images/place-holder.jpg'"
+                          [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/small/') ): '/assets/images/place-holder.jpg'"
+                        />
                       </a>
                     </header>
                     <div class="blog-item-body">
@@ -97,7 +100,10 @@
                   <li *ngFor="let blog of hotBlogs$ | async">
                     <div class="image">
                       <a [routerLink]="['/blog', blog.id]">
-                        <img [src]="blog.images[0]?.path || '/assets/images/place-holder.jpg'" alt="blog thumb"/>
+                        <img
+                          [defaultImage]="'/assets/images/place-holder.jpg'"
+                          [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/small/') ): '/assets/images/place-holder.jpg'"
+                        />
                       </a>
                     </div>
                     <div class="content">
