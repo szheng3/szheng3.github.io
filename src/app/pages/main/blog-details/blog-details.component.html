@@ -24,11 +24,25 @@
           <div class="blog-details" *ngIf="blog">
             <article class="blog-item sticky">
               <div class="blog-item-header">
-                <img
-                  [defaultImage]="'/assets/images/place-holder.jpg'"
-                  [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/small/') ): '/assets/images/place-holder.jpg'"
-                />
+                <div class="portfolio-details-images">
+                  <div class="image-item">
+                    <img
+                      [defaultImage]="'/assets/images/place-holder.jpg'"
+                      [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/small/') ): '/assets/images/place-holder.jpg'"
+                    />
+
+                    <img class="fanart"
+                         [defaultImage]="'/assets/images/place-holder.jpg'"
+                         [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/large/') ): '/assets/images/place-holder.jpg'"
+
+                    />
+
+
+                  </div>
+                </div>
               </div>
+
+
               <div class="blog-item-footer">
                 <ul class="blog-item-meta">
                   <!--                    <li>-->
