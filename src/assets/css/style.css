@@ -4210,6 +4210,8 @@ nav.main-navigation ul li:hover > ul {
   color: #333333;
   text-transform: uppercase;
   font-weight: 500;
+  text-decoration: underline;
+
 }
 
 .blog-item-body .blog-item-title a {

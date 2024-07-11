@@ -45,9 +45,9 @@
                   <!--                      </div>-->
                   <!--                    </header>-->
                   <div class="blog-item-body">
-                    <h6 class="blog-item-title">
+                    <h4 class="blog-item-title">
                       <a [routerLink]="['/blog', blog.id]">{{ blog.title ?? "" | truncate:8 }}</a>
-                    </h6>
+                    </h4>
                     <p>{{ blog.context ?? ''| markdown | async| stripHtml|truncate:70 }}</p>
                   </div>
                   <footer class="blog-item-footer">

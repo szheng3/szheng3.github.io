@@ -50,13 +50,13 @@
                   <!--                      <a href="blog.html">Admin</a>-->
                   <!--                    </li>-->
                   <li><i class="fa fa-calendar-o"></i>{{ blog.creationTime | date:'dd MMM yyyy' }}</li>
-                  <li><i class="fa fa-comments-o"></i><a href="#">{{ blog.viewCount }} Views</a></li>
+                  <li><i class="fa fa-comments-o"></i>{{ blog.viewCount }} Views</li>
                 </ul>
               </div>
               <div class="blog-item-body">
-                <h3 class="blog-item-title">
+                <h2 class="blog-item-title">
                   {{ blog.title }}
-                </h3>
+                </h2>
                 <div *ngIf="blog.contextType===ContextType.Html" class="blog-content" [innerHTML]="blog.context"></div>
                 <div *ngIf="blog.contextType===ContextType.Markdown" class="blog-content"
                      [innerHTML]="blog.context??'' | markdown | async"></div>
