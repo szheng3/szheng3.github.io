@@ -4219,7 +4219,7 @@ nav.main-navigation ul li:hover > ul {
 }
 
 .blog-item-body p {
-  margin-bottom: 0;
+  /*margin-bottom: 0;*/
   line-height: 26px;
 }
 
