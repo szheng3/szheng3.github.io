@@ -13,3 +13,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 h2 {
   font-weight: 400;
 }
+
+img {
+  filter: grayscale(75%);
+  -webkit-filter: grayscale(75%);
+
+}
+
+

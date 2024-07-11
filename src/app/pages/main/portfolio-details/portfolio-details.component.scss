@@ -9,7 +9,6 @@
   padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 
   img {
-    filter: grayscale(100%);
     display: block;
     position: absolute;
     left: 0;
@@ -18,7 +17,6 @@
     height: 100%;
   }
   .fanart {
-    filter: grayscale(100%);
     display: block;
     position: absolute;
     left: 0;
@@ -50,7 +48,6 @@
 
 .img-gray {
   ::ng-deep img {
-    filter: grayscale(100%);
   }
 }
 
