@@ -5,13 +5,16 @@ import {Pipe, PipeTransform} from '@angular/core';
   name: 'truncate'
 })
 export class TruncatePipe implements PipeTransform {
-  transform(value: string, limit: number): string {
+  transform(value: string, wordLimit = 10): string {
     if (!value) return '';
 
-    if (value.length <= limit) {
+    const words = value.split(/\s+/);
+
+    if (words.length <= wordLimit) {
       return value;
     }
 
-    return value.slice(0, limit) + '...';
+    const truncatedWords = words.slice(0, wordLimit);
+    return truncatedWords.join(' ') + '...';
   }
 }
