@@ -60,7 +60,7 @@
             <div class="col-lg-8">
               <div class="portfolio-details-info">
                 <h3 class="small-title-fullwidth"><span>PROJECT INFO</span></h3>
-                <h5 class="portfolio-title">NAME: {{ detail.title | uppercase }}</h5>
+                <h2 class="portfolio-title">NAME: {{ detail.title | uppercase }}</h2>
                 <div *ngIf="detail.contentType==='HTML'" [innerHTML]="detail.content"></div>
               </div>
             </div>
