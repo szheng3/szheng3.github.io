@@ -4168,6 +4168,7 @@ nav.main-navigation ul li:hover > ul {
   transition: all 0.4s ease-in-out 0s;
 }
 
+
 .blog-item-header a::after {
   content: '\f0c1';
   /*content: "<a href='mailto:info@site.com'>info@site.com</a>";*/
