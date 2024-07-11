@@ -12,25 +12,42 @@
     filter: grayscale(100%);
     display: block;
     position: absolute;
-    left: 0;
-    top: 0;
+    //left: 0;
+    //top: 0;
+    //width: 100%;
+    //height: 100%;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .fanart {
     filter: grayscale(100%);
     display: block;
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    //left: 0;
+    //top: 0;
+    //width: 100%;
+    //height: 100%;
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: cover;
     transition: opacity 1s;
     opacity: 0;
+
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .ng-lazyloaded {
