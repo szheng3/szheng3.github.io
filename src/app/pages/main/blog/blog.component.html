@@ -131,7 +131,7 @@
                   <!--                    </header>-->
                   <div class="content">
                     <h6>
-                      <a [routerLink]="['/blog', blog.id]">{{ blog.title }}</a>
+                      <a [routerLink]="['/blog', blog.id]">{{ blog.title ?? "" |truncate:10 }}</a>
                     </h6>
                     <span>{{ blog.creationTime | date:'MMMM d, yyyy' }}</span>
                   </div>
