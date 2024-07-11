@@ -20,8 +20,8 @@
   <div class="cr-section blog-area section-padding-lg">
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <div class="blog-details" *ngIf="blog">
+        <div class="col-12" *ngIf="blog">
+          <div class="blog-details">
             <article class="blog-item sticky">
               <div class="blog-item-header">
                 <div class="portfolio-details-images">
@@ -54,10 +54,12 @@
                 </ul>
               </div>
               <div class="blog-item-body">
+
                 <h2 class="blog-item-title">
                   {{ blog.title }}
                 </h2>
-                <div *ngIf="blog.contextType===ContextType.Html" class="blog-content" [innerHTML]="blog.context"></div>
+                <div *ngIf="blog.contextType===ContextType.Html" class="blog-content"
+                     [innerHTML]="blog.context"></div>
                 <div *ngIf="blog.contextType===ContextType.Markdown" class="blog-content"
                      [innerHTML]="blog.context??'' | markdown | async"></div>
               </div>

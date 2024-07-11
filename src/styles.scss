@@ -20,4 +20,7 @@ img {
 
 }
 
-
+pre[class*="language-"] {
+  max-width: calc(100vw - 2.5rem);
+  //overflow-x: auto;
+}
