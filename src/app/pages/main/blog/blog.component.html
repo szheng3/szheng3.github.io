@@ -24,9 +24,9 @@
             <!-- Single Blog -->
             <ng-container *ngFor="let blog of blogsByCreationTime$ | async; let i = index">
               <div class="col-xl-6 col-lg-12 col-md-6 col-12">
-                <article class="blog-item" [class.sticky]="i === 0">
+                <article class="blog-item" [class.sticky]="i === 0" [routerLink]="['/blog', blog.id]">
                   <header class="blog-item-header">
-                    <a [routerLink]="['/blog', blog.id]">
+                    <a>
                       <img
                         [defaultImage]="'/assets/images/place-holder.jpg'"
                         [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/small/') ): '/assets/images/place-holder.jpg'"
@@ -108,9 +108,9 @@
             <section class="single-widget widget-related-post">
               <h5 class="widget-title">Hot POST</h5>
               <ul>
-                <li *ngFor="let blog of hotBlogs$ | async">
+                <li *ngFor="let blog of hotBlogs$ | async" [routerLink]="['/blog', blog.id]">
                   <div class="image">
-                    <a [routerLink]="['/blog', blog.id]">
+                    <a>
                       <img
                         [defaultImage]="'/assets/images/place-holder.jpg'"
                         [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/small/') ): '/assets/images/place-holder.jpg'"
