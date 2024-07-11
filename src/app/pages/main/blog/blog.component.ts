@@ -7,6 +7,7 @@ import {AsyncPipe, DatePipe, NgForOf, SlicePipe} from "@angular/common";
 import {ShareModule} from "~/share/share.module";
 import {StripHtmlPipe} from "~/share/pipe/stripHtml.pipe";
 import {TruncatePipe} from "~/share/pipe/truncate.pipe";
+import {MarkdownPipe} from "ngx-markdown";
 
 @Component({
   selector: 'app-blog',
@@ -20,7 +21,8 @@ import {TruncatePipe} from "~/share/pipe/truncate.pipe";
     DatePipe,
     ShareModule,
     StripHtmlPipe,
-    TruncatePipe
+    TruncatePipe,
+    MarkdownPipe
   ],
   styleUrls: ['./blog.component.scss']
 })
