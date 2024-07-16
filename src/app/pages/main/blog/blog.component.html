@@ -29,7 +29,7 @@
                     <a>
                       <img
                         [defaultImage]="'/assets/images/place-holder.jpg'"
-                        [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/small/') ): '/assets/images/place-holder.jpg'"
+                        [lazyLoad]="blog?.images?.[0] | imageUrl"
                       />
                     </a>
                   </header>
@@ -113,7 +113,7 @@
                     <a>
                       <img
                         [defaultImage]="'/assets/images/place-holder.jpg'"
-                        [lazyLoad]="blog?.images?.[0]?.path ? ('https://apiv1.sszzz.me' + blog?.images?.[0]?.path?.replace('/image/', '/app/public/small/') ): '/assets/images/place-holder.jpg'"
+                        [lazyLoad]="blog?.images?.[0]|imageUrl"
                       />
                     </a>
                   </div>
@@ -132,9 +132,9 @@
                   <div class="content">
                     <h6>
 
-                      <a [routerLink]="['/blog', blog.id]">{{ blog.title ?? "" |truncate:4 }}</a>
+                      <a [routerLink]="['/blog', blog.id]">{{ blog.title ?? "" |truncate:5 }}</a>
                     </h6>
-                    <span>{{ blog.creationTime | date:'MMMM d, yyyy' }}</span>
+                    <!--                    <span>{{ blog.creationTime | date:'MMMM d, yyyy' }}</span>-->
                   </div>
                 </li>
               </ul>

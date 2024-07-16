@@ -8,6 +8,7 @@ import {ShareModule} from "~/share/share.module";
 import {StripHtmlPipe} from "~/share/pipe/stripHtml.pipe";
 import {TruncatePipe} from "~/share/pipe/truncate.pipe";
 import {MarkdownPipe} from "ngx-markdown";
+import {ImageUrlPipe} from "~/share/pipe/imageurl.pipe";
 
 @Component({
   selector: 'app-blog',
@@ -22,7 +23,8 @@ import {MarkdownPipe} from "ngx-markdown";
     ShareModule,
     StripHtmlPipe,
     TruncatePipe,
-    MarkdownPipe
+    MarkdownPipe,
+    ImageUrlPipe
   ],
   styleUrls: ['./blog.component.scss']
 })
