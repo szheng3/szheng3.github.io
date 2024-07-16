@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {BlogCategoryDto, BlogDto, BlogTagDto} from '~/proxy/resumes';
 import {Observable} from 'rxjs';
 import {BlogService} from "~/core/api/blog.service";
-import {RouterLink} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {AsyncPipe, DatePipe, NgForOf, SlicePipe} from "@angular/common";
 import {ShareModule} from "~/share/share.module";
 import {StripHtmlPipe} from "~/share/pipe/stripHtml.pipe";
@@ -34,7 +34,7 @@ export class BlogComponent implements OnInit {
   blogCategories$: Observable<BlogCategoryDto[] | undefined>;
   blogTags$: Observable<BlogTagDto[] | undefined>;
 
-  constructor(private blogService: BlogService) {
+  constructor(private blogService: BlogService, private route: ActivatedRoute) {
     this.blogsByCreationTime$ = this.blogService.getBlogsByCreationTime$();
     this.hotBlogs$ = this.blogService.getHotBlogs$();
     this.blogCategories$ = this.blogService.getBlogCategories$();
@@ -43,6 +43,17 @@ export class BlogComponent implements OnInit {
 
   ngOnInit() {
     this.loadData();
+
+    this.route.queryParamMap.subscribe(params => {
+      const tag = params.get('tag');
+      const category = params.get('category');
+      // if (tag) {
+      //   console.log('Tag:', tag);
+      // }
+      // if (category){
+      //   console.log(category)
+      // }
+    });
   }
 
   loadData() {
