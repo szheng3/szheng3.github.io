@@ -96,7 +96,7 @@
               <h5 class="widget-title">CATEGORIES</h5>
               <ul>
                 <li *ngFor="let category of blogCategories$ | async">
-                  <a [routerLink]="['/blog']" [queryParams]="{category: category.id}">{{ category.name }}
+                  <a [routerLink]="['/blog']" [queryParams]="{category: category.name}">{{ category.name }}
                     <span>14</span></a>
                 </li>
               </ul>
@@ -146,7 +146,7 @@
               <h5 class="widget-title">TAGS</h5>
               <ul>
                 <li *ngFor="let tag of blogTags$ | async">
-                  <a [routerLink]="['/blog']" [queryParams]="{tag: tag.id}">{{ tag.name }}</a>
+                  <a [routerLink]="['/blog']" [queryParams]="{tag: tag.name}">{{ tag.name }}</a>
                 </li>
               </ul>
 
