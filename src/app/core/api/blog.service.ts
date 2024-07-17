@@ -33,7 +33,9 @@ export class BlogService {
       ["Filter.LastModificationTime"]: input?.filter?.lastModificationTime,
       sorting: input.sorting,
       skipCount: input.skipCount,
-      maxResultCount: input.maxResultCount
+      maxResultCount: input.maxResultCount,
+      categoryNames: input.categoryNames,
+      tagNames: input.tagNames
     };
 
     return this.http.get<PagedResultDto<BlogDto>>('/api/app/blog/by-filter', {params: convertToHttpParams(params) as HttpParams});
