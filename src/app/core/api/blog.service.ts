@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {BlogCategoryDto, BlogDto, BlogTagDto} from "~/proxy/resumes";
+import {BlogCategoryDto, BlogDto, type BlogFilterDto, BlogTagDto} from "~/proxy/resumes";
 import {PagedResultDto} from "@abp/ng.core";
-import {PagedAndFilteredResultRequestDto} from "~/proxy";
 import {convertToHttpParams} from "~/core/util/convert";
 
 @Injectable({
@@ -18,7 +17,7 @@ export class BlogService {
   constructor(private http: HttpClient) {
   }
 
-  getBlogPosts(input: PagedAndFilteredResultRequestDto<BlogDto>): Observable<PagedResultDto<BlogDto>> {
+  getBlogPosts(input: BlogFilterDto): Observable<PagedResultDto<BlogDto>> {
     const params = {
       includeDetails: input?.includeDetails,
       ["Filter.Id"]: input?.filter?.id,
@@ -60,8 +59,9 @@ export class BlogService {
     return this.http.get<BlogDto>(`/api/app/blog/${id}`);
   }
 
-  loadBlogsByCreationTime() {
+  loadBlogsByCreationTime(categoryNames: string[], tagNames: string[]) {
     this.getBlogPosts({
+      categoryNames: categoryNames, tagNames: tagNames,
       filter: {images: [], categories: [], tags: []},
       includeDetails: true,
       sorting: 'creationTime DESC',
@@ -73,6 +73,7 @@ export class BlogService {
 
   loadHotBlogs() {
     this.getBlogPosts({
+      categoryNames: [], tagNames: [],
       sorting: 'viewCount DESC',
       filter: {images: [], categories: [], tags: []},
       includeDetails: true,

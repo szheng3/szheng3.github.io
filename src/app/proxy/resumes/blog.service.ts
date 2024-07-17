@@ -1,8 +1,7 @@
-import type {BlogDto, CreateUpdateBlogDto} from './models';
+import type {BlogDto, BlogFilterDto, CreateUpdateBlogDto} from './models';
 import type {PagedAndSortedResultRequestDto, PagedResultDto} from '@abp/ng.core';
 import {Rest, RestService} from '@abp/ng.core';
 import {Injectable} from '@angular/core';
-import type {PagedAndFilteredResultRequestDto} from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -45,11 +44,14 @@ export class BlogService {
       {apiName: this.apiName, ...config});
 
 
-  getListByFilter = (input: PagedAndFilteredResultRequestDto<BlogDto>, config?: Partial<Rest.Config>) =>
+  getListByFilter = (input: BlogFilterDto, config?: Partial<Rest.Config>) =>
     this.restService.request<any, PagedResultDto<BlogDto>>({
         method: 'GET',
         url: '/api/app/blog/by-filter',
         params: {
+          searchTerm: input.searchTerm,
+          categoryNames: input.categoryNames,
+          tagNames: input.tagNames,
           includeDetails: input.includeDetails,
           ["Filter.Id"]: input.filter.id,
           ["Filter.Title"]: input.filter.title,
@@ -66,14 +68,6 @@ export class BlogService {
           skipCount: input.skipCount,
           maxResultCount: input.maxResultCount
         },
-      },
-      {apiName: this.apiName, ...config});
-
-
-  incrementViewCount = (id: string, config?: Partial<Rest.Config>) =>
-    this.restService.request<any, void>({
-        method: 'POST',
-        url: `/api/app/blog/${id}/increment-view-count`,
       },
       {apiName: this.apiName, ...config});
 

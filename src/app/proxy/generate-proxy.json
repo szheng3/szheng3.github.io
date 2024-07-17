@@ -1456,9 +1456,9 @@
                   "parametersOnMethod": [
                     {
                       "name": "input",
-                      "typeAsString": "Davrat.Cloud.PagedAndFilteredResultRequestDto`1[[Davrat.Cloud.Resumes.BlogDto, Davrat.Cloud.Application.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Davrat.Cloud.Application.Contracts",
-                      "type": "Davrat.Cloud.PagedAndFilteredResultRequestDto<Davrat.Cloud.Resumes.BlogDto>",
-                      "typeSimple": "Davrat.Cloud.PagedAndFilteredResultRequestDto<Davrat.Cloud.Resumes.BlogDto>",
+                      "typeAsString": "Davrat.Cloud.Resumes.BlogFilterDto, Davrat.Cloud.Application.Contracts",
+                      "type": "Davrat.Cloud.Resumes.BlogFilterDto",
+                      "typeSimple": "Davrat.Cloud.Resumes.BlogFilterDto",
                       "isOptional": false,
                       "defaultValue": null
                     }
@@ -1466,23 +1466,6 @@
                   "returnValue": {
                     "type": "Volo.Abp.Application.Dtos.PagedResultDto<Davrat.Cloud.Resumes.BlogDto>",
                     "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Davrat.Cloud.Resumes.BlogDto>"
-                  }
-                },
-                {
-                  "name": "IncrementViewCountAsync",
-                  "parametersOnMethod": [
-                    {
-                      "name": "id",
-                      "typeAsString": "System.Guid, System.Private.CoreLib",
-                      "type": "System.Guid",
-                      "typeSimple": "string",
-                      "isOptional": false,
-                      "defaultValue": null
-                    }
-                  ],
-                  "returnValue": {
-                    "type": "System.Void",
-                    "typeSimple": "System.Void"
                   }
                 },
                 {
@@ -1759,14 +1742,50 @@
               "parametersOnMethod": [
                 {
                   "name": "input",
-                  "typeAsString": "Davrat.Cloud.PagedAndFilteredResultRequestDto`1[[Davrat.Cloud.Resumes.BlogDto, Davrat.Cloud.Application.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Davrat.Cloud.Application.Contracts",
-                  "type": "Davrat.Cloud.PagedAndFilteredResultRequestDto<Davrat.Cloud.Resumes.BlogDto>",
-                  "typeSimple": "Davrat.Cloud.PagedAndFilteredResultRequestDto<Davrat.Cloud.Resumes.BlogDto>",
+                  "typeAsString": "Davrat.Cloud.Resumes.BlogFilterDto, Davrat.Cloud.Application.Contracts",
+                  "type": "Davrat.Cloud.Resumes.BlogFilterDto",
+                  "typeSimple": "Davrat.Cloud.Resumes.BlogFilterDto",
                   "isOptional": false,
                   "defaultValue": null
                 }
               ],
               "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "SearchTerm",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "CategoryNames",
+                  "jsonName": null,
+                  "type": "System.Collections.Generic.List<System.String>",
+                  "typeSimple": "[string]",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "TagNames",
+                  "jsonName": null,
+                  "type": "System.Collections.Generic.List<System.String>",
+                  "typeSimple": "[string]",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
                 {
                   "nameOnMethod": "input",
                   "name": "IncludeDetails",
@@ -1783,8 +1802,8 @@
                   "nameOnMethod": "input",
                   "name": "Filter.Id",
                   "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
+                  "type": "System.Guid?",
+                  "typeSimple": "string?",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -1951,43 +1970,6 @@
               "returnValue": {
                 "type": "Volo.Abp.Application.Dtos.PagedResultDto<Davrat.Cloud.Resumes.BlogDto>",
                 "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Davrat.Cloud.Resumes.BlogDto>"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Davrat.Cloud.Resumes.IBlogAppService"
-            },
-            "IncrementViewCountAsyncById": {
-              "uniqueName": "IncrementViewCountAsyncById",
-              "name": "IncrementViewCountAsync",
-              "httpMethod": "POST",
-              "url": "api/app/blog/{id}/increment-view-count",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "System.Void",
-                "typeSimple": "System.Void"
               },
               "allowAnonymous": null,
               "implementFrom": "Davrat.Cloud.Resumes.IBlogAppService"
@@ -7407,8 +7389,8 @@
         {
           "name": "Id",
           "jsonName": null,
-          "type": "System.Guid",
-          "typeSimple": "string",
+          "type": "System.Guid?",
+          "typeSimple": "string?",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -7538,6 +7520,51 @@
         }
       ]
     },
+    "Davrat.Cloud.Resumes.BlogFilterDto": {
+      "baseType": "Davrat.Cloud.PagedAndFilteredResultRequestDto<Davrat.Cloud.Resumes.BlogDto>",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "SearchTerm",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "CategoryNames",
+          "jsonName": null,
+          "type": "[System.String]",
+          "typeSimple": "[string]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "TagNames",
+          "jsonName": null,
+          "type": "[System.String]",
+          "typeSimple": "[string]",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
     "Davrat.Cloud.Resumes.BlogTagDto": {
       "baseType": "Volo.Abp.Application.Dtos.EntityDto<System.Guid>",
       "isEnum": false,
@@ -7588,8 +7615,8 @@
         "Markdown"
       ],
       "enumValues": [
-        0,
-        1
+        "Html",
+        "Markdown"
       ],
       "genericArguments": null,
       "properties": null

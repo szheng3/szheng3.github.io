@@ -47,17 +47,15 @@ export class BlogComponent implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       const tag = params.get('tag');
       const category = params.get('category');
-      // if (tag) {
-      //   console.log('Tag:', tag);
-      // }
-      // if (category){
-      //   console.log(category)
-      // }
+
+      const tagArray = tag ? [tag] : [];
+      const categoryArray = category ? [category] : [];
+
+      this.blogService.loadBlogsByCreationTime(categoryArray, tagArray);
     });
   }
 
   loadData() {
-    this.blogService.loadBlogsByCreationTime();
     this.blogService.loadHotBlogs();
     this.blogService.loadBlogCategories();
     this.blogService.loadBlogTags();

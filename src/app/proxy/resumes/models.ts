@@ -1,5 +1,6 @@
 import type {EntityDto} from '@abp/ng.core';
 import type {ContextType} from './context-type.enum';
+import type {PagedAndFilteredResultRequestDto} from '../models';
 
 export interface BlogCategoryDto extends EntityDto<string> {
   name?: string;
@@ -17,6 +18,12 @@ export interface BlogDto {
   tags: BlogTagDto[];
   creationTime?: string;
   lastModificationTime?: string;
+}
+
+export interface BlogFilterDto extends PagedAndFilteredResultRequestDto<BlogDto> {
+  searchTerm?: string;
+  categoryNames: string[];
+  tagNames: string[];
 }
 
 export interface BlogTagDto extends EntityDto<string> {
