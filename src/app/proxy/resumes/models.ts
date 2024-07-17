@@ -34,6 +34,10 @@ export interface CatalogueDto extends EntityDto<number> {
   name?: string;
 }
 
+export interface CategoryWithBlogCount extends BlogCategoryDto {
+  blogCount: number;
+}
+
 export interface CreateUpdateBlogCategoryDto {
   name?: string;
 }

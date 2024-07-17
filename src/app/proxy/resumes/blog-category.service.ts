@@ -1,4 +1,4 @@
-import type {BlogCategoryDto, CreateUpdateBlogCategoryDto} from './models';
+import type {BlogCategoryDto, CategoryWithBlogCount, CreateUpdateBlogCategoryDto} from './models';
 import type {PagedAndSortedResultRequestDto, PagedResultDto} from '@abp/ng.core';
 import {Rest, RestService} from '@abp/ng.core';
 import {Injectable} from '@angular/core';
@@ -31,6 +31,14 @@ export class BlogCategoryService {
     this.restService.request<any, BlogCategoryDto>({
         method: 'GET',
         url: `/api/app/blog-category/${id}`,
+      },
+      {apiName: this.apiName, ...config});
+
+
+  getCategoriesWithBlogCounts = (config?: Partial<Rest.Config>) =>
+    this.restService.request<any, CategoryWithBlogCount[]>({
+        method: 'GET',
+        url: '/api/app/blog-category/categories-with-blog-counts',
       },
       {apiName: this.apiName, ...config});
 

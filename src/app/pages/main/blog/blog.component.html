@@ -97,7 +97,7 @@
               <ul>
                 <li *ngFor="let category of blogCategories$ | async">
                   <a [routerLink]="['/blog']" [queryParams]="{category: category.name}">{{ category.name }}
-                    <span>14</span></a>
+                    <span>{{ category.blogCount }}</span></a>
                 </li>
               </ul>
 

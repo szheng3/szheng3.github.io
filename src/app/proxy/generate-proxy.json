@@ -2050,6 +2050,14 @@
               "name": "IBlogCategoryAppService",
               "methods": [
                 {
+                  "name": "GetCategoriesWithBlogCountsAsync",
+                  "parametersOnMethod": [],
+                  "returnValue": {
+                    "type": "System.Collections.Generic.List<Davrat.Cloud.Resumes.CategoryWithBlogCount>",
+                    "typeSimple": "[Davrat.Cloud.Resumes.CategoryWithBlogCount]"
+                  }
+                },
+                {
                   "name": "GetAsync",
                   "parametersOnMethod": [
                     {
@@ -2146,6 +2154,21 @@
             }
           ],
           "actions": {
+            "GetCategoriesWithBlogCountsAsync": {
+              "uniqueName": "GetCategoriesWithBlogCountsAsync",
+              "name": "GetCategoriesWithBlogCountsAsync",
+              "httpMethod": "GET",
+              "url": "api/app/blog-category/categories-with-blog-counts",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<Davrat.Cloud.Resumes.CategoryWithBlogCount>",
+                "typeSimple": "[Davrat.Cloud.Resumes.CategoryWithBlogCount]"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Davrat.Cloud.Resumes.IBlogCategoryAppService"
+            },
             "CreateAsyncByInput": {
               "uniqueName": "CreateAsyncByInput",
               "name": "CreateAsync",
@@ -7598,6 +7621,27 @@
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Davrat.Cloud.Resumes.CategoryWithBlogCount": {
+      "baseType": "Davrat.Cloud.Resumes.BlogCategoryDto",
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "BlogCount",
+          "jsonName": null,
+          "type": "System.Int32",
+          "typeSimple": "number",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,

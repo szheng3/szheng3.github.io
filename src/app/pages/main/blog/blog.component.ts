@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BlogCategoryDto, BlogDto, BlogTagDto} from '~/proxy/resumes';
+import {BlogDto, BlogTagDto, type CategoryWithBlogCount} from '~/proxy/resumes';
 import {Observable} from 'rxjs';
 import {BlogService} from "~/core/api/blog.service";
 import {ActivatedRoute, RouterLink} from "@angular/router";
@@ -31,7 +31,7 @@ import {ImageUrlPipe} from "~/share/pipe/imageurl.pipe";
 export class BlogComponent implements OnInit {
   blogsByCreationTime$: Observable<BlogDto[] | undefined>;
   hotBlogs$: Observable<BlogDto[] | undefined>;
-  blogCategories$: Observable<BlogCategoryDto[] | undefined>;
+  blogCategories$: Observable<CategoryWithBlogCount[] | undefined>;
   blogTags$: Observable<BlogTagDto[] | undefined>;
 
   constructor(private blogService: BlogService, private route: ActivatedRoute) {

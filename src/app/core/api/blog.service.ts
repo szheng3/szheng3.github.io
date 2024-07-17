@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {BlogCategoryDto, BlogDto, type BlogFilterDto, BlogTagDto} from "~/proxy/resumes";
+import {BlogDto, type BlogFilterDto, BlogTagDto, type CategoryWithBlogCount} from "~/proxy/resumes";
 import {PagedResultDto} from "@abp/ng.core";
 import {convertToHttpParams} from "~/core/util/convert";
 
@@ -11,7 +11,7 @@ import {convertToHttpParams} from "~/core/util/convert";
 export class BlogService {
   private blogsByCreationTime = new BehaviorSubject<BlogDto[] | undefined>([]);
   private hotBlogs = new BehaviorSubject<BlogDto[] | undefined>([]);
-  private blogCategories = new BehaviorSubject<BlogCategoryDto[] | undefined>([]);
+  private blogCategories = new BehaviorSubject<CategoryWithBlogCount[] | undefined>([]);
   private blogTags = new BehaviorSubject<BlogTagDto[] | undefined>([]);
 
   constructor(private http: HttpClient) {
@@ -41,12 +41,12 @@ export class BlogService {
     return this.http.get<PagedResultDto<BlogDto>>('/api/app/blog/by-filter', {params: convertToHttpParams(params) as HttpParams});
   }
 
-  getBlogCategory(sorting = 'creationTime DESC', skipCount = 0, maxResultCount = 10): Observable<PagedResultDto<BlogCategoryDto>> {
+  getBlogCategory(sorting = 'creationTime DESC', skipCount = 0, maxResultCount = 10): Observable<CategoryWithBlogCount[]> {
     const params = new HttpParams()
       // .set('Sorting', sorting)
       .set('SkipCount', skipCount.toString())
       .set('MaxResultCount', maxResultCount.toString());
-    return this.http.get<PagedResultDto<BlogCategoryDto>>('/api/app/blog-category', {params});
+    return this.http.get<CategoryWithBlogCount[]>('/api/app/blog-category/categories-with-blog-counts', {params});
   }
 
   getBlogTag(sorting = '', skipCount = 0, maxResultCount = 10): Observable<PagedResultDto<BlogTagDto>> {
@@ -87,7 +87,7 @@ export class BlogService {
 
   loadBlogCategories() {
     this.getBlogCategory().subscribe(
-      result => this.blogCategories.next(result.items)
+      result => this.blogCategories.next(result)
     );
   }
 
