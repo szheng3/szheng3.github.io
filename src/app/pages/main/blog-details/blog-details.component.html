@@ -70,13 +70,13 @@
                 <h6>Tags:</h6>
                 <ul>
                   <li *ngFor="let tag of blog.tags">
-                    <a [routerLink]="['/blog']" [queryParams]="{tag: tag.id}">{{ tag.name }}</a>
+                    <a [routerLink]="['/blog']" [queryParams]="{tag: tag.name}">{{ tag.name }}</a>
                   </li>
                 </ul>
                 <h6 class="ml-2">Categories:</h6>
                 <ul>
                   <li *ngFor="let categoryDto of blog.categories">
-                    <a [routerLink]="['/blog']" [queryParams]="{category: categoryDto.id}">{{ categoryDto.name }}</a>
+                    <a [routerLink]="['/blog']" [queryParams]="{category: categoryDto.name}">{{ categoryDto.name }}</a>
                   </li>
                 </ul>
               </div>
