@@ -61,13 +61,14 @@ export class BlogService {
     return this.http.get<BlogDto>(`/api/app/blog/${id}`);
   }
 
-  loadBlogsByCreationTime(categoryNames: string[], tagNames: string[]) {
+  loadBlogsByCreationTime(categoryNames: string[], tagNames: string[], skipCount: number, maxResultCount: number) {
     this.getBlogPosts({
       categoryNames: categoryNames, tagNames: tagNames,
       filter: {images: [], categories: [], tags: []},
       includeDetails: true,
       sorting: 'creationTime DESC',
-      maxResultCount: 10
+      maxResultCount: maxResultCount,
+      skipCount: skipCount
     }).subscribe(
       result => this.blogsByCreationTime.next(result.items)
     );

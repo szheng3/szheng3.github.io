@@ -6838,6 +6838,13 @@ ngx-moment@^6.0.2:
   dependencies:
     tslib "^2.3.0"
 
+ngx-pagination@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/ngx-pagination/-/ngx-pagination-6.0.3.tgz#083f77a5c9c3ebf5800fb57a280da71aacc10a18"
+  integrity sha512-lONjTQ7hFPh1SyhwDrRd5ZwM4NMGQ7bNR6vLrs6mrU0Z8Q1zCcWbf/pvyp4DOlGyd9uyZxRy2wUsSZLeIPjbAw==
+  dependencies:
+    tslib "^2.3.0"
+
 nice-napi@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/nice-napi/-/nice-napi-1.0.2.tgz"
