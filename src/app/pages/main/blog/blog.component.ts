@@ -9,7 +9,9 @@ import {StripHtmlPipe} from "~/share/pipe/stripHtml.pipe";
 import {TruncatePipe} from "~/share/pipe/truncate.pipe";
 import {MarkdownPipe} from "ngx-markdown";
 import {ImageUrlPipe} from "~/share/pipe/imageurl.pipe";
-import {NgxPaginationModule} from 'ngx-pagination'; // Add this import
+import {NgxPaginationModule} from 'ngx-pagination';
+import {PagedResultDto} from "@abp/ng.core";
+import {tap} from "rxjs/operators"; // Add this import
 
 @Component({
   selector: 'app-blog',
@@ -31,16 +33,16 @@ import {NgxPaginationModule} from 'ngx-pagination'; // Add this import
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
-  blogsByCreationTime$: Observable<BlogDto[] | undefined>;
+  blogsByCreationTime$: Observable<PagedResultDto<BlogDto>>;
   hotBlogs$: Observable<BlogDto[] | undefined>;
   blogCategories$: Observable<CategoryWithBlogCount[] | undefined>;
   blogTags$: Observable<BlogTagDto[] | undefined>;
-
+  totalItems: number | undefined = 0; // Add this for pagination
   page = 1; // Add this for pagination
   itemsPerPage = 4; // Add this for pagination
 
   constructor(private blogService: BlogService, private route: ActivatedRoute, private router: Router) {
-    this.blogsByCreationTime$ = this.blogService.getBlogsByCreationTime$();
+    this.blogsByCreationTime$ = this.blogService.getBlogsByCreationTime$().pipe(tap(result => this.totalItems = result.totalCount));
     this.hotBlogs$ = this.blogService.getHotBlogs$();
     this.blogCategories$ = this.blogService.getBlogCategories$();
     this.blogTags$ = this.blogService.getBlogTags$();

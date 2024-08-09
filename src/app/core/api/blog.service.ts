@@ -9,7 +9,7 @@ import {convertToHttpParams} from "~/core/util/convert";
   providedIn: 'root'
 })
 export class BlogService {
-  private blogsByCreationTime = new BehaviorSubject<BlogDto[] | undefined>([]);
+  private blogsByCreationTime = new BehaviorSubject<PagedResultDto<BlogDto>>({items: [], totalCount: 0});
   private hotBlogs = new BehaviorSubject<BlogDto[] | undefined>([]);
   private blogCategories = new BehaviorSubject<CategoryWithBlogCount[] | undefined>([]);
   private blogTags = new BehaviorSubject<BlogTagDto[] | undefined>([]);
@@ -70,7 +70,8 @@ export class BlogService {
       maxResultCount: maxResultCount,
       skipCount: skipCount
     }).subscribe(
-      result => this.blogsByCreationTime.next(result.items)
+      result => this.blogsByCreationTime.next(result)
+
     );
   }
 
