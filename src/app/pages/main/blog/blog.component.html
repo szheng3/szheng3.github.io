@@ -27,7 +27,7 @@
               <div class="col-xl-6 col-lg-12 col-md-6 col-12">
                 <article class="blog-item" [routerLink]="['/blog', blog?.id || '']">
 
-                <header class="blog-item-header">
+                  <header class="blog-item-header">
                     <a>
                       <img
                         [defaultImage]="'/assets/images/place-holder.jpg'"
@@ -81,19 +81,18 @@
             </ul>
           </div> -->
           <div class="cr-pagination mt-4 text-center">
-            <!--            <pagination-controls-->
-            <!--              (pageChange)="onPageChange($event)"-->
-            <!--              [responsive]="true"-->
-            <!--              [previousLabel]="'Previous'"-->
-            <!--              [nextLabel]="'Next'"-->
-            <!--              [screenReaderPaginationLabel]="'Pagination'"-->
-            <!--              [screenReaderPageLabel]="'page'"-->
-            <!--              [screenReaderCurrentLabel]="'You\'re on page'"-->
-            <!--            >-->
-            <!--            </pagination-controls>-->
+<!--            <pagination-controls-->
+<!--              (pageChange)="onPageChange($event)"-->
+<!--              [responsive]="true"-->
+<!--              [previousLabel]="'Previous'"-->
+<!--              [nextLabel]="'Next'"-->
+<!--              [screenReaderPaginationLabel]="'Pagination'"-->
+<!--              [screenReaderPageLabel]="'page'"-->
+<!--              [screenReaderCurrentLabel]="'You\'re on page'"-->
+<!--            >-->
+<!--            </pagination-controls>-->
 
-            <pagination-controls [responsive]="true" [previousLabel]="''" [nextLabel]="''"
-                                 (pageChange)="onPageChange($event)" id="server"></pagination-controls>
+            <pagination-controls  [responsive]="true" [previousLabel]="''"  [nextLabel]="''" (pageChange)="onPageChange($event)" id="server"></pagination-controls>
 
             <!-- <pagination-controls
               (pageChange)="onPageChange($event)"
