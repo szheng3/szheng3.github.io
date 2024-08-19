@@ -24,3 +24,7 @@ pre[class*="language-"] {
   max-width: calc(100vw - 2.5rem);
   //overflow-x: auto;
 }
+.ngx-pagination .current {
+  background: #555555 !important;
+
+}
