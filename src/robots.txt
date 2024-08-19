@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.sszzz.me/sitemap.xml
+Sitemap: https://szheng3.github.io/sitemap.xml
+

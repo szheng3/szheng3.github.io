@@ -33,14 +33,14 @@ export class BlogDetailsComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.blogService.getOne(id).subscribe(
-        (blog: BlogDto) => {
+      this.blogService.getOne(id).subscribe({
+        next: (blog: BlogDto) => {
           this.blog = blog;
         },
-        error => {
+        error: (error) => {
           console.error('Error fetching blog post:', error);
         }
-      );
+      });
     }
   }
 
