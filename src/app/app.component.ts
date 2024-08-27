@@ -3,15 +3,14 @@ import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {NavigationEnd, Router} from '@angular/router';
 import {LoadingService} from 'src/app/core/util/loading.service';
 import {HttpClient} from '@angular/common/http';
-import {Meta} from '@angular/platform-browser';
-
+import { Meta, Title } from '@angular/platform-browser';
+import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit, OnInit {
-  title = "Shuai' Resume";
   isBrowser: boolean;
 
   // @Select(EmailState.getState)
@@ -30,6 +29,8 @@ export class AppComponent implements AfterViewInit, OnInit {
     private loadingService: LoadingService,
     private httpClient: HttpClient,
     private meta: Meta,
+    private title: Title,
+
     @Inject(DOCUMENT) private document: Document
   ) {
     meta.addTags([
@@ -54,9 +55,30 @@ export class AppComponent implements AfterViewInit, OnInit {
     });
   }
 
+  private updateMetaTags() {
+    const route = this.router.routerState.snapshot.root;
+    let pageTitle = 'Shuai\'s Resume';
+    let pageDescription = 'Shuai Zheng\'s professional resume and portfolio showcasing software development skills and projects.';
+
+    if (route.firstChild) {
+      pageTitle = route.firstChild.data['title'] || pageTitle;
+      pageDescription = route.firstChild.data['description'] || pageDescription;
+    }
+
+    this.title.setTitle(pageTitle);
+    this.meta.updateTag({ name: 'description', content: pageDescription });
+    this.meta.updateTag({ property: 'og:title', content: pageTitle });
+    this.meta.updateTag({ property: 'og:description', content: pageDescription });
+    this.meta.updateTag({ property: 'og:url', content: `https://www.sszzz.me${this.router.url}` });
+  }
+
   ngOnInit(): void {
     // this.store.dispatch(new CheckHealth(''));
-
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.updateMetaTags();
+    });
   }
 
   ngAfterViewInit(): void {

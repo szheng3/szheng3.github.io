@@ -17,7 +17,9 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: IndexComponent
+        component: IndexComponent,
+        data: { title: 'Shuai Zheng - Home', description: 'Welcome to Shuai Zheng\'s professional portfolio and resume.' }
+
       },
 
       // {
@@ -26,37 +28,51 @@ const routes: Routes = [
       // },
       {
         path: 'resume',
-        loadComponent: () => import('./resume/resume.component').then(m => m.ResumeComponent)
+        loadComponent: () => import('./resume/resume.component').then(m => m.ResumeComponent),
         // component: ResumeComponent
+        data: { title: 'Shuai Zheng - Resume', description: 'View the professional resume of Shuai Zheng.' }
+
       },
       {
         path: 'contact',
-        component: ContactComponent
+        component: ContactComponent,
+        data: { title: 'Shuai Zheng - Contact', description: 'Get in touch with Shuai Zheng for any inquiries or collaboration opportunities.' }
+
       },
       {
         path: 'blog',
-        component: BlogComponent
+        component: BlogComponent,
+        data: { title: 'Shuai Zheng - Blog', description: 'Read the latest articles and insights from Shuai Zheng on software development and technology trends.' }
+
       },
       {
         path: 'blog/:id',
-        component: BlogDetailsComponent
+        component: BlogDetailsComponent,
+        data: { title: 'Shuai Zheng - Blog Details', description: 'Detailed view of the selected blog post by Shuai Zheng.' }
+
       },
       {
         path: 'services',
-        component: ServicesComponent
+        component: ServicesComponent,
+        data: { title: 'Shuai Zheng - Services', description: 'Discover the range of services offered by Shuai Zheng, including web development, mobile development, and cloud solutions.' }
+
+        
       },
       {
         path: 'portfolio',
-        component: PortfolioComponent
+        component: PortfolioComponent,
+        data: { title: 'Shuai Zheng - Portfolio', description: 'Explore Shuai Zheng\'s software development projects and achievements.' }
       },
 
       {
         path: 'portfolio/:id',
-        component: PortfolioDetailsComponent
+        component: PortfolioDetailsComponent,
+        data: { title: 'Shuai Zheng - Portfolio Details', description: 'View details of Shuai Zheng\'s portfolio showcasing software development skills and projects.' }
       },
       {
         path: 'policy',
-        component: PolicyComponent
+        component: PolicyComponent,
+        data: { title: 'Shuai Zheng - Policy', description: 'View Shuai Zheng\'s policy and terms of use.' }
       }
     ]
   }
