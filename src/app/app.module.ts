@@ -10,6 +10,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "./interceptor/token.interceptor";
 import {CookieService} from "ngx-cookie-service";
 import {MarkdownModule} from "ngx-markdown";
+import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 
 // import {NgxsStoreModule} from "../store/store.module";
 
@@ -31,7 +32,9 @@ import {MarkdownModule} from "ngx-markdown";
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
-    NbEvaIconsModule
+    NbEvaIconsModule,
+    NgxGoogleAnalyticsModule.forRoot('G-734506VGHH'),
+    NgxGoogleAnalyticsRouterModule
   ],
   providers: [   {
     provide: HTTP_INTERCEPTORS,
