@@ -87,6 +87,9 @@
             <section class="single-widget widget-categories">
               <h5 class="widget-title">CATEGORIES</h5>
               <ul>
+                <li>
+                  <a [routerLink]="['/blog']">All</a>
+                </li>
                 <li *ngFor="let category of blogCategories$ | async">
                   <a [routerLink]="['/blog']" [queryParams]="{category: category.name}">{{ category.name }}
                     <span>{{ category.blogCount }}</span></a>
@@ -137,11 +140,13 @@
             <section class="single-widget widget-tags">
               <h5 class="widget-title">TAGS</h5>
               <ul>
+                <li>
+                  <a [routerLink]="['/blog']">All</a>
+                </li>
                 <li *ngFor="let tag of blogTags$ | async">
                   <a [routerLink]="['/blog']" [queryParams]="{tag: tag.name}">{{ tag.name }}</a>
                 </li>
               </ul>
-
             </section>
             <!--// Single Widget -->
           </div>
