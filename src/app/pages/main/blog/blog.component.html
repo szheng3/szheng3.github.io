@@ -23,10 +23,22 @@
           <div class="row">
             <!-- Single Blog -->
             <ng-container
-              *ngFor="let blog of (blogsByCreationTime$ | async)?.items || [] | paginate: { id: 'server', itemsPerPage: itemsPerPage, currentPage: page, totalItems: totalItems }">
+              *ngFor="
+                let blog of (blogsByCreationTime$ | async)?.items || []
+                  | paginate
+                    : {
+                        id: 'server',
+                        itemsPerPage: itemsPerPage,
+                        currentPage: page,
+                        totalItems: totalItems
+                      }
+              "
+            >
               <div class="col-xl-6 col-lg-12 col-md-6 col-12">
-                <article class="blog-item" [routerLink]="['/blog', blog?.id || '']">
-
+                <article
+                  class="blog-item"
+                  [routerLink]="['/blog', blog?.id || '']"
+                >
                   <header class="blog-item-header">
                     <a>
                       <img
@@ -48,27 +60,48 @@
                   <!--                    </header>-->
                   <div class="blog-item-body">
                     <h4 class="blog-item-title">
-                      <a [routerLink]="['/blog', blog.id]">{{ blog.title ?? "" | truncate:8 }}</a>
+                      <a [routerLink]="['/blog', blog.id]">{{
+                        blog.title ?? "" | truncate : 8
+                      }}</a>
                     </h4>
-                    <p>{{ blog.context ?? ''| markdown | async| stripHtml|truncate:50 }}</p>
+                    <p>
+                      {{
+                        blog.context ?? ""
+                          | markdown
+                          | async
+                          | stripHtml
+                          | truncate : 50
+                      }}
+                    </p>
                   </div>
                   <footer class="blog-item-footer">
                     <ul class="blog-item-meta">
-                      <li><i class="fa fa-calendar-o"></i> {{ blog.creationTime | date:'dd MMM yyyy' }}</li>
-                      <li><i class="fa fa-comments-o"></i> {{ blog.commentsCount }} Comments</li>
-                      <li><i class="fa fa-eye"></i> {{ blog.viewCount }} Views</li>
+                      <li>
+                        <i class="fa fa-calendar-o"></i>
+                        {{ blog.creationTime | date : "dd MMM yyyy" }}
+                      </li>
+                      <li>
+                        <i class="fa fa-comments-o"></i>
+                        {{ blog.commentsCount }} Comments
+                      </li>
+                      <li>
+                        <i class="fa fa-eye"></i> {{ blog.viewCount }} Views
+                      </li>
                     </ul>
                   </footer>
                 </article>
               </div>
             </ng-container>
-
-
           </div>
-    
+
           <div class="cr-pagination mt-4 text-center">
-            <pagination-controls  [responsive]="true" [previousLabel]="''"  [nextLabel]="''" (pageChange)="onPageChange($event)" id="server"></pagination-controls>
-            
+            <pagination-controls
+              [responsive]="true"
+              [previousLabel]="''"
+              [nextLabel]="''"
+              (pageChange)="onPageChange($event)"
+              id="server"
+            ></pagination-controls>
           </div>
         </div>
         <div class="col-xl-3 col-lg-4 col-12 sticky-sidebar-active">
@@ -77,7 +110,7 @@
             <section class="single-widget widget-search">
               <h5 class="widget-title">SEARCH</h5>
               <form action="#">
-                <input type="text" placeholder="Search..."/>
+                <input type="text" placeholder="Search..." />
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
             </section>
@@ -88,14 +121,24 @@
               <h5 class="widget-title">CATEGORIES</h5>
               <ul>
                 <li>
-                  <a [routerLink]="['/blog']">All</a>
+                  <a
+                    [routerLink]="['/blog']"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    >All</a
+                  >
                 </li>
                 <li *ngFor="let category of blogCategories$ | async">
-                  <a [routerLink]="['/blog']" [queryParams]="{category: category.name}">{{ category.name }}
-                    <span>{{ category.blogCount }}</span></a>
+                  <a
+                    [routerLink]="['/blog']"
+                    [queryParams]="{ category: category.name }"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    >{{ category.name }}
+                    <span>{{ category.blogCount }}</span></a
+                  >
                 </li>
               </ul>
-
             </section>
             <!--// Single Widget -->
 
@@ -103,10 +146,13 @@
             <section class="single-widget widget-related-post">
               <h5 class="widget-title">Hot POST</h5>
               <ul>
-                <li *ngFor="let blog of hotBlogs$ | async" [routerLink]="['/blog', blog.id]">
+                <li
+                  *ngFor="let blog of hotBlogs$ | async"
+                  [routerLink]="['/blog', blog.id]"
+                >
                   <div class="image">
                     <a>
-                      <img
+                      <img®®
                         [defaultImage]="'/assets/images/place-holder.jpg'"
                         [lazyLoad]="blog?.images?.[0]|imageUrl"
                       />
@@ -126,8 +172,9 @@
                   <!--                    </header>-->
                   <div class="content">
                     <h6>
-
-                      <a [routerLink]="['/blog', blog.id]">{{ blog.title ?? "" |truncate:5 }}</a>
+                      <a [routerLink]="['/blog', blog.id]">{{
+                        blog.title ?? "" | truncate : 5
+                      }}</a>
                     </h6>
                     <!--                    <span>{{ blog.creationTime | date:'MMMM d, yyyy' }}</span>-->
                   </div>
@@ -141,10 +188,21 @@
               <h5 class="widget-title">TAGS</h5>
               <ul>
                 <li>
-                  <a [routerLink]="['/blog']">All</a>
+                  <a
+                    [routerLink]="['/blog']"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    >All</a
+                  >
                 </li>
                 <li *ngFor="let tag of blogTags$ | async">
-                  <a [routerLink]="['/blog']" [queryParams]="{tag: tag.name}">{{ tag.name }}</a>
+                  <a
+                    [routerLink]="['/blog']"
+                    [queryParams]="{ tag: tag.name }"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    >{{ tag.name }}</a
+                  >
                 </li>
               </ul>
             </section>
