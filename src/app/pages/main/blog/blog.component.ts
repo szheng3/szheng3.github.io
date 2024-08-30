@@ -17,6 +17,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { PagedResultDto } from '@abp/ng.core';
 import { tap } from 'rxjs/operators'; // Add this import
 import { RouterModule } from '@angular/router';
+import { IloadingComponent } from '~/share/component/iloading/iloading.component';
 
 @Component({
   selector: 'app-blog',
@@ -35,6 +36,7 @@ import { RouterModule } from '@angular/router';
     ImageUrlPipe,
     RouterModule,
     NgxPaginationModule, // Add this to imports
+    IloadingComponent,
   ],
   styleUrls: ['./blog.component.scss'],
 })
@@ -46,6 +48,7 @@ export class BlogComponent implements OnInit {
   totalItems: number | undefined = 0; // Add this for pagination
   page = 1; // Add this for pagination
   itemsPerPage = 4; // Add this for pagination
+  isLoading$: Observable<boolean>;
 
   constructor(
     private blogService: BlogService,
@@ -58,6 +61,7 @@ export class BlogComponent implements OnInit {
     this.hotBlogs$ = this.blogService.getHotBlogs$();
     this.blogCategories$ = this.blogService.getBlogCategories$();
     this.blogTags$ = this.blogService.getBlogTags$();
+    this.isLoading$ = this.blogService.getIsLoading$();
   }
 
   ngOnInit() {
