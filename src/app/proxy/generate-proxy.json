@@ -1788,150 +1788,6 @@
                 },
                 {
                   "nameOnMethod": "input",
-                  "name": "IncludeDetails",
-                  "jsonName": null,
-                  "type": "System.Boolean",
-                  "typeSimple": "boolean",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Filter.Id",
-                  "jsonName": null,
-                  "type": "System.Guid?",
-                  "typeSimple": "string?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Filter.Title",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Filter.Context",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Filter.ContextType",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Filter.ViewCount",
-                  "jsonName": null,
-                  "type": "System.Int32?",
-                  "typeSimple": "number?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Filter.CommentsCount",
-                  "jsonName": null,
-                  "type": "System.Int32?",
-                  "typeSimple": "number?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Filter.Images",
-                  "jsonName": null,
-                  "type": "System.Collections.Generic.List<Davrat.Cloud.Resumes.ImageDto>",
-                  "typeSimple": "[Davrat.Cloud.Resumes.ImageDto]",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Filter.Categories",
-                  "jsonName": null,
-                  "type": "System.Collections.Generic.List<Davrat.Cloud.Resumes.BlogCategoryDto>",
-                  "typeSimple": "[Davrat.Cloud.Resumes.BlogCategoryDto]",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Filter.Tags",
-                  "jsonName": null,
-                  "type": "System.Collections.Generic.List<Davrat.Cloud.Resumes.BlogTagDto>",
-                  "typeSimple": "[Davrat.Cloud.Resumes.BlogTagDto]",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Filter.CreationTime",
-                  "jsonName": null,
-                  "type": "System.DateTime?",
-                  "typeSimple": "string?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Filter.LastModificationTime",
-                  "jsonName": null,
-                  "type": "System.DateTime?",
-                  "typeSimple": "string?",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
                   "name": "Sorting",
                   "jsonName": null,
                   "type": "System.String",
@@ -1973,6 +1829,63 @@
               },
               "allowAnonymous": null,
               "implementFrom": "Davrat.Cloud.Resumes.IBlogAppService"
+            },
+            "SearchAsyncByQueryAndLimit": {
+              "uniqueName": "SearchAsyncByQueryAndLimit",
+              "name": "SearchAsync",
+              "httpMethod": "POST",
+              "url": "api/app/blog/search",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "query",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "typeAsString": "System.Int32, System.Private.CoreLib",
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": true,
+                  "defaultValue": 5
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "query",
+                  "name": "query",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "limit",
+                  "name": "limit",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<Davrat.Cloud.Resumes.BlogDto>",
+                "typeSimple": "[Davrat.Cloud.Resumes.BlogDto]"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Davrat.Cloud.Resumes.BlogAppService"
             },
             "GetListAsyncByInput": {
               "uniqueName": "GetListAsyncByInput",
@@ -2051,7 +1964,16 @@
               "methods": [
                 {
                   "name": "GetCategoriesWithBlogCountsAsync",
-                  "parametersOnMethod": [],
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
+                      "type": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+                      "typeSimple": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
                   "returnValue": {
                     "type": "System.Collections.Generic.List<Davrat.Cloud.Resumes.CategoryWithBlogCount>",
                     "typeSimple": "[Davrat.Cloud.Resumes.CategoryWithBlogCount]"
@@ -2154,14 +2076,60 @@
             }
           ],
           "actions": {
-            "GetCategoriesWithBlogCountsAsync": {
-              "uniqueName": "GetCategoriesWithBlogCountsAsync",
+            "GetCategoriesWithBlogCountsAsyncByInput": {
+              "uniqueName": "GetCategoriesWithBlogCountsAsyncByInput",
               "name": "GetCategoriesWithBlogCountsAsync",
               "httpMethod": "GET",
               "url": "api/app/blog-category/categories-with-blog-counts",
               "supportedVersions": [],
-              "parametersOnMethod": [],
-              "parameters": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
+                  "type": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+                  "typeSimple": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
               "returnValue": {
                 "type": "System.Collections.Generic.List<Davrat.Cloud.Resumes.CategoryWithBlogCount>",
                 "typeSimple": "[Davrat.Cloud.Resumes.CategoryWithBlogCount]"
@@ -3572,6 +3540,74 @@
               },
               "allowAnonymous": false,
               "implementFrom": "Davrat.Cloud.Resumes.IPortfolioAppService"
+            }
+          }
+        },
+        "Davrat.Cloud.Resumes.SearchService": {
+          "controllerName": "Search",
+          "controllerGroupName": "Search",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "Davrat.Cloud.Resumes.SearchService",
+          "interfaces": [],
+          "actions": {
+            "SearchBlogsAsyncByQueryAndLimit": {
+              "uniqueName": "SearchBlogsAsyncByQueryAndLimit",
+              "name": "SearchBlogsAsync",
+              "httpMethod": "POST",
+              "url": "api/app/search/search-blogs",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "query",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "typeAsString": "System.Int32, System.Private.CoreLib",
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": true,
+                  "defaultValue": 5
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "query",
+                  "name": "query",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "limit",
+                  "name": "limit",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<Davrat.Cloud.Resumes.BlogDto>",
+                "typeSimple": "[Davrat.Cloud.Resumes.BlogDto]"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Davrat.Cloud.Resumes.SearchService"
             }
           }
         },
@@ -7544,7 +7580,7 @@
       ]
     },
     "Davrat.Cloud.Resumes.BlogFilterDto": {
-      "baseType": "Davrat.Cloud.PagedAndFilteredResultRequestDto<Davrat.Cloud.Resumes.BlogDto>",
+      "baseType": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
       "isEnum": false,
       "enumNames": null,
       "enumValues": null,

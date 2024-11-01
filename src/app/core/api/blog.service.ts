@@ -1,14 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import {
-  BlogDto,
-  type BlogFilterDto,
-  BlogTagDto,
-  type CategoryWithBlogCount,
-} from '~/proxy/resumes';
-import { PagedResultDto } from '@abp/ng.core';
-import { convertToHttpParams } from '~/core/util/convert';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {BlogDto, type BlogFilterDto, BlogTagDto, type CategoryWithBlogCount,} from '~/proxy/resumes';
+import {PagedResultDto} from '@abp/ng.core';
+import {convertToHttpParams} from '~/core/util/convert';
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +36,7 @@ export class BlogService {
       ['Filter.Tags']: input.filter?.tags,
       ['Filter.CreationTime']: input?.filter?.creationTime,
       ['Filter.LastModificationTime']: input?.filter?.lastModificationTime,
+      searchTerm: input.searchTerm,
       sorting: input.sorting,
       skipCount: input.skipCount,
       maxResultCount: input.maxResultCount,
@@ -90,10 +86,12 @@ export class BlogService {
     categoryNames: string[],
     tagNames: string[],
     skipCount: number,
-    maxResultCount: number
+    maxResultCount: number,
+    searchTerm?: string
   ) {
     this.isLoading.next(true);
     this.getBlogPosts({
+      searchTerm: searchTerm,
       categoryNames: categoryNames,
       tagNames: tagNames,
       filter: { images: [], categories: [], tags: [] },

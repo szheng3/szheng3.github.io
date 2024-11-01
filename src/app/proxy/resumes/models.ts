@@ -1,6 +1,6 @@
 import type {EntityDto} from '@abp/ng.core';
 import type {ContextType} from './context-type.enum';
-import type {PagedAndFilteredResultRequestDto} from '../models';
+import {PagedAndFilteredResultRequestDto} from "~/proxy";
 
 export interface BlogCategoryDto extends EntityDto<string> {
   name?: string;

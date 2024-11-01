@@ -110,8 +110,13 @@
               <!-- Single Widget -->
               <section class="single-widget widget-search">
                 <h5 class="widget-title">SEARCH</h5>
-                <form action="#">
-                  <input type="text" placeholder="Search..." />
+                <form (ngSubmit)="onSearch()">
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    [(ngModel)]="searchTerm"
+                    name="searchTerm"
+                  />
                   <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
               </section>

@@ -52,22 +52,19 @@ export class BlogService {
           searchTerm: input.searchTerm,
           categoryNames: input.categoryNames,
           tagNames: input.tagNames,
-          includeDetails: input.includeDetails,
-          ["Filter.Id"]: input.filter.id,
-          ["Filter.Title"]: input.filter.title,
-          ["Filter.Context"]: input.filter.context,
-          ["Filter.ContextType"]: input.filter.contextType,
-          ["Filter.ViewCount"]: input.filter.viewCount,
-          ["Filter.CommentsCount"]: input.filter.commentsCount,
-          ["Filter.Images"]: input.filter.images,
-          ["Filter.Categories"]: input.filter.categories,
-          ["Filter.Tags"]: input.filter.tags,
-          ["Filter.CreationTime"]: input.filter.creationTime,
-          ["Filter.LastModificationTime"]: input.filter.lastModificationTime,
           sorting: input.sorting,
           skipCount: input.skipCount,
           maxResultCount: input.maxResultCount
         },
+      },
+      {apiName: this.apiName, ...config});
+
+
+  search = (query: string, limit: number = 5, config?: Partial<Rest.Config>) =>
+    this.restService.request<any, BlogDto[]>({
+        method: 'POST',
+        url: '/api/app/blog/search',
+        params: {query, limit},
       },
       {apiName: this.apiName, ...config});
 

@@ -35,10 +35,11 @@ export class BlogCategoryService {
       {apiName: this.apiName, ...config});
 
 
-  getCategoriesWithBlogCounts = (config?: Partial<Rest.Config>) =>
+  getCategoriesWithBlogCounts = (input: PagedAndSortedResultRequestDto, config?: Partial<Rest.Config>) =>
     this.restService.request<any, CategoryWithBlogCount[]>({
         method: 'GET',
         url: '/api/app/blog-category/categories-with-blog-counts',
+        params: {sorting: input.sorting, skipCount: input.skipCount, maxResultCount: input.maxResultCount},
       },
       {apiName: this.apiName, ...config});
 

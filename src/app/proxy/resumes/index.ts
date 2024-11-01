@@ -5,4 +5,5 @@ export * from './category.service';
 export * from './context-type.enum';
 export * from './models';
 export * from './portfolio.service';
+export * from './search.service';
 export * from './skill.service';
