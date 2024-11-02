@@ -4351,6 +4351,7 @@ nav.main-navigation ul li:hover > ul {
 }
 
 .blog-details-bottom {
+  align-items: center;
   border-top: 1px solid #d5d5d5;
   border-bottom: 1px solid #d5d5d5;
   display: -webkit-box;
