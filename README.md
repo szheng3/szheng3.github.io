@@ -1,7 +1,10 @@
+
 # Resume
 
 This project is a modern, responsive resume/portfolio website built with Angular. It showcases your professional experience, skills, and projects in an interactive and visually appealing manner.
 It used Asp.Net Core as a backend.
+
+<a href='https://ko-fi.com/sept' target='_blank'><img height='32' style='border:0px;height:32px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
 
 ## Features
 
