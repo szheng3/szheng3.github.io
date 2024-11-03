@@ -1,4 +1,4 @@
-import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Component} from '@angular/core';
 
 
@@ -29,7 +29,7 @@ export class ChatbotComponent {
   isLoading: boolean = false;
   messages: any[] = [
     {
-      text: 'Please feel free to ask me any questions about Shuai Zheng!',
+      text: 'Please feel free to ask me any questions about Shuai Zheng and his blogs!',
       date: new Date(),
       reply: false,
       user: {
