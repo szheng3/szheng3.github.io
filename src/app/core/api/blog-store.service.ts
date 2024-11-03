@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {BlogDto, type BlogFilterDto, BlogTagDto, type CategoryWithBlogCount,} from '~/proxy/resumes';
+import {BlogDto, BlogFilterDto, BlogTagDto, type CategoryWithBlogCount,} from '~/proxy/resumes';
 import {PagedResultDto} from '@abp/ng.core';
 import {convertToHttpParams} from '~/core/util/convert';
 
 @Injectable({
   providedIn: 'root',
 })
-export class BlogService {
+export class BlogStoreService {
   private blogsByCreationTime = new BehaviorSubject<PagedResultDto<BlogDto>>({
     items: [],
     totalCount: 0,
@@ -20,29 +20,21 @@ export class BlogService {
   private blogTags = new BehaviorSubject<BlogTagDto[] | undefined>([]);
   private isLoading = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getBlogPosts(input: BlogFilterDto): Observable<PagedResultDto<BlogDto>> {
     const params = {
-      includeDetails: input?.includeDetails,
-      ['Filter.Id']: input?.filter?.id,
-      ['Filter.Title']: input?.filter?.title,
-      ['Filter.Context']: input?.filter?.context,
-      ['Filter.ContextType']: input?.filter?.contextType,
-      ['Filter.ViewCount']: input?.filter?.viewCount,
-      ['Filter.CommentsCount']: input?.filter?.commentsCount,
-      ['Filter.Images']: input?.filter?.images,
-      ['Filter.Categories']: input.filter?.categories,
-      ['Filter.Tags']: input.filter?.tags,
-      ['Filter.CreationTime']: input?.filter?.creationTime,
-      ['Filter.LastModificationTime']: input?.filter?.lastModificationTime,
       searchTerm: input.searchTerm,
-      sorting: input.sorting,
-      skipCount: input.skipCount,
-      maxResultCount: input.maxResultCount,
+      searchMode: input.searchMode,
       categoryNames: input.categoryNames,
       tagNames: input.tagNames,
-    };
+      sorting: input.sorting,
+      skipCount: input.skipCount,
+      maxResultCount: input.maxResultCount
+    }
+
+    // this.blogService.getListByFilter(input).subscribe(
 
     return this.http.get<PagedResultDto<BlogDto>>('/api/app/blog/by-filter', {
       params: convertToHttpParams(params) as HttpParams,
@@ -60,7 +52,7 @@ export class BlogService {
       .set('MaxResultCount', maxResultCount.toString());
     return this.http.get<CategoryWithBlogCount[]>(
       '/api/app/blog-category/categories-with-blog-counts',
-      { params }
+      {params}
     );
   }
 
@@ -91,11 +83,10 @@ export class BlogService {
   ) {
     this.isLoading.next(true);
     this.getBlogPosts({
+      searchMode: false,
       searchTerm: searchTerm,
       categoryNames: categoryNames,
       tagNames: tagNames,
-      filter: { images: [], categories: [], tags: [] },
-      includeDetails: true,
       sorting: 'creationTime DESC',
       maxResultCount: maxResultCount,
       skipCount: skipCount,
@@ -113,12 +104,12 @@ export class BlogService {
 
   loadHotBlogs() {
     this.isLoading.next(true);
+
     this.getBlogPosts({
+      searchMode: false,
       categoryNames: [],
       tagNames: [],
       sorting: 'viewCount DESC',
-      filter: { images: [], categories: [], tags: [] },
-      includeDetails: true,
       maxResultCount: 5,
     }).subscribe(
       (result) => {

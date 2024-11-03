@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {BlogDto, BlogTagDto, type CategoryWithBlogCount,} from '~/proxy/resumes';
 import {Observable} from 'rxjs';
-import {BlogService} from '~/core/api/blog.service';
+import {BlogStoreService} from '~/core/api/blog-store.service';
 import {ActivatedRoute, Router, RouterLink, RouterModule} from '@angular/router';
 import {AsyncPipe, DatePipe, NgForOf, SlicePipe} from '@angular/common';
 import {ShareModule} from '~/share/share.module';
@@ -49,7 +49,7 @@ export class BlogComponent implements OnInit {
   searchTerm: string = ''; // Add this property
 
   constructor(
-    private blogService: BlogService,
+    private blogService: BlogStoreService,
     private route: ActivatedRoute,
     private router: Router
   ) {

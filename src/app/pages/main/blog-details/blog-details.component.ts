@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {BlogDto, ContextType} from "~/proxy/resumes";
 import {ActivatedRoute, RouterLink} from "@angular/router";
-import {BlogService} from "~/core/api/blog.service";
-import {AsyncPipe, DatePipe, NgForOf, NgIf} from "@angular/common";
+import {BlogStoreService} from "~/core/api/blog-store.service";
+import {AsyncPipe, DatePipe, Location, NgForOf, NgIf} from "@angular/common";
 import {LazyLoadImageModule} from "ng-lazyload-image";
 import {MarkdownPipe} from "ngx-markdown";
-import { Location } from '@angular/common';
 
 
 @Component({
@@ -29,7 +28,7 @@ export class BlogDetailsComponent implements OnInit {
   url: string='';
   constructor(
     private route: ActivatedRoute,
-    private blogService: BlogService,
+    private blogService: BlogStoreService,
     private location: Location
   ) {
   }
@@ -72,8 +71,6 @@ export class BlogDetailsComponent implements OnInit {
     }
   }
 
-
- 
 
   protected readonly ContextType = ContextType;
 }

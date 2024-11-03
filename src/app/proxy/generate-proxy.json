@@ -1565,80 +1565,6 @@
             }
           ],
           "actions": {
-            "CreateAsyncByInput": {
-              "uniqueName": "CreateAsyncByInput",
-              "name": "CreateAsync",
-              "httpMethod": "POST",
-              "url": "api/app/blog",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "Davrat.Cloud.Resumes.CreateUpdateBlogDto, Davrat.Cloud.Application.Contracts",
-                  "type": "Davrat.Cloud.Resumes.CreateUpdateBlogDto",
-                  "typeSimple": "Davrat.Cloud.Resumes.CreateUpdateBlogDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Davrat.Cloud.Resumes.CreateUpdateBlogDto",
-                  "typeSimple": "Davrat.Cloud.Resumes.CreateUpdateBlogDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Davrat.Cloud.Resumes.BlogDto",
-                "typeSimple": "Davrat.Cloud.Resumes.BlogDto"
-              },
-              "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<Davrat.Cloud.Resumes.BlogDto,Davrat.Cloud.Resumes.CreateUpdateBlogDto>"
-            },
-            "DeleteAsyncById": {
-              "uniqueName": "DeleteAsyncById",
-              "name": "DeleteAsync",
-              "httpMethod": "DELETE",
-              "url": "api/app/blog/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "System.Void",
-                "typeSimple": "System.Void"
-              },
-              "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
-            },
             "GetAsyncById": {
               "uniqueName": "GetAsyncById",
               "name": "GetAsync",
@@ -1676,63 +1602,6 @@
               "allowAnonymous": null,
               "implementFrom": "Volo.Abp.Application.Services.IReadOnlyAppService<Davrat.Cloud.Resumes.BlogDto,Davrat.Cloud.Resumes.BlogDto,System.Guid,Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto>"
             },
-            "UpdateAsyncByIdAndInput": {
-              "uniqueName": "UpdateAsyncByIdAndInput",
-              "name": "UpdateAsync",
-              "httpMethod": "PUT",
-              "url": "api/app/blog/{id}",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "id",
-                  "typeAsString": "System.Guid, System.Private.CoreLib",
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null
-                },
-                {
-                  "name": "input",
-                  "typeAsString": "Davrat.Cloud.Resumes.CreateUpdateBlogDto, Davrat.Cloud.Application.Contracts",
-                  "type": "Davrat.Cloud.Resumes.CreateUpdateBlogDto",
-                  "typeSimple": "Davrat.Cloud.Resumes.CreateUpdateBlogDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "id",
-                  "name": "id",
-                  "jsonName": null,
-                  "type": "System.Guid",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": [],
-                  "bindingSourceId": "Path",
-                  "descriptorName": ""
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Davrat.Cloud.Resumes.CreateUpdateBlogDto",
-                  "typeSimple": "Davrat.Cloud.Resumes.CreateUpdateBlogDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Davrat.Cloud.Resumes.BlogDto",
-                "typeSimple": "Davrat.Cloud.Resumes.BlogDto"
-              },
-              "allowAnonymous": false,
-              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<Davrat.Cloud.Resumes.BlogDto,System.Guid,Davrat.Cloud.Resumes.CreateUpdateBlogDto>"
-            },
             "GetListByFilterAsyncByInput": {
               "uniqueName": "GetListByFilterAsyncByInput",
               "name": "GetListByFilterAsync",
@@ -1756,6 +1625,18 @@
                   "jsonName": null,
                   "type": "System.String",
                   "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SearchMode",
+                  "jsonName": null,
+                  "type": "System.Boolean",
+                  "typeSimple": "boolean",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
@@ -1830,62 +1711,136 @@
               "allowAnonymous": null,
               "implementFrom": "Davrat.Cloud.Resumes.IBlogAppService"
             },
-            "SearchAsyncByQueryAndLimit": {
-              "uniqueName": "SearchAsyncByQueryAndLimit",
-              "name": "SearchAsync",
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
               "httpMethod": "POST",
-              "url": "api/app/blog/search",
+              "url": "api/app/blog",
               "supportedVersions": [],
               "parametersOnMethod": [
                 {
-                  "name": "query",
-                  "typeAsString": "System.String, System.Private.CoreLib",
-                  "type": "System.String",
+                  "name": "input",
+                  "typeAsString": "Davrat.Cloud.Resumes.CreateUpdateBlogDto, Davrat.Cloud.Application.Contracts",
+                  "type": "Davrat.Cloud.Resumes.CreateUpdateBlogDto",
+                  "typeSimple": "Davrat.Cloud.Resumes.CreateUpdateBlogDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Davrat.Cloud.Resumes.CreateUpdateBlogDto",
+                  "typeSimple": "Davrat.Cloud.Resumes.CreateUpdateBlogDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Davrat.Cloud.Resumes.BlogDto",
+                "typeSimple": "Davrat.Cloud.Resumes.BlogDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<Davrat.Cloud.Resumes.BlogDto,Davrat.Cloud.Resumes.CreateUpdateBlogDto>"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/app/blog/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
                   "typeSimple": "string",
                   "isOptional": false,
                   "defaultValue": null
                 },
                 {
-                  "name": "limit",
-                  "typeAsString": "System.Int32, System.Private.CoreLib",
-                  "type": "System.Int32",
-                  "typeSimple": "number",
-                  "isOptional": true,
-                  "defaultValue": 5
+                  "name": "input",
+                  "typeAsString": "Davrat.Cloud.Resumes.CreateUpdateBlogDto, Davrat.Cloud.Application.Contracts",
+                  "type": "Davrat.Cloud.Resumes.CreateUpdateBlogDto",
+                  "typeSimple": "Davrat.Cloud.Resumes.CreateUpdateBlogDto",
+                  "isOptional": false,
+                  "defaultValue": null
                 }
               ],
               "parameters": [
                 {
-                  "nameOnMethod": "query",
-                  "name": "query",
+                  "nameOnMethod": "id",
+                  "name": "id",
                   "jsonName": null,
-                  "type": "System.String",
+                  "type": "System.Guid",
                   "typeSimple": "string",
                   "isOptional": false,
                   "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
                   "descriptorName": ""
                 },
                 {
-                  "nameOnMethod": "limit",
-                  "name": "limit",
+                  "nameOnMethod": "input",
+                  "name": "input",
                   "jsonName": null,
-                  "type": "System.Int32",
-                  "typeSimple": "number",
+                  "type": "Davrat.Cloud.Resumes.CreateUpdateBlogDto",
+                  "typeSimple": "Davrat.Cloud.Resumes.CreateUpdateBlogDto",
                   "isOptional": false,
                   "defaultValue": null,
                   "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
+                  "bindingSourceId": "Body",
                   "descriptorName": ""
                 }
               ],
               "returnValue": {
-                "type": "System.Collections.Generic.List<Davrat.Cloud.Resumes.BlogDto>",
-                "typeSimple": "[Davrat.Cloud.Resumes.BlogDto]"
+                "type": "Davrat.Cloud.Resumes.BlogDto",
+                "typeSimple": "Davrat.Cloud.Resumes.BlogDto"
               },
-              "allowAnonymous": null,
-              "implementFrom": "Davrat.Cloud.Resumes.BlogAppService"
+              "allowAnonymous": false,
+              "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<Davrat.Cloud.Resumes.BlogDto,System.Guid,Davrat.Cloud.Resumes.CreateUpdateBlogDto>"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/app/blog/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "Volo.Abp.Application.Services.IDeleteAppService<System.Guid>"
             },
             "GetListAsyncByInput": {
               "uniqueName": "GetListAsyncByInput",
@@ -7518,6 +7473,30 @@
           "regex": null
         },
         {
+          "name": "IsHidden",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsSearch",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
           "name": "Images",
           "jsonName": null,
           "type": "[Davrat.Cloud.Resumes.ImageDto]",
@@ -7591,6 +7570,18 @@
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SearchMode",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -7759,6 +7750,30 @@
           "type": "Davrat.Cloud.Resumes.ContextType",
           "typeSimple": "Davrat.Cloud.Resumes.ContextType",
           "isRequired": true,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsHidden",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "IsSearch",
+          "jsonName": null,
+          "type": "System.Boolean",
+          "typeSimple": "boolean",
+          "isRequired": false,
           "minLength": null,
           "maxLength": null,
           "minimum": null,

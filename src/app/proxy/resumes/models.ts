@@ -1,6 +1,5 @@
-import type {EntityDto} from '@abp/ng.core';
+import type {EntityDto, PagedAndSortedResultRequestDto} from '@abp/ng.core';
 import type {ContextType} from './context-type.enum';
-import {PagedAndFilteredResultRequestDto} from "~/proxy";
 
 export interface BlogCategoryDto extends EntityDto<string> {
   name?: string;
@@ -13,6 +12,8 @@ export interface BlogDto {
   contextType?: ContextType;
   viewCount?: number;
   commentsCount?: number;
+  isHidden: boolean;
+  isSearch: boolean;
   images: ImageDto[];
   categories: BlogCategoryDto[];
   tags: BlogTagDto[];
@@ -20,8 +21,9 @@ export interface BlogDto {
   lastModificationTime?: string;
 }
 
-export interface BlogFilterDto extends PagedAndFilteredResultRequestDto<BlogDto> {
+export interface BlogFilterDto extends PagedAndSortedResultRequestDto {
   searchTerm?: string;
+  searchMode: boolean;
   categoryNames: string[];
   tagNames: string[];
 }
@@ -46,6 +48,8 @@ export interface CreateUpdateBlogDto {
   title: string;
   context: string;
   contextType: ContextType;
+  isHidden: boolean;
+  isSearch: boolean;
   images: ImageDto[];
   categories: BlogCategoryDto[];
   tags: BlogTagDto[];

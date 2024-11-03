@@ -50,21 +50,13 @@ export class BlogService {
         url: '/api/app/blog/by-filter',
         params: {
           searchTerm: input.searchTerm,
+          searchMode: input.searchMode,
           categoryNames: input.categoryNames,
           tagNames: input.tagNames,
           sorting: input.sorting,
           skipCount: input.skipCount,
           maxResultCount: input.maxResultCount
         },
-      },
-      {apiName: this.apiName, ...config});
-
-
-  search = (query: string, limit: number = 5, config?: Partial<Rest.Config>) =>
-    this.restService.request<any, BlogDto[]>({
-        method: 'POST',
-        url: '/api/app/blog/search',
-        params: {query, limit},
       },
       {apiName: this.apiName, ...config});
 
