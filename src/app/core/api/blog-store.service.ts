@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, catchError, Observable, of, tap} from 'rxjs';
 import {BlogDto, BlogFilterDto, BlogTagDto, type CategoryWithBlogCount,} from '~/proxy/resumes';
 import {PagedResultDto} from '@abp/ng.core';
 import {convertToHttpParams} from '~/core/util/convert';
@@ -18,7 +18,7 @@ export class BlogStoreService {
     CategoryWithBlogCount[] | undefined
   >([]);
   private blogTags = new BehaviorSubject<BlogTagDto[] | undefined>([]);
-  private isLoading = new BehaviorSubject<boolean>(false);
+  public isLoading = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) {
   }
@@ -31,8 +31,8 @@ export class BlogStoreService {
       tagNames: input.tagNames,
       sorting: input.sorting,
       skipCount: input.skipCount,
-      maxResultCount: input.maxResultCount
-    }
+      maxResultCount: input.maxResultCount,
+    };
 
     // this.blogService.getListByFilter(input).subscribe(
 
@@ -80,9 +80,8 @@ export class BlogStoreService {
     skipCount: number,
     maxResultCount: number,
     searchTerm?: string
-  ) {
-    this.isLoading.next(true);
-    this.getBlogPosts({
+  ): Observable<PagedResultDto<BlogDto>> {
+    return this.getBlogPosts({
       searchMode: false,
       searchTerm: searchTerm,
       categoryNames: categoryNames,
@@ -90,64 +89,46 @@ export class BlogStoreService {
       sorting: 'creationTime DESC',
       maxResultCount: maxResultCount,
       skipCount: skipCount,
-    }).subscribe(
-      (result) => {
+    }).pipe(
+      tap((result) => {
         this.blogsByCreationTime.next(result);
-        this.isLoading.next(false);
-      },
-      (error) => {
+      }),
+      catchError((error) => {
         console.error('Error loading blogs:', error);
-        this.isLoading.next(false);
-      }
+        return of({items: [], totalCount: 0});
+      })
     );
   }
 
-  loadHotBlogs() {
-    this.isLoading.next(true);
-
-    this.getBlogPosts({
+  loadHotBlogs(): Observable<PagedResultDto<BlogDto>> {
+    return this.getBlogPosts({
       searchMode: false,
       categoryNames: [],
       tagNames: [],
       sorting: 'viewCount DESC',
       maxResultCount: 5,
-    }).subscribe(
-      (result) => {
+      skipCount: 0,
+    }).pipe(
+      tap((result) => {
         this.hotBlogs.next(result.items);
-        this.isLoading.next(false);
-      },
-      (error) => {
-        console.error('Error loading hot blogs:', error);
-        this.isLoading.next(false);
-      }
+      })
     );
   }
 
-  loadBlogCategories() {
-    this.isLoading.next(true);
-    this.getBlogCategory().subscribe(
-      (result) => {
+
+  loadBlogCategories(): Observable<CategoryWithBlogCount[]> {
+    return this.getBlogCategory().pipe(
+      tap((result) => {
         this.blogCategories.next(result);
-        this.isLoading.next(false);
-      },
-      (error) => {
-        console.error('Error loading blog categories:', error);
-        this.isLoading.next(false);
-      }
+      })
     );
   }
 
-  loadBlogTags() {
-    this.isLoading.next(true);
-    this.getBlogTag().subscribe(
-      (result) => {
+  loadBlogTags(): Observable<PagedResultDto<BlogTagDto>> {
+    return this.getBlogTag().pipe(
+      tap((result) => {
         this.blogTags.next(result.items);
-        this.isLoading.next(false);
-      },
-      (error) => {
-        console.error('Error loading blog tags:', error);
-        this.isLoading.next(false);
-      }
+      })
     );
   }
 

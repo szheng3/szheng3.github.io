@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {BlogDto, BlogTagDto, type CategoryWithBlogCount,} from '~/proxy/resumes';
-import {Observable} from 'rxjs';
+import {forkJoin, Observable} from 'rxjs';
 import {BlogStoreService} from '~/core/api/blog-store.service';
-import {ActivatedRoute, Router, RouterLink, RouterModule} from '@angular/router';
+import {ActivatedRoute, Router, RouterLink, RouterModule,} from '@angular/router';
 import {AsyncPipe, DatePipe, NgForOf, SlicePipe} from '@angular/common';
 import {ShareModule} from '~/share/share.module';
 import {StripHtmlPipe} from '~/share/pipe/stripHtml.pipe';
@@ -46,7 +46,7 @@ export class BlogComponent implements OnInit {
   page = 1; // Add this for pagination
   itemsPerPage = 4; // Add this for pagination
   isLoading$: Observable<boolean>;
-  searchTerm: string = ''; // Add this property
+  searchTerm = ''; // Add this property
 
   constructor(
     private blogService: BlogStoreService,
@@ -63,32 +63,44 @@ export class BlogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadData();
-
     this.route.queryParamMap.subscribe((params) => {
       const tag = params.get('tag');
       const category = params.get('category');
-      this.page = Number(params.get('page')) || 1; // Add this line
-      this.searchTerm = params.get('search') || ''; // Get search term from query params
+      this.page = Number(params.get('page')) || 1;
+      this.searchTerm = params.get('search') || '';
 
       const tagArray = tag ? [tag] : [];
       const categoryArray = category ? [category] : [];
 
-      this.blogService.loadBlogsByCreationTime(
-        categoryArray,
-        tagArray,
-        (this.page - 1) * this.itemsPerPage,
-        this.itemsPerPage,
-        this.searchTerm // Pass search term to the service
-      );
+      this.blogService.isLoading.next(true);
+
+      forkJoin([
+        this.blogService.loadBlogsByCreationTime(
+          categoryArray,
+          tagArray,
+          (this.page - 1) * this.itemsPerPage,
+          this.itemsPerPage,
+          this.searchTerm
+        ),
+        this.blogService.loadHotBlogs(),
+        this.blogService.loadBlogCategories(),
+        this.blogService.loadBlogTags(),
+      ]).subscribe({
+        next: () => {
+          this.blogService.isLoading.next(false);
+        },
+        error: (error) => {
+          console.error('Error loading blog data:', error);
+          this.blogService.isLoading.next(false);
+        },
+        complete: () => {
+          console.log('All blog data loaded successfully');
+        },
+      });
     });
   }
 
-  loadData() {
-    this.blogService.loadHotBlogs();
-    this.blogService.loadBlogCategories();
-    this.blogService.loadBlogTags();
-  }
+
 
   onSearch() {
     this.page = 1; // Reset to first page on new search
