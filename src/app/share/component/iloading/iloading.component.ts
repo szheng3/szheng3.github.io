@@ -14,7 +14,7 @@ export class IloadingComponent {
 
   loadingConfig: INgxLoadingConfig = {
     animationType: ngxLoadingAnimationTypes.threeBounce,
-    backdropBackgroundColour: 'rgba(255,255,255,0.1)',
+    backdropBackgroundColour: 'rgba(255,255,255,0)',
     backdropBorderRadius: '4px',
     primaryColour: '#999999',
     secondaryColour: '#999999',
