@@ -1,9 +1,5 @@
-import { Component, Input } from '@angular/core';
-import {
-  INgxLoadingConfig,
-  ngxLoadingAnimationTypes,
-  NgxLoadingModule,
-} from 'ngx-loading';
+import {Component, Input} from '@angular/core';
+import {INgxLoadingConfig, ngxLoadingAnimationTypes, NgxLoadingModule,} from 'ngx-loading';
 
 @Component({
   selector: 'app-iloading',
@@ -18,7 +14,7 @@ export class IloadingComponent {
 
   loadingConfig: INgxLoadingConfig = {
     animationType: ngxLoadingAnimationTypes.threeBounce,
-    backdropBackgroundColour: 'rgba(255,255,255,0.5)',
+    backdropBackgroundColour: 'rgba(255,255,255,0.1)',
     backdropBorderRadius: '4px',
     primaryColour: '#999999',
     secondaryColour: '#999999',
