@@ -2,6 +2,7 @@ import type {BlogDto, BlogFilterDto, CreateUpdateBlogDto} from './models';
 import type {PagedAndSortedResultRequestDto, PagedResultDto} from '@abp/ng.core';
 import {Rest, RestService} from '@abp/ng.core';
 import {Injectable} from '@angular/core';
+import type {PagedAndFilteredResultRequestDto} from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -44,18 +45,23 @@ export class BlogService {
       {apiName: this.apiName, ...config});
 
 
-  getListByFilter = (input: BlogFilterDto, config?: Partial<Rest.Config>) =>
+  getListByFilter = (parameter: PagedAndFilteredResultRequestDto<BlogFilterDto>, config?: Partial<Rest.Config>) =>
     this.restService.request<any, PagedResultDto<BlogDto>>({
         method: 'GET',
         url: '/api/app/blog/by-filter',
         params: {
-          searchTerm: input.searchTerm,
-          searchMode: input.searchMode,
-          categoryNames: input.categoryNames,
-          tagNames: input.tagNames,
-          sorting: input.sorting,
-          skipCount: input.skipCount,
-          maxResultCount: input.maxResultCount
+          includeDetails: parameter.includeDetails,
+          ["Filter.SearchTerm"]: parameter.filter.searchTerm,
+          ["Filter.SearchMode"]: parameter.filter.searchMode,
+          ["Filter.Title"]: parameter.filter.title,
+          ["Filter.CategoryNames"]: parameter.filter.categoryNames,
+          ["Filter.TagNames"]: parameter.filter.tagNames,
+          ["Filter.Sorting"]: parameter.filter.sorting,
+          ["Filter.SkipCount"]: parameter.filter.skipCount,
+          ["Filter.MaxResultCount"]: parameter.filter.maxResultCount,
+          sorting: parameter.sorting,
+          skipCount: parameter.skipCount,
+          maxResultCount: parameter.maxResultCount
         },
       },
       {apiName: this.apiName, ...config});

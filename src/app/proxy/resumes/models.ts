@@ -24,6 +24,7 @@ export interface BlogDto {
 export interface BlogFilterDto extends PagedAndSortedResultRequestDto {
   searchTerm?: string;
   searchMode: boolean;
+  title?: string;
   categoryNames: string[];
   tagNames: string[];
 }

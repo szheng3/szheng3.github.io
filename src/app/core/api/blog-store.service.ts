@@ -23,19 +23,19 @@ export class BlogStoreService {
   constructor(private http: HttpClient) {
   }
 
-  getBlogPosts(input: BlogFilterDto): Observable<PagedResultDto<BlogDto>> {
+  getBlogPosts(parameter: BlogFilterDto): Observable<PagedResultDto<BlogDto>> {
     const params = {
-      searchTerm: input.searchTerm,
-      searchMode: input.searchMode,
-      categoryNames: input.categoryNames,
-      tagNames: input.tagNames,
-      sorting: input.sorting,
-      skipCount: input.skipCount,
-      maxResultCount: input.maxResultCount,
+      ["Filter.SearchTerm"]: parameter.searchTerm,
+      ["Filter.SearchMode"]: parameter.searchMode,
+      ["Filter.Title"]: parameter.title,
+      ["Filter.CategoryNames"]: parameter.categoryNames,
+      ["Filter.TagNames"]: parameter.tagNames,
+      ["Filter.Sorting"]: parameter.sorting,
+      ["Filter.SkipCount"]: parameter.skipCount,
+      ["Filter.MaxResultCount"]: parameter.maxResultCount,
     };
 
     // this.blogService.getListByFilter(input).subscribe(
-
     return this.http.get<PagedResultDto<BlogDto>>('/api/app/blog/by-filter', {
       params: convertToHttpParams(params) as HttpParams,
     });
